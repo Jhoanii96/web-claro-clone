@@ -14,17 +14,17 @@
 	define('DEFAULT_CONTROLLER', 'home');
 	
 	//Para ajax
-	define('AJAX', '/2019/app/ajax/');
+	define('AJAX', '/claro/app/ajax/');
 
 	//Para la ruta de los controladores
 	define('PATH_CONTROLLERS', 'app/controllers/');
 
 	//define('PATH_VIEWS','app/views');
-	define('PATH_VIEWS', '2019/app/views/');
+	define('PATH_VIEWS', 'claro/app/views/');
 	define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
 	//Para el nombre del folder principal
-	define('FOLDER_PATH','/2019');
+	define('FOLDER_PATH','/claro');
 
 	
 	define('REQUEST_METHOD', $_SERVER['REQUEST_METHOD']);
@@ -39,7 +39,7 @@
 	define('HOST', 'localhost');
 	define('USER', 'root');
 	define('PASS', '123456');
-	define('DB', 'bd_ciisxx');
+	define('DB', 'bd_claro');
 
 	//DATA INC
 	define('ADD_DI', '.inc.');
