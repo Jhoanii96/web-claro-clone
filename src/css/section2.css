@@ -1,0 +1,264 @@
+#CarruselSeciton2Movil{
+  display: none !important;
+}
+.ClassImgModalOpen{
+  cursor: pointer;
+  width: 70%;
+}
+.CarruselSeciton2{
+  width: 65%;
+}
+.btnSeciton2{
+  width: 65%;
+  padding-top: 50px;
+}
+.IconsControlSection{
+  height: 35px;
+}
+.ColorIndicator > .carousel-control-prev-icon{
+  background-color: rgba(0,0,0,0)!important;
+  background-image: url('../../img/arrow.png');
+  transform: scaleX(-1);
+  height: 35px;
+}
+.ColorIndicator > .carousel-control-next-icon{
+  background-color: rgba(0,0,0,0)!important;
+  background-image: url('../../img/arrow.png');
+  height: 35px;
+}
+.IconsControlSection2{
+  height: 35px;
+  border-radius: 5px;
+}
+.titleSection2{
+  font-size: 30px;
+  padding-left: 6%;
+  font-weight: bold;
+  font-family: din-black;
+  color: #000;
+}
+.ColorRed2{
+  font-size: 30px !important;
+  color: rgba(240,7,3,1);
+  font-family: din-black;
+}
+.btnColor2{
+  font-family: din-black;
+  background: rgba(240,7,3,1);
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 4px 25px !important;
+}
+@media screen and (max-width: 1000px){
+  .CarruselSeciton2{
+    min-width: 100%;
+  }
+  .btnSeciton2{
+    width: 100%;
+  }
+  .titleSection2{
+    text-align: center;
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 770px){
+  .titleSection2{
+    font-size: 25px;
+  }
+  .ColorRed2{
+    font-size: 25px!important;
+  }
+}
+@media screen and (max-width: 600px){
+  #CarruselSeciton2Movil{
+    display: flex !important;
+  }
+  #CarruselSeciton2{
+    display: none !important;
+  }
+  .ClassImgModalOpen{
+    width: 77%;
+  }
+  .titleSection2{
+    font-size: 20px;
+  }
+  .ColorRed2{
+    font-size: 20px!important;
+  }
+}
+@media screen and (max-width: 500px){
+  .ClassImgModalOpen{
+    width: 80%;
+  }
+}
+@media screen and (max-width: 400px){
+  .ClassImgModalOpen{
+    width: 85%;
+  }
+}
+@media screen and (max-width: 370px){
+  .ClassImgModalOpen{
+    width: 100%;
+  }
+}
+
+
+/* CSS Enero 2020 */
+.card1{
+  background-color: #FE080B;
+  border-radius: 20px;
+  font-family: din-medium;
+  padding: 1.7rem 1rem 1rem 0.5rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.iconoEstrella{
+  position: absolute;
+  top: -18%;
+  left: 38%;
+}
+
+.signoMas{
+  color: #FE080B; 
+  font-weight: bold;
+  font-family: din-black;
+}
+
+.textoTituloCard1{
+  font-family: din-medium;
+  color: #000;
+  font-weight: bold;
+}
+
+.card2{
+  background-color: #fff;
+  color: #646464;
+  padding: 12px;
+  border: 2px solid #FE080B;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+.card-header{
+  background-color: #FE080B;
+  border-top-left-radius: 1.6rem !important;
+  border-top-right-radius: 1.6rem !important;
+}
+
+.textoCardPrecio{
+  font-size: 2.8rem;
+  color: #fff;
+  font-family: din-black;
+  line-height: 1;
+}
+
+.textoCardPrecio2{
+  font-size: 1rem;
+  color: #fff;
+  font-family: din-black;
+}
+
+.textoCardHeader1{
+  font-size: 0.7rem;
+  color: #FE080B;
+  font-family: din-medium;
+  line-height: 1;
+}
+
+.textoCardHeader2{
+  font-size: 1.2rem;
+  text-align: center;
+  color: #FE080B;
+  font-family: din-medium;
+  line-height: 1;
+}
+
+.textoCardHeader3{
+  font-size: 2rem;
+  color: #FE080B;
+  font-weight: bold;
+  font-family: din-black;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #828282;
+}
+
+.textoCardHeader4{
+  font-size: 1rem;
+  color: #777777;
+  line-height: 1;
+  font-family: din-medium;
+}
+
+.textoCardHeader5{
+  font-size: 1rem;
+  color: #A7A6A7;
+  line-height: 1;
+  font-family: din-medium;
+}
+
+.textoCardHeader6{
+  font-size: 0.7rem;
+  color: #9C9C9C;
+  font-family: din-medium;
+}
+
+.textoReferencia{
+  font-size: 7px;
+}
+
+.textoReferencia2{
+  font-size: 9px;
+}
+
+.imagenGb{
+  background-image: url("/../img/IconsClaro/figuraGb.png");
+  background-size: 100% 100%;  
+  background-repeat: no-repeat;
+  background-position: top center; 
+  /*width: 100%;*/
+  height: 40px;
+  padding-top: 0px;
+  padding-right: 5px;
+  padding-left: 12px!important;
+  line-height: 37px;
+}
+
+.textoHeaderGb{
+  font-size: 2rem;
+  font-family: din-black;
+  color: #fff;
+}
+
+.triangulo {
+  width: 100%;
+  height: 0;
+  border-top: 22px solid transparent;
+  border-right: 20px solid #FE080B;
+  border-bottom: 21px solid transparent; 
+}
+
+.bordeCard{
+  border-right: 1px solid #828282;
+}
+
+.card-footer{
+  background-color: #FE080B;
+  border-bottom-left-radius: 1.6rem !important;
+  border-bottom-right-radius: 1.6rem !important;
+}
+
+.textoFooter{
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  font-family: din-medium;
+  cursor: pointer;
+}
+
+.color-fa-red{ color: #FE080B; }
+.color-fa-gris-1{ color: #777777; }

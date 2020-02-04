@@ -1,0 +1,87 @@
+.titleCambiate{
+  text-transform: uppercase;
+  font-size: 32px;
+  font-family: din-medium;
+  font-weight: 700;
+}
+.titleCambiate2{
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-family: din-medium;
+  font-weight: 700;
+}
+.titleCambiate3{
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-family: din-medium;
+  font-weight: bold;
+  color: #fff;
+}
+.labelsFooter1{
+  font-size: 1rem;
+  font-weight: 700;
+}
+.inputForm{
+  background-color: #d6d6d6 !important;
+  border: 1px solid Transparent !important;
+  padding: 5px 10px;
+  color: #000;
+  width: 100%;
+}
+.btn-outline-light{
+  border-radius: 10px !important;
+  font-size: 20px;
+  padding: 5px;
+  font-weight: 700 !important;
+  border: 1px solid #fff !important;
+  width: 250px
+}
+@media screen and (max-width: 1024px){
+  .titleCambiate{
+    font-size: 28px;
+  }
+  .inputForm{
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 904px){
+  .titleCambiate{
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 818px){
+  .titleCambiate{
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 767px){
+  .titleCambiate{
+    font-size: 32px;
+  }
+  .classMovilColumn{
+    flex-direction: column !important;
+    padding-top: 15px;
+  }
+  .inputForm{
+    width: 100% !important;
+  }
+  .ClassMovilCheck{
+    padding: 0px !important;
+    padding-bottom: 15px !important;
+  }
+}
+@media screen and (max-width: 570px){
+  .inputForm{
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 400px){
+  .inputForm{
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 350px){
+  .inputForm{
+    width: 100% !important;
+  }
+}

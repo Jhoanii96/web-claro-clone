@@ -1,0 +1,23 @@
+.textFooter3{
+  text-transform: uppercase;
+  font-size: 13px;
+  margin: 0px !important;
+  padding: 10px 0px;
+}
+@media screen and (max-width: 1024px){
+  .textFooter3{
+    font-size: 12px;
+    padding: 8px 0px;
+  }
+}
+@media screen and (max-width: 850px){
+  .textFooter3{
+    font-size: 11px;
+    padding: 7px 20px;
+  }
+}
+@media screen and (max-width: 420px){
+  .textFooter3{
+    padding: 7px 10px;
+  }
+}

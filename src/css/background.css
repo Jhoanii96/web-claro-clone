@@ -1,0 +1,91 @@
+.background-header{
+    /*min-height: 140vh;*/
+    /* height: 750px; */
+    height: 83.9vh;
+    /*width: 100%;
+    padding-left: 25px;
+    padding-bottom: 50px;*/
+    background-image: url('../assets/image/bannerEnero.jpg');
+    background-size: cover;
+    /* min-height: 90vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    color: #000;
+  }
+  .xRoja{
+    background-image: url('../assets/image/xRoja.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -1rem;
+  }
+  .background-section2{
+    /* background-image: url('../assets/image/claro_peru_bg_planes.jpg'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .background-section3{
+    background-image: url('../assets/image/claro_peru_bg_boxRed.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+  }
+  .background-grey{
+    background-color: #454443;
+    padding: 30px 20px 50px 20px !important;
+    color: #fff;
+  }
+  .background-black{
+    background-color: #000;
+    padding: 0px !important;
+    color: #fff;
+  }
+  .background-white{
+    background-color: #fff;
+    padding: 0px !important;
+    color: #000;
+  }
+  /* @media (min-width: 1366px) and (max-width: 1650px){
+    .background-header{
+      background-image: url('../assets/image/bannerEnero.jpg');
+      position: relative;
+    }
+  }
+  @media (min-width: 1000px) and (max-width: 1366px){
+    .background-header{
+      
+      position: relative;
+    }
+  } */
+  /* @media (min-width: 501px) and (max-width: 999px){
+    .background-header{
+        background-image: url('../assets/image/banner_peru_mobile_30122019.jpg');
+        background-image:cover;
+
+
+    }
+  } */
+
+
+  @media screen and (max-width: 500px){
+    .background-header{
+      margin-top: 150px;
+      margin-bottom: 40px;
+      height: 450px!important;
+      min-height: 450px!important;
+      justify-content: center;
+      align-items: center!important;
+      padding: 0px 15px 20px 15px;
+      background-image: url('../assets/image/banner_peru_mobile_30122019.jpg');
+      background-color: #fff !important;
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: #000;
+      margin-bottom: 0px;
+    }
+  }

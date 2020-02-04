@@ -1,191 +1,528 @@
 <?php
-/*
-
-    AUTOR DE PROGRAMACIÓN Y DISEÑO DE LA PAGINA WEB / PRINCIPAL-HOME: 
-	JHON ALVARADO ACHATA
-	
-	COLABORACIONES Y MODIFICACIONES:
-	JOSUE ALDAIR MAMANI CARIAPAZA
-	LEANDRO ANDRÉ RAMOS VALDEZ
-    
-*/
-
-$habilitar = false;
 
 ?>
 
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>XX Congreso Internacional de Informatica y Sistemas</title>
-	<meta name="keywords" content="XXCIIS, xxciis, CIISXX, ciisxx, postmaster, ciis turismo, feria tecnologica, tacna ciis, congreso internacional, concursos, conference, technology, university, universidad">
-	<meta name="description" content="El XX Congreso Internacional de Informática y Sistemas brindando todo una gama de conocimiento con ponentes de la mejor excelencia posible de distintos países con distinto temas de la actualidad de la informática, fecha del gran evento Noviembre 2019.">
-	<script src="src/js/hm.js"></script>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120253818-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
 
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
-		gtag('config', 'UA-120253818-1');
-	</script>
-	<meta name="theme-color" content="#01006d">
-	<meta name="msapplication-navbutton-color" content="#01006d">
-	<meta name="apple-mobile-web-app-status-bar-style" content="#01006d">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="mobile-web-app-capable" content="yes">
-	<link rel="shortcut icon" href="src/assets/media/image/icon.png">
-	<style type="text/css" href="src/css/main.css?<?= CSS_MAIN ?>"></style>
-	<link rel="stylesheet" type="text/css" href="src/css/main.min.css?<?= CSS_MAIN_MIN ?>">
-	<link rel="stylesheet" type="text/css" href="src/css/main_2.min.css?<?= CSS_MAIN_2_MIN ?>">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="src/css/main_3.min.css?<?= CSS_MAIN_3_MIN ?>">
-	<style type="text/css">
-		.gm-style {
-			font: 400 11px Roboto, Arial, sans-serif;
-			text-decoration: none
-		}
+	<title>Portabilidad móvil Perú</title>
 
-		.gm-style img {
-			max-width: none
-		}
+	<!-- load styles -->
+	<link rel="stylesheet" href="<?= FOLDER_PATH ?>/src/css/clr_v6dsa45d6sa13a45sa32.css" async>
+	<link rel="stylesheet" href="<?= FOLDER_PATH ?>/src/css/clr_d4865dfs4f5d6s456ff5f.css" async>
+	<link rel="stylesheet" href="<?= FOLDER_PATH ?>/src/css/clr_t486f45g64g56gt44g6t.css" async>
+	<!-- <link rel="stylesheet" type="text/css" href="https://portabilidadmovil.com.pe/css/animaciones.css?v-14" async> -->
+	<link rel="stylesheet" type="text/css" href="<?= FOLDER_PATH ?>/src/css/clr_ds4a8d64sa86d4s86a44.css" async />
+	<link rel="stylesheet" type="text/css" href="<?= FOLDER_PATH ?>/src/css/clr_m49d654s86asr486r452.css" async />
+	<link rel="stylesheet" type="text/css" href="<?= FOLDER_PATH ?>/src/css/clr_f648f6564f16sa6d4s6a.css" async />
+	<link rel="stylesheet" type="text/css" href="<?= FOLDER_PATH ?>/src/css/clr_s4d864dsa6d4486vf5f2.css" async />
+	<link rel="stylesheet" type="text/css" href="<?= FOLDER_PATH ?>/src/css/clr_w23f153d56d46fsdf56f1z.css" async />
+	<!-- endload styles -->
 
-		.contador {
-			font: 400 11px Roboto, Arial, sans-serif !important;
-			text-decoration: none
-		}
-	</style>
-	<style>
-		header#home .wrapper h1 {
-			font-size: 2.0em
-		}
-	</style>
-	<link rel="stylesheet" type="text/css" href="src/css/countdown.css">
 </head>
 
-<body style=""><?php require(ROOT . '/' . PATH_VIEWS . 'head.php'); ?><header id="home">
-		<div class="wrapper">
-			<h1 style="margin-top: 0px;">CONGRESO INTERNACIONAL DE INFORMÁTICA Y SISTEMAS</h1> <img src="src/assets/media/image/logo_ciis_blank.png" style="width: 325px; margin: 10px 10px; margin-top: 40px; margin-bottom: 40px;" alt="CIIS">
-			<h3>Universidad Nacional Jorge Basadre Grohmann</h3>
+<body>
+	<!-- Navigation -->
+	<nav class="navbar fixed-top navbar-light bg-light q-pa-0 barNavbar " style="height: 10vh;">
+		<div class="col-12 col-lg-6 col-md-6">
+			<a class="navbar-brand" href="#" style="text-align: center">
+				<img src="<?= FOLDER_PATH ?>/src/assets/image/500px-Claro.png" alt="" style="width: 40%">
+			</a>
 		</div>
+		<!-- <img src="<?= FOLDER_PATH ?>/src/assets/image/telefone_header.png" id="" class="imgPhone"> -->
+		<div class="col-12 col-lg-6 col-md-6 BoxRed row align-items-center" style="text-align: right">
+			<div class="col-4">
+				<span style="color: #FFFFFF;display: inline-block;font-size: 0.8vw;;margin-right: 15px;">Información y Contratación<br>Teléfono SIN COSTO</span>
+			</div>
+			<div class="col-1 q-pa-0 hidenCell">
+				<div class="d-flex align-items-center">
+					<img src="<?= FOLDER_PATH ?>/src/assets/image/telefone_header.png" id="" class="imgPhone">
+				</div>
+			</div>
+			<div class="col-4 col-md-4 textNavbar din-black">
+				<a class="TeflNav tag-Inbound" href="tel:0800 720 1234">0800 720 1234</a> <br>
+			</div>
+		</div>
+	</nav>
+	<div class="navlink" style="background-color: #000000;">
+		<nav class="navbar2" style="height: 6.1vh;margin-top: 10vh;">
+			<ul>
+				<li>
+					<a href="index.php" class="page-scroll active" id="MenuPostpago">Portabilidad Móvil</a>
+				</li>
+				<li>
+					<a href="hogar2play.php" class="page-scroll" id="MenuHogar2play">2Play Internet + Teléfono Fijo</a>
+				</li>
+				<li>
+					<a href="hogar3play.php" class="page-scroll" id="MenuHogar3play">3Play Internet + Teléfono Fijo + TV</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+
+
+	<header class="background-header row-flex align-items-center">
+		<div class="row m-0 col-12 mt-5 pt-5">
+
+		</div>
+
+
+
+		<!-- <a href="#" class="">
+			<div class="col-3 BoxRedHeader row m-0 justify-content-center align-items-center pt-2 pb-2">
+				<div class="col-7 pl-2 p-0">
+					<h2 class="textLinea textBotonHogar m-0" style="font-weight: inherit;">
+						También tenemos <br> planes para tu hogar
+					</h2>
+				</div>
+				<div class="col-2 row m-0 justify-content-end p-0">
+					<div class="d-flex align-items-center">
+						<img src="<?= FOLDER_PATH ?>/src/assets/image/home.png">
+					</div>
+				</div>
+			</div>
+		</a> -->
 	</header>
-	<main id="home">
-		<section>
-			<div id="anc_topics" class="bg-gray-translucent">
-				<div class="container-outer">
-					<div class="container">
-						<div class="soft-double-ends">
-							<h2 class="heading-block ff-thin text-huge fc-inverse text-center text-shadow soft-top bd-inverse-top text-normal"> Noticias</h2>
+
+	<div class="ocultarForm">
+		<form class="form-fixed-principal col-lg-3 col-12 formClaro form-callback formulario-principal" id="formulario-principal" style="max-width: 22rem !important; position: absolute">
+			<div class="ClassMigrar text-center">
+				Migra llamando a:
+
+
+			</div>
+			<div class="Classlinea text-center">
+				<h5 class="textLinea">Línea gratuita</h5>
+				<a class="NumLlama" href="tel:080078023">0800 78023</a>
+			</div>
+			<div class="form-animate card text-center">
+				<h6 class="textLinea mb-2 mt-2" style="font-weight: inherit;">O nosotros te llamamos</h6>
+				<div class="row m-0 justify-content-center">
+					<div class="col-6 p-0 d-flex align-items-center justify-content-end">
+						<h5 class="textElige" style="font-weight:inherit;">Elige tu opción</h5>
+					</div>
+					<div class=" col-5 row-flex">
+						<div class="col-12 d-column" style="padding: 0px;">
+							<input type="radio" id="tipo_movilform" name="tipo_llamada" style="display: none;" value="movil" onclick="ocultarMovil(true)" checked="checked">
+							<label class="labelMovil label-active m-0" for="tipo_movilform">
+								Móvil
+							</label>
+
+							<input type="radio" id="tipo_llamadaform" name="tipo_llamada" style="display: none;" value="fijo" onclick="ocultarMovil(false)">
+							<label class="labelFijo label-default m-0" for="tipo_llamadaform">
+								Fijo
+							</label>
 						</div>
-						<div class="row row-tighten equalize push-double-bottom"></div>
-						<div class="row push-double-bottom">
-							<div class="col-md-6 col-md-offset-3">
-								<p class="push-top text-center"><a href="<?= FOLDER_PATH . '/noticias' ?>" class="btn btn-md btn-block btn-transparent btn-inverse">Más</a></p>
+					</div>
+				</div>
+				<div class="row m-0 mb-2 ocultarMovil d-none">
+					<div class="col-11 ml-auto mr-auto">
+						<select class="inputFormSection2" name="">
+							<div class="inputFormSection2">
+								<option value="">Departamento</option>
+								<option value="41">Amazonas</option>
+								<option value="43">Ancash</option>
+								<option value="83">Apurimac</option>
+								<option value="54">Arequipa</option>
+								<option value="66">Ayacucho</option>
+								<option value="76">Cajamarca</option>
+								<option value="14">Callao</option>
+								<option value="84">Cusco</option>
+								<option value="67">Huancavelica</option>
+								<option value="62">Huánuco</option>
+								<option value="34">Ica</option>
+								<option value="64">Junín</option>
+								<option value="44">La Libertad</option>
+								<option value="74">Lambayeque</option>
+								<option value="1">Lima </option>
+								<option value="65">Loreto</option>
+								<option value="82">Madre de Dios</option>
+								<option value="53">Moquegua</option>
+								<option value="63">Pasco</option>
+								<option value="74">Piura</option>
+								<option value="51">Puno</option>
+								<option value="42">San Martín</option>
+								<option value="54">Tacna</option>
+								<option value="72">Tumbes</option>
+								<option value="61">Ucayali</option>
+
 							</div>
+
+						</select>
+					</div>
+				</div>
+
+				<div class="col-11 row m-0 mb-2 justify-content-center ml-auto mr-auto">
+					<div class="col-12 p-0 text-center">
+						<input type="text" name="numero" class="inputFormSection2" placeholder="Ingresa tu Número" required="required">
+					</div>
+				</div>
+
+				<div class="mt-1 mb-1">
+					<div class="input-group col-11 row m-0 justify-content-center">
+						<div class="input-checkbox col-1">
+							<input class="" type="checkbox" autocomplete="off" name="acepta_terminos" id="check_1-principal-form" required="" onclick="aceptoPoliticas(this)">
+							<label class="form-check-label textTerminos" id="check_label_1" for="check_1-principal-form">
+							</label>
+						</div>
+						<div class="col-10 eow m-0 p-0 align-items-center text-right">
+							<label class="form-check-label textTerminos">
+								<a class="TextTerminos" href="https://portabilidadmovil.com.pe/terminos" target="_black">Autorizo el tratamiento de mis datos personales</a>
+							</label>
+						</div>
+						<div class="invalid-feedback">
+							Es requerido aceptar políticas.
+						</div>
+					</div>
+				</div>
+
+				<div class="row m-0 justify-content-center">
+					<div class="col-11">
+						<button id="a" type="submit" class="btn-animate btn btn-block buttonFormPrimary botonSubmit">TE LLAMAMOS</button>
+					</div>
+				</div>
+
+			</div>
+
+		</form>
+	</div>
+	<div class="d-none" id="plantilla-gracias">
+		<div class="p-4">
+			<div class="">
+				<div class=" text-right text-dark text-center">
+					<h3 class="">Gracias por comunicarte, te contactaremos pronto</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="modal fade" id="mailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="justify-center w100white w100white_modal" style="color:#fff;">
+					<form class="formClaro formClaro_modal form-callback" id="formulario-modal">
+						<div class="ClassMigrar text-center">
+							Migra llamando a:
+
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true" style="font-size: 25px;">&times;</span>
+							</button>
+
+						</div>
+						<div class="Classlinea text-center">
+							<h5 class="textLinea">Linea gratuita</h5>
+							<a class="NumLlama" href="tel:080078023">0800 78023</a>
+						</div>
+						<div class="form-animate card text-center">
+							<h6 class="textLinea mb-2 mt-2" style="font-weight: inherit;">O nosotros te llamamos</h6>
+							<div class="row m-0 justify-content-center">
+								<div class="col-6 p-0 d-flex align-items-center justify-content-end">
+									<h5 class="textElige" style="font-weight:inherit;">Elige tu opción</h5>
+								</div>
+								<div class=" col-5 row-flex">
+									<div class="col-12 d-column" style="padding: 0px;">
+										<input type="radio" id="tipo_movildevice" name="tipo_llamada" style="display: none;" value="movil" onclick="ocultarMovil(true)" checked="checked">
+										<label class="labelMovil label-active m-0" for="tipo_movildevice">
+											Móvil
+										</label>
+
+										<input type="radio" id="tipo_llamadadevice" name="tipo_llamada" style="display: none;" value="fijo" onclick="ocultarMovil(false)">
+										<label class="labelFijo label-default m-0" for="tipo_llamadadevice">
+											Fijo
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="row m-0 mb-2 ocultarMovil d-none">
+								<div class="col-11 ml-auto mr-auto">
+									<select class="inputFormSection2" name="">
+										<div class="inputFormSection2">
+											<option value="">Departamento</option>
+											<option value="41">Amazonas</option>
+											<option value="43">Ancash</option>
+											<option value="83">Apurimac</option>
+											<option value="54">Arequipa</option>
+											<option value="66">Ayacucho</option>
+											<option value="76">Cajamarca</option>
+											<option value="14">Callao</option>
+											<option value="84">Cusco</option>
+											<option value="67">Huancavelica</option>
+											<option value="62">Huánuco</option>
+											<option value="34">Ica</option>
+											<option value="64">Junín</option>
+											<option value="44">La Libertad</option>
+											<option value="74">Lambayeque</option>
+											<option value="1">Lima </option>
+											<option value="65">Loreto</option>
+											<option value="82">Madre de Dios</option>
+											<option value="53">Moquegua</option>
+											<option value="63">Pasco</option>
+											<option value="74">Piura</option>
+											<option value="51">Puno</option>
+											<option value="42">San Martín</option>
+											<option value="54">Tacna</option>
+											<option value="72">Tumbes</option>
+											<option value="61">Ucayali</option>
+
+										</div>
+
+									</select>
+								</div>
+							</div>
+
+							<div class="col-11 row m-0 mb-2 justify-content-center ml-auto mr-auto">
+								<div class="col-12 p-0 text-center">
+									<input type="text" name="numero" class="inputFormSection2" placeholder="Ingresa tu Número" required="required">
+								</div>
+							</div>
+
+							<div class="mt-1 mb-1">
+								<div class="input-group col-11 row m-0 justify-content-center">
+									<div class="input-checkbox col-1">
+										<input class="" type="checkbox" autocomplete="off" name="acepta_terminos" id="check_1-principal-device" required="" onclick="aceptoPoliticas(this)">
+										<label class="form-check-label textTerminos" id="check_label_1" for="check_1-principal-device">
+										</label>
+									</div>
+									<div class="col-10 eow m-0 p-0 align-items-center text-right">
+										<label class="form-check-label textTerminos">
+											<a class="TextTerminos" href="https://portabilidadmovil.com.pe/terminos" target="_black">Autorizo el tratamiento de mis datos personales</a>
+										</label>
+									</div>
+									<div class="invalid-feedback">
+										Es requerido aceptar políticas.
+									</div>
+								</div>
+							</div>
+
+							<div class="row m-0 justify-content-center">
+								<div class="col-11">
+									<button id="a" type="submit" class="btn-animate btn btn-block buttonFormPrimary botonSubmit">TE LLAMAMOS</button>
+								</div>
+							</div>
+
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer -->
+	<footer class="container-fluid">
+
+		<div class="row background-black">
+			<div class="col-12 justify-content-between">
+				<div class="container-fluid footer2">
+					<div class="row">
+						<div class="classMovilfootes2 col-md-3 col-sm-12 d-flex align-items-center justify-content-center">
+							<img src="<?= FOLDER_PATH ?>/src/assets/image/footer_logo.png" alt="logoClaro">
+						</div>
+						<div class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center text-center">
+							<p class="textFooterlegal">Aviso legal | política de privacidad | consideraciones generales del producto</p>
+						</div>
+						<div class="classMovilfootes2 col-md-3 col-sm-12 d-flex flex-column align-items-center justify-content-center text-center">
+							<p class="textFooterinf">Infórmate llamando al</p>
+							<span class="fontNumber">0800 720 1234</span>
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-		<section id="past">
-			<div class="wrapper">
-				<h2 style="text-align: center; color: #000b63;">Conoce más del evento</h2>
-				<div id="content">
-					<article id="video">
-						<div class="videoWrapper"><iframe width="560" height="315" src="https://www.youtube.com/embed/FdkGY17DTDw?enablejsapi=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=1&amp;fs=1" frameborder="0" allowfullscreen=""></iframe></div>
-					</article>
-					<article id="video">
-						<div class="videoWrapper"><iframe width="560" height="315" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fciistacna%2Fvideos%2F2269582133324420%2F&show_text=0&width=560&frameborder=0&data-allowfullscreen=true" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe></div>
-					</article>
-				</div>
-			</div>
-		</section>
-		<section id="empresas" style="background: linear-gradient(180deg, #e0e0e0 0, #ffffff 100%);">
-			<div class="head">
-				<h3 style="color: #000b63">Auspiciadores</h3>
-			</div>
-			<div id="auspiciadores"> 
-				<a href="javascript:void(0);" style="width: 120px !important;"> 
-				<img src="src/assets/media/sponsors/la-glorieta.png?v=1.0.1" alt="Glorieta"> </a>
-				<a href="javascript:void(0);" style="width: 110px !important;"> 
-				<img src="src/assets/media/sponsors/munay-wasi.png" alt="Munay Wasi"> </a>
-				<a href="javascript:void(0);" style="width: 110px !important;"> 
-				<img src="src/assets/media/sponsors/capriccio.png" alt="Capriccio"> </a>
-				<a href="javascript:void(0);" style="width: 105px !important;"> 
-				<img src="src/assets/media/sponsors/esdit.png" alt="ESDIT"> </a><a href="http://egatur.edu.pe/web/index.php" style="width: 70px !important;margin-left: 25px;margin-right: 25px;" target="_blank"> <img src="src/assets/media/sponsors/egatur.png" alt="EGATUR"> </a><a href="http://www.princesshostal.com/web/" style="width: 110px !important;" target="_blank"> <img src="src/assets/media/sponsors/princess.png" alt="Princess"> </a><a href="https://m.facebook.com/gigantographic.gigantographic" style="width: 110px !important;" target="_blank"> <img src="src/assets/media/sponsors/gigantographic.png" alt="GigantoGraphinc"> </a><a href="javascript:void(0);" style="width: 80px !important;"> <img src="src/assets/media/sponsors/cuneo.png" alt="Cuneo"> </a><a href="https://m.facebook.com/dora.santa.1865" style="width: 220px !important;" target="_blank"> <img src="src/assets/media/sponsors/dora_santamaria.png" alt="Santa María"> </a> <a href="javascript:void(0);" style="width: 110px !important;"> <img src="src/assets/media/sponsors/munayki2.png?v=1.0.1" alt="Munayki"> </a><a href="javascript:void(0);" style="width: 120px !important;"> <img src="src/assets/media/sponsors/rildo.png" alt="Rildo"> </a><a href="javascript:void(0);" style="width: 140px !important;"> <img src="src/assets/media/sponsors/elena.png" alt="Santa Elena"> </a><a href="https://www.imprentapubligraff.com" style="width: 90px !important;" target="_blank"> <img src="src/assets/media/sponsors/publigraff.png" alt="Publigraff"> </a><a href="javascript:void(0);" style="width: 90px !important;"> <img src="src/assets/media/sponsors/montoya.png" alt="Montoya"> </a><a href="javascript:void(0);" style="width: 130px !important;"> <img src="src/assets/media/sponsors/graphic.png" alt="MundoGraphic"> </a><a href="javascript:void(0);" style="width: 160px !important;"> <img src="src/assets/media/sponsors/martin.png" alt="SanMartin"> </a><a href="javascript:void(0);" style="width: 105px !important;"> <img src="src/assets/media/sponsors/almonacid.jpeg" alt="Amonacid"> </a><a href="http://www.restauranteuros.com/" style="width: 100px !important;" target="_blank"> <img src="src/assets/media/sponsors/urus.png" alt="Urus"> </a><a href="http://www.tunkimayo.com.pe/" style="width: 90px !important;" target="_blank"> <img src="src/assets/media/sponsors/tunkimayo.png" alt="Tunkimayo"> </a><a href="javascript:void(0);" style="width: 100px !important;"> <img src="src/assets/media/sponsors/puckos.png" alt="Puckos"> </a><a href="javascript:void(0);" style="width: 150px !important;"> <img src="src/assets/media/sponsors/novedad.png" alt="Novedad"> </a> <a href="javascript:void(0);" style="width: 120px !important;"> <img src="src/assets/media/sponsors/conquistador.jpeg" alt="Conquistador"> </a><a href="javascript:void(0);" style="width: 170px !important;"> <img src="src/assets/media/sponsors/copacabana.png" alt="Copacabana"> </a><a href="javascript:void(0);" style="width: 100px !important;"> <img src="src/assets/media/sponsors/solary.jpeg" alt="Solary"> </a><a href="javascript:void(0);" style="width: 75px !important;"> <img src="src/assets/media/sponsors/spirit.png" alt="Spirit"> </a></div>
-		</section>
-		<section id="empresas" style="background: linear-gradient(360deg, #e0e0e0 0, green 5%);">
-			<div class="head">
-				<h3 style="color: #efefef;">DELEGACIONES</h3>
-			</div>
-			<div id="auspiciadores"> <a href="http://www.uncp.edu.pe/" style="width: 200px !important;"> <img src="src/assets/media/deleg/huancayo.png"> </a><a href="https://portal.unap.edu.pe/" style="width: 200px !important;"> <img src="src/assets/media/deleg/altiplano.png"> </a></div>
-		</section>
-		<section id="newsletter">
-			<div class="wrapper">
-				<h3>Entérate de todo</h3>
-				<p><a style="color:#fff;">Síguenos en nuestras redes sociales</a></p>
-				<ul>
-					<li><a href="https://www.flickr.com/photos/160684070@N02/albums" target="_blank" title="Flickr de CIIS XX"><i class="fab fa-flickr"></i></a></li>
-					<li><a href="https://www.instagram.com/xx_ciis" target="_blank" title="Instagram de CIIS XX"><i class="fab fa-instagram"></i></a></li>
-					<li><a href="https://www.youtube.com/user/ciistacna" target="_blank" title="YouTube de CIIS XX"><i class="fab fa-youtube"></i></a></li>
-					<li><a href="https://www.facebook.com/ciistacna" target="_blank" title="Facebook de CIIS XX"><i class="fab fa-facebook"></i></a></li>
-					<li><a href="https://twitter.com/ciistacna" target="_blank" title="Twitter de CIIS XX"><i class="fab fa-twitter"></i></a></li>
-				</ul>
-			</div>
-		</section>
-		<section class="mainphotos">
-			<div class="head">
-				<h3 class="">En la edición 2018</h3>
-			</div>
-			<div id="photos"> <img src="src/assets/media/image/home1.jpg"> <img src="src/assets/media/image/home2.jpg"> <img src="src/assets/media/image/home3.jpg"> <img class="big" src="src/assets/media/image/home4.jpg"> <img class="big" src="src/assets/media/image/home5.jpg"> <img src="src/assets/media/image/home6.jpg"> <img src="src/assets/media/image/home7.jpg"> <img src="src/assets/media/image/home8.jpg"> <img class="big" src="src/assets/media/image/home9.jpg"> <img class="big" src="src/assets/media/image/home10.jpg"> <img class="small responsive-hide" src="src/assets/media/image/home11.jpg"> <img class="small responsive-hide" src="src/assets/media/image/home12.jpg"> <img class="small responsive-hide" src="src/assets/media/image/home13.jpg"> <a class="small responsive-hide" href="https://www.flickr.com/photos/160684070@N02/albums" target="_blank"> <i class="fa fa-camera"></i>Ver más fotos</a></div>
-		</section>
-		<section id="infoinscription" style="border-bottom: -1px solid #b20000;">
-			<div class="wrapper">
-				<h3>Inscríbete al XX CIIS</h3>
-				<p><a style="color:#fff;" target="_blank">Este evento comenzará en noviembre del 2019 <br>para más información ingrese <a href="https://www.facebook.com/ciistacna/" style="color: #6737c7;text-decoration: underline;" target="_blank">aquí</a> o comuníquenos al <i class="fab fa-whatsapp"></i> +51 971243797</a></p>
-			</div>
-		</section>
-	</main>
-	
-	<?php require(ROOT . '/' . PATH_VIEWS . 'foot.php'); ?>
-	
-	<script src="src/js/jquery-1.10.1.min.js"></script>
-	<script src="src/js/home.js"></script><!-- Load Facebook SDK for JavaScript -->
-	<div id="fb-root"></div>
-	<script>
-		window.fbAsyncInit = function() {
-			FB.init({
-				xfbml: true,
-				version: 'v4.0'
-			});
-		};
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s);
-			js.id = id;
-			js.src = 'https://connect.facebook.net/es_ES/sdk/xfbml.customerchat.js';
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script><!-- Your customer chat code -->
-	<div class="fb-customerchat" attribution=setup_tool page_id="169105266515410" logged_in_greeting="¡Hola! ¿Cómo podemos ayudarte?" logged_out_greeting="¡Hola! ¿Cómo podemos ayudarte?"></div>
-	<script>
-		window.fbAsyncInit = function() {
-			FB.init({
-				appId: '2433332966901241',
-				autoLogAppEvents: true,
-				xfbml: true,
-				version: 'v4.0'
-			});
-		};
-	</script>
-	<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
-
+		</div>
+	</footer>
 </body>
+
+<!-- Script -->
+<script type="text/javascript" async src="<?= FOLDER_PATH ?>/src/js/clr_j6dds4a86d48s6a486c.js"></script>
+<script type="text/javascript" async src="<?= FOLDER_PATH ?>/src/js/clr_d68s448s64a86s5s863.js"></script>
+
+<script type="text/javascript">
+	var listaNegra = [998731350, 3178958630, 913698028, 948612902, 918633632, 947008759, 990826441, 977983310, 970353505];
+	var horario_atencion = {
+		"default": {
+			"lunes": {
+				"numero_dia": 1,
+				"hora_inicio": 8,
+				"hora_fin": 20
+			},
+			"martes": {
+				"numero_dia": 2,
+				"hora_inicio": 8,
+				"hora_fin": 20
+			},
+			"miercoles": {
+				"numero_dia": 3,
+				"hora_inicio": 8,
+				"hora_fin": 20
+			},
+			"jueves": {
+				"numero_dia": 4,
+				"hora_inicio": 8,
+				"hora_fin": 20
+			},
+			"viernes": {
+				"numero_dia": 5,
+				"hora_inicio": 8,
+				"hora_fin": 20
+			},
+			"sabado": {
+				"numero_dia": 6,
+				"hora_inicio": 8,
+				"hora_fin": 19
+			},
+			"domingo": {
+				"numero_dia": 0,
+				"hora_inicio": 0,
+				"hora_fin": 0
+			}
+		},
+		"opcion-2": {
+			"lunes": {
+				"numero_dia": 1,
+				"hora_inicio": 7,
+				"hora_fin": 22
+			},
+			"martes": {
+				"numero_dia": 2,
+				"hora_inicio": 7,
+				"hora_fin": 22
+			},
+			"miercoles": {
+				"numero_dia": 3,
+				"hora_inicio": 7,
+				"hora_fin": 22
+			},
+			"jueves": {
+				"numero_dia": 4,
+				"hora_inicio": 7,
+				"hora_fin": 22
+			},
+			"viernes": {
+				"numero_dia": 5,
+				"hora_inicio": 7,
+				"hora_fin": 22
+			},
+			"sabado": {
+				"numero_dia": 6,
+				"hora_inicio": 7,
+				"hora_fin": 19
+			},
+			"domingo": {
+				"numero_dia": 0,
+				"hora_inicio": 7,
+				"hora_fin": 18
+			}
+		}
+	};
+	var lista_tsource = {
+		"fijo": {
+			"default": {
+				"nombre": "nombre",
+				"default": 0,
+				"numero": "015434543",
+				"lbl_numero": "5434543"
+			},
+			"bogota": {
+				"nombre": "Bogot\u00e1",
+				"default": 1,
+				"numero": "888888888",
+				"lbl_numero": "000000000"
+			}
+		},
+		"movil": {
+			"default": {
+				"nombre": "nombre",
+				"default": 1,
+				"numero": "0313791587",
+				"lbl_numero": "313791587"
+			},
+			"bogota": {
+				"nombre": "Bogot\u00e1",
+				"default": 0,
+				"numero": "0313791587",
+				"lbl_numero": "313791587"
+			}
+		}
+	};
+	var loadScripts = null;
+	var nombre_tab = "Home";
+
+	var hideLoad = function() {}
+
+	function downloadJSAtOnload() {
+
+		loadScripts = function() {
+			setTimeout(
+				function() {
+
+					// script general
+					var element = document.createElement("script");
+					element.src = "<?= FOLDER_PATH ?>/src/js/clr_d68s448s64a86s5s863.js";
+					document.body.appendChild(element);
+
+					// script modulo
+					var js = ["<?= FOLDER_PATH ?>\/src\/js\/script.js"];
+					for (var i = js.length - 1; i >= 0; i--) {
+						var element = document.createElement("script");
+						element.src = js[i];
+						document.body.appendChild(element);
+
+						//Coloco en el ultimo script cargado un onload
+						if (i == 0) {
+							element.setAttribute('onload', 'hideLoad();');
+						}
+					}
+
+
+				}, 0);
+		};
+
+		// script bootstrap
+		var element = document.createElement("script");
+		element.src = "<?= FOLDER_PATH ?>/src/js/clr_d486d486s4a86d4d.js";
+		document.body.appendChild(element);
+		// script bootstrap min
+		var element = document.createElement("script");
+		element.src = "<?= FOLDER_PATH ?>/src/js/clr_g48f64d8s6a4d86d4s.js";
+		document.body.appendChild(element);
+		// script fontweasome
+		var element = document.createElement("script");
+		element.src = "<?= FOLDER_PATH ?>/src/js/clr_i8464dsa63as3d11d59.js";
+		document.body.appendChild(element);
+
+		// script callback
+		var element = document.createElement("script");
+		element.src = "<?= FOLDER_PATH ?>/src/js/clr_g64d864f86d486sa66.js";
+		element.setAttribute('onload', 'functionsPostCallBack();');
+		document.body.appendChild(element);
+	}
+
+	if (window.addEventListener) {
+		window.addEventListener("load", function() {
+			setTimeout(function() {
+				downloadJSAtOnload();
+			}, 0)
+		}, false);
+	} else if (window.attachEvent) {
+		window.attachEvent("onload", function() {
+			setTimeout(function() {
+				downloadJSAtOnload();
+			}, 0)
+		});
+	} else {
+		window.onload = function() {
+			setTimeout(function() {
+				downloadJSAtOnload();
+			}, 0);
+		}
+	}
+</script>
 
 </html>
