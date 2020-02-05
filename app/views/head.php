@@ -1,60 +1,50 @@
-<nav id="main-nav" style="scroll-behavior: smooth;font-size:16px;">
+<div class="navbar-fixed-top" style="background-color: #da291c;height: 50px;">
 
-		<a href="<?= FOLDER_PATH . '/' ?>" id="logo"><img src="/2019/src/assets/media/image/ciistacna3.svg" alt="ciistacna"></a>
-
-		<input type="checkbox" id="responsive-status-menu" name="resposive-status-menu">
-		<label for="responsive-status-menu" class="responsive-toggle-menu">
-			<span class="icon-toggle"></span>
-		</label>
-
-		<div class="responsive-menu">
-			<ul class="menu">
-				<li class="item with-submenu">
-					<a href="javascript:void(0);">Actividades</a>
-					<ul class="submenu" style="width: 180px;">
-						<li class="subitem"><a href="<?= FOLDER_PATH . '/call-for-papers'?>">PRIMER WIA</a></li>
-						<li class="subitem"><a href="<?= FOLDER_PATH . '/postmaster'?>">XVI POSTMASTER</a></li>
-						<li class="subitem"><a href="<?= FOLDER_PATH . '/feria-tecnologica'?>">II FERIA TECNOLÓGICA</a></li>
-					</ul>
-				</li>
-				
-				<li class="item with-submenu">
-				<a href="javascript:void(0);">Cronogramas</a>
-					<ul class="submenu" style="width: 210px;">
-						<li class="subitem"><a href="<?= FOLDER_PATH . '/cronograma'?>">Ponencias</a></li>
-						<li class="subitem"><a href="<?= FOLDER_PATH . '/cronograma_talleres'?>">Talleres</a></li>
-					</ul>	
-				
-				
-				
-				
-			
-				</li>
-				<li class="item with-submenu">
-					<a href="javascript:void(0);">Concursos</a>
-					<ul class="submenu" style="width: 210px;">
-						<li class="subitem"><a href="<?= FOLDER_PATH . '/programacion'?>">Programación</a></li>
-						<li class="subitem"><a href="<?= FOLDER_PATH . '/robotica'?>">Robótica</a></li>
-						<li class="subitem"><a href="<?= FOLDER_PATH . '/robotica-libre'?>">Robótica libre</a></li>
-						<li class="subitem"><a href="<?= FOLDER_PATH . '/robotica-natcar'?>">Robótica NATCAR</a></li>
-						<li class="subitem"><a href="<?= FOLDER_PATH . '/conocimientos'?>">Conocimientos</a></li>
-					</ul>
-				</li>
-				<li class="item">
-					<a href="<?= FOLDER_PATH . '/ponentes' ?>">Ponentes</a>
-				</li>
-				<li class="item">
-					<a href="<?= FOLDER_PATH . '/talleres'?>">Talleres</a>
-				</li>
-				<li class="item with-submenu">
-					<a href="javascript:void(0);">Eventos Anteriores</a>
-					<ul class="submenu">
-						<li class="subitem"><a href="http://ciistacna.com/2018/" style="width: 190px;">XIX CIIS</a></li>
-					</ul>
-				</li>
-				
-			</ul>
-
-			<a href="<?= FOLDER_PATH . '/inscripciones' ?>" id="call-to-action" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inscríbete&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+	<div id="navbarcomputer" class="container hidden-xs" style="">
+		<div class="row" style="min-height: 44px;">
+			<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 ">
+				<img src="<?= FOLDER_PATH ?>/src/assets/image/500px-Claro.png" alt="Logo Distribuidor Claro" title="Logo Distribuidor Claro" class="img-responsive-inline" style="width: 70%; margin-top: 4px">
+			</div>
+			<div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 text-right">
+				<span style="color: #FFFFFF;display: inline-block;font-size: 12px;margin-right: 15px;">Información y Contratación<br>Teléfono SIN COSTO</span>
+				<div class="telefono" style="display: inline-block;">
+					<img class="header" src="<?= FOLDER_PATH ?>/src/assets/image/telefone_header.png" style="width: 20px; margin-bottom: 7px;" alt="Ilustración de un teléfono en color blanco">
+					<a href="tel:080078006" id="telefono900" style="font-size: 30px">
+						0-800-78006
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<nav id="barradenavegacion" class="navbar navbar-default navbar-fixed-top navbar-bg">
+		<div class="container">
+			<div class="navbar-header">
+				<div class="navbarmobile col-xs-10">
+					<img src="<?= FOLDER_PATH ?>/src/assets/image/logo_Claro.png" alt="Logo Distribuidor Claro" title="Logo Distribuidor Claro" class="img-responsive-inline" style="margin-top: 4px;">
+				</div>
+				<div class="col-xs-2">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar" style="margin-right: 0px;margin-top: 10px;">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+				<ul class="nav navbar-nav">
+					<li><a href="<?= FOLDER_PATH ?>/?page=1" class="page-scroll<?php if ($data['flang_active'] == 1) {
+																					echo ' active';
+																				} ?>" id="MenuPostpago">Portabilidad Móvil</a></li>
+					<li><a href="<?= FOLDER_PATH ?>/?page=2" class="page-scroll<?php if ($data['flang_active'] == 2) {
+																					echo ' active';
+																				} ?>" id="MenuHogar2play">2Play Internet + Teléfono Fijo</a></li>
+					<li><a href="<?= FOLDER_PATH ?>/?page=3" class="page-scroll<?php if ($data['flang_active'] == 3) {
+																					echo ' active';
+																				} ?>" id="MenuHogar3play">3Play Internet + Teléfono Fijo + TV</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
 		</div>
 	</nav>
+</div>
