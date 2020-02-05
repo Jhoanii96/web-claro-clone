@@ -10926,8 +10926,9 @@ button.close {
 .fa-fonticons:before {
     content: "\f280"
 }
-</style>
-<style>
+
+</style><style>
+
 /*@font-face {font-family: 'alternate';src: url('fonts/DINComp.ttf');font-weight: normal;font-style: normal;font-display: fallback;}
 @font-face {font-family: 'alternate';src: url('fonts/DINComp-Medium.ttf');font-weight: 500;font-style: normal;font-display: fallback;}
 @font-face {font-family: 'alternate';src: url('fonts/DINComp-Bold.ttf');font-weight: bold;font-style: normal;font-display: fallback;
@@ -10974,11 +10975,11 @@ section {
 }
 
 .input-ico {
-    background-image: url("images/telefono.png");
-    background-size: 26px;
+    background-image: url("../assets/image/telefono-blue.png");
+    background-size: 33px;
     background-repeat: no-repeat;
     background-position: 5px 5px;
-    padding-left: 40px;
+    text-align: center;
     font-size: 22px;
     color: #A9A9A9;
 }
@@ -11008,10 +11009,11 @@ section {
 
 .fondopostpago {
     background-color: #b7222f;
-    background-image: url(images/fondo-navidad-postpago.png);
-    background-position: center;
+    background-image: url(/claro/src/assets/image/bannerEnero.jpg);
+    background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 85vh;
 }
 
 .fondointernet {
@@ -11089,23 +11091,19 @@ section {
 }
 
 .btn-quiero {
-    border-radius: 5px;
-    background-color: #0097A9;
+    background-color: #da291c;
     font-size: 16px;
     padding: 10px 20px;
     margin: 15px auto;
     color: #FFFFFF;
     display: block;
-    font-weight: bold;
-    border: 2px solid #272730;
-    box-shadow: 2px 2px #000;
     transition: all 0.3s ease;
     white-space: inherit;
+    border-style: hidden;
 }
 
 .btn-quiero:hover {
-    background-color: #FF8200;
-    box-shadow: 4px 4px #000;
+    background-color: #770007;
     transition: all 0.3s ease;
     color: #FFFFFF;
 }
@@ -11115,8 +11113,8 @@ section {
     text-align: center;
     margin-top: 20px;
     padding: 10px;
-    height: 155px;
-    width: 155px;
+    height: 170px;
+    width: 170px;
 }
 
 .cuadrado i {
@@ -11450,9 +11448,8 @@ nav {
 }
 
 .navbar-bg {
-    background-color: #DA291C;
+    background-color: #000000;
     border: 0px;
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 1);
 }
 
 #topseccion {
@@ -11475,12 +11472,12 @@ nav {
 
 .navbar-default .navbar-nav>li>a:hover {
     color: #ffffff;
-    background-color: #0f0f0f;
+    background-color: #da291c;
 }
 
 .navbar-default .navbar-nav>li>a.active {
     color: #ffffff;
-    background-color: #0f0f0f;
+    background-color: #da291c;
 }
 
 /*.navbar-default .navbar-nav>li>a{color:#ffffff;font-size: 14px;}
@@ -11839,10 +11836,9 @@ nav {
 }
 
 .modal-header {
-    border-bottom: 0px;
+    border-bottom: 1px solid #eee;
     padding-bottom: 0px;
-    background-color: #080808;
-    color: white;
+    background-color: #fff;
 }
 
 .modal-header .close {
@@ -11912,7 +11908,7 @@ nav {
     }
 
     .modalquiero {
-        width: 100%;
+        width: 100% !important;
         margin: 20px auto;
         display: block;
     }
@@ -11944,4 +11940,15 @@ nav {
 
 .modal-body>.table-responsive>table>tbody>tr>td {
     border-color: #f4f4f4;
+}
+
+
+
+.modal-backdrop {
+    background-color: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(10px);
+
+    /* backdrop-filter: brightness(150%) saturate(150%) blur(1rem); */
+    /* filter: blur(100px); */
+    /* backdrop-filter: blur(5px); */
 }

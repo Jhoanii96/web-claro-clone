@@ -26,12 +26,13 @@
 	<!-- endload styles -->
 	<link href="<?= FOLDER_PATH ?>/src/css/css" rel="stylesheet" type="text/css">
 	<link href="<?= FOLDER_PATH ?>/src/css/styles.css" rel="stylesheet" type="text/css">
-	
+	<link href="<?= FOLDER_PATH ?>/src/css/styles2.css" rel="stylesheet" type="text/css">
+
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
 	<link href="<?= FOLDER_PATH ?>/src/css/css" rel="stylesheet" type="text/css">
 
-	
+
 	<script type="text/javascript">
 		var callback = function(formatted_number, mobile_number) {
 			var e = document.getElementById("telefonoPulsa_Mo");
@@ -61,11 +62,11 @@
 		<div id="navbarcomputer" class="container hidden-xs" style="">
 			<div class="row" style="min-height: 44px;">
 				<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 ">
-					<img src="<?= FOLDER_PATH ?>/src/assets/image/500px-Claro.png" alt="Logo Distribuidor Claro" title="Logo Distribuidor Claro" class="img-responsive-inline" style="width: 80%;">
+					<img src="<?= FOLDER_PATH ?>/src/assets/image/500px-Claro.png" alt="Logo Distribuidor Claro" title="Logo Distribuidor Claro" class="img-responsive-inline" style="width: 70%; margin-top: 4px">
 				</div>
 				<div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 text-right">
 					<span style="color: #FFFFFF;display: inline-block;font-size: 12px;margin-right: 15px;">Información y Contratación<br>Teléfono SIN COSTO</span>
-					<div class="telefono" style="display: inline-block;"><img class="header" src="<?= FOLDER_PATH ?>/src/assets/image/telefone_header.png" style="width: 25px; margin-bottom: 5px;" alt="Ilustración de un teléfono en color blanco"> <a href="tel:080078006" id="telefono900">0-800-78006</a></div>
+					<div class="telefono" style="display: inline-block;"><img class="header" src="<?= FOLDER_PATH ?>/src/assets/image/telefone_header.png" style="width: 20px; margin-bottom: 7px;" alt="Ilustración de un teléfono en color blanco"> <a href="tel:080078006" id="telefono900" style="font-size: 30px">0-800-78006</a></div>
 				</div>
 			</div>
 		</div>
@@ -73,7 +74,7 @@
 			<div class="container">
 				<div class="navbar-header">
 					<div class="navbarmobile col-xs-10">
-						<img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/logodistribuidor.png" alt="Logo Distribuidor Claro" title="Logo Distribuidor Claro" class="img-responsive-inline">
+						<img src="<?= FOLDER_PATH ?>/src/assets/image/logo_Claro.png" alt="Logo Distribuidor Claro" title="Logo Distribuidor Claro" class="img-responsive-inline" style="margin-top: 4px;">
 					</div>
 					<div class="col-xs-2">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar" style="margin-right: 0px;margin-top: 10px;">
@@ -84,7 +85,7 @@
 						</button>
 					</div>
 				</div>
-				<div id="navbar" class="navbar-collapse collapse in" aria-expanded="true" style="">
+				<div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
 					<ul class="nav navbar-nav">
 						<li><a href="https://www.ofertasypromocionesclaro.com/index.php" class="page-scroll active" id="MenuPostpago">Portabilidad Móvil</a></li>
 						<li><a href="https://www.ofertasypromocionesclaro.com/hogar2play.php" class="page-scroll" id="MenuHogar2play">2Play Internet + Teléfono Fijo</a></li>
@@ -98,30 +99,69 @@
 	<section id="topseccion">
 		<aside class="container-fluid fondopostpago">
 			<div class="container">
-				<div class="col-lg-9 col-md-8 col-sm-7 col-xs-12 creaprincipal">
-					<img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/banner-postpago.png" onclick="abrirModLlamamos(&#39;btnPOST1&#39;)" class="img-responsive" alt="Oferta especial Claro" title="Oferta especial Claro">
-				</div>
-				<div id="C2CFM" class="col-lg-3 col-md-4 col-sm-5 col-xs-12 text-center">
-					<div class="c2c_container">
-						<h1 class="negro">Infórmate GRATIS</h1>
-						<span class="negro hidden-sm hidden-xs c2c_txt">y sin compromiso de las nuevas ofertas combinadas de Claro que tenemos preparadas para ti</span>
-						<form id="frmClaro" method="POST" action="https://www.ofertasypromocionesclaro.com/enviar.php?utm_camp=0000000000&amp;origen=c2c_PostPago">
-							<label for="c2c_tel" style="display: none;">Tu Teléfono</label>
-							<input type="tel" id="c2c_tel" name="c2c_tel" class="input-ico" placeholder="Tu Teléfono" maxlength="9" autocomplete="off">
-							<small>No olvides incluir tu <a href="https://www.ofertasypromocionesclaro.com/index.php#" data-toggle="modal" data-target="#modPrefijo" id="btnPrefijo">prefijo</a></small><br>
-							<label for="c2c_pol" style="display: none;">Politica Privacidad</label>
-							<input type="checkbox" id="c2c_pol" name="c2c_pol">
-							<span id="c2c_txtPol" class="c2c_pol">Acepto la
-								<a href="https://www.ofertasypromocionesclaro.com/index.php#" data-toggle="modal" data-target="#modPoliticaPrivacidad" id="polC2c">Política de privacidad</a></span>
-							<button id="btnQuieroMasInformacion" type="button" class="btn btn-quiero">Quiero Más Información</button>
-						</form>
-					</div>
-				</div>
+
 			</div>
 		</aside>
+
 		<aside class="rojo_principal text-center">
-			<div class="container"><img class="cursor img-responsive" onclick="abrirModLlamamos(&#39;btnPOST1&#39;)" src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/full-claro.png" alt="Beneficios de Full Claro"></div>
+			<div class="container">
+				<img class="cursor img-responsive" src="<?= FOLDER_PATH ?>/src/assets/image/full-claro.png" alt="Beneficios de Full Claro">
+			</div>
 		</aside>
+		<div class="ocultarForm">
+			<form class="form-fixed-principal col-lg-3 col-12 formClaro form-callback formulario-principal" id="formulario-principal" style="max-width: 30rem !important;">
+				<div class="ClassMigrar text-center">
+					Migra a Claro llamando a:
+
+
+				</div>
+				<div class="Classlinea text-center">
+					<h5 class="textLinea">Linea gratuita</h5>
+					<a class="NumLlama" href="tel:080078023">0800 78023</a>
+				</div>
+				<div class="form-animate card text-center">
+					<h6 class="textLinea mb-2 mt-2" style="font-weight: inherit;">O nosotros te llamamos</h6>
+
+					<div class="col-11 row m-0 mb-2 justify-content-center ml-auto mr-auto">
+						<div class="col-12 p-0 text-center">
+							<input type="text" name="dni" class="inputFormSection2" placeholder="Ingresa tu DNI" required="required">
+						</div>
+					</div>
+
+					<div class="col-11 row m-0 mb-2 justify-content-center ml-auto mr-auto">
+						<div class="col-12 p-0 text-center">
+							<input type="text" name="numero" class="inputFormSection2" placeholder="Ingresa tu Número" required="required">
+						</div>
+					</div>
+
+					<div class="mt-1 mb-1">
+						<div class="input-group col-11 row m-0 justify-content-center">
+							<div class="input-checkbox col-1">
+								<input class="" type="checkbox" autocomplete="off" name="acepta_terminos" id="check_1-principal-form" required="" onclick="aceptoPoliticas(this)">
+								<label class="form-check-label textTerminos" id="check_label_1" for="check_1-principal-form">
+								</label>
+							</div>
+							<div class="col-10 eow m-0 p-0 align-items-center text-right">
+								<label class="form-check-label textTerminos">
+									<a class="TextTerminos" href="https://portabilidadmovil.com.pe/terminos" target="_black">Autorizo el tratamiento de mis datos personales</a>
+								</label>
+							</div>
+							<div class="invalid-feedback">
+								Es requerido aceptar políticas.
+							</div>
+						</div>
+					</div>
+
+					<div class="row m-0 justify-content-center">
+						<div class="col-11">
+							<button id="a" type="submit" class="btn-animate botonSubmit btn btn-block buttonFormPrimary" style="font-family: Arial, Helvetica, sans-serif;font-size: 12px;">TE LLAMAMOS</button>
+						</div>
+					</div>
+
+				</div>
+
+			</form>
+		</div>
 		<header class="container">
 			<h1 class="titulo-seccion">Conoce nuestros mejores planes en Portabilidad Móvil</h1>
 		</header>
@@ -133,35 +173,35 @@
 			<article class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center ">
 				<div class="col-xs-12 panel-box">
 					<h1 class="titulo-oferta" style="">Claro <strong>MAX</strong> Ilimitados <br>65.00</h1>
-					<div class="row text-center of-linea-ind">
+					<div class="row text-center of-linea-ind" style="display: block;">
 						<span class="movil-gigas"><span id="megas3">Ilimitado</span></span>
 						<span class="movil-texto">Internet</span>
 						<span class="movil-oferta">Nueva Oferta</span>
 					</div>
-					<div class="row text-center of-linea-ind">
-						<div class="col-xs-2"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/cobertura.png" alt="Cobertura Internacional"></div>
+					<div class="row text-center of-linea-ind" style="display: block;">
+						<div class="col-xs-2"><img src="<?= FOLDER_PATH ?>/src/assets/image/cobertura.png" alt="Cobertura Internacional"></div>
 						<div class="col-xs-10"><span class="of-txt-linea"><strong>Cobertura Internacional</strong><br>en 16 países de Latinoamérica</span></div>
 					</div>
-					<div class="row text-center of-linea-ind">
-						<div class="col-xs-2"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/telefono-rojo.png"></div>
+					<div class="row text-center of-linea-ind" style="display: block;">
+						<div class="col-xs-2"><img src="<?= FOLDER_PATH ?>/src/assets/image/telefono-rojo.png"></div>
 						<div class="col-xs-10"><span class="of-txt-linea"><strong>Llamadas y SMS ilimitados</strong><br>a cualquier operador</span></div>
 					</div>
-					<div class="row text-center of-linea-ind">
+					<div class="row text-center of-linea-ind" style="display: block;">
 						<span class="of-txt-linea">
 							<strong>Llamadas Internacionales</strong><br>
 							<!--<div class="movil-imagenes"><img src="images/ico-whatsapp.svg" alt="Icono Whatsapp"><img src="images/ico-facebook.svg" alt="Icono Facebook"><img src="images/ico-messenger.svg" alt="Icono Messenger"><img src="images/ico-waze.svg" alt="Icono Waze"><img src="images/ico-instagram.svg" alt="Icono Instagram"></div>-->
 							<p><strong>Ilimitadas</strong></p>
 						</span>
 					</div>
-					<div class="row text-center of-linea-ind">
+					<div class="row text-center of-linea-ind" style="display: block;">
 						<span class="precio-rojo"><span class="precio-decimal">S/</span>65.00</span>
 					</div>
-					<div class="row text-center of-linea-ind movil-claros">
-						<img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/claro-video.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
+					<div class="row text-center of-linea-ind movil-claros" style="display: block;">
+						<img src="<?= FOLDER_PATH ?>/src/assets/image/claro-video.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
 						<!--<img src="images/claro-musica.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">-->
-						<img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/claro-club.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
+						<img src="<?= FOLDER_PATH ?>/src/assets/image/claro-club.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
 					</div>
-					<div class="row text-center of-linea-ind">
+					<div class="row text-center of-linea-ind" style="display: block;">
 						<button id="btnPOST1" class="btn-quiero" onclick="abrirModLlamamos(&#39;btnPOST3&#39;)">Pedir tu Chip</button>
 					</div>
 				</div>
@@ -169,34 +209,34 @@
 			<article class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center ">
 				<div class="col-xs-12 panel-box">
 					<h1 class="titulo-oferta" style="">Claro <strong>MAX</strong> Internacional 59.90</h1>
-					<div class="row text-center of-linea-ind">
+					<div class="row text-center of-linea-ind" style="display: block;">
 						<span class="movil-gigas"><span id="megas1">10</span> GB</span>
 						<span class="movil-texto">Internet</span>
 						<span class="movil-oferta">Duplica tus MEGAS x 3 meses</span>
 					</div>
-					<div class="row text-center of-linea-ind">
-						<div class="col-xs-2"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/cobertura.png" alt="Cobertura Internacional"></div>
+					<div class="row text-center of-linea-ind" style="display: block;">
+						<div class="col-xs-2"><img src="<?= FOLDER_PATH ?>/src/assets/image/cobertura.png" alt="Cobertura Internacional"></div>
 						<div class="col-xs-10"><span class="of-txt-linea"><strong>Cobertura Internacional</strong><br>en 16 países de Latinoamérica</span></div>
 					</div>
-					<div class="row text-center of-linea-ind">
-						<div class="col-xs-2"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/telefono-rojo.png"></div>
+					<div class="row text-center of-linea-ind" style="display: block;">
+						<div class="col-xs-2"><img src="<?= FOLDER_PATH ?>/src/assets/image/telefono-rojo.png"></div>
 						<div class="col-xs-10"><span class="of-txt-linea"><strong>Llamadas y SMS Ilimitados</strong><br> a cualquier operador</span></div>
 					</div>
-					<div class="row text-center of-linea-ind">
+					<div class="row text-center of-linea-ind" style="display: block;">
 						<span class="of-txt-linea">
 							<strong>Redes Sociales</strong><br>
-							<div class="movil-imagenes"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-whatsapp.svg" alt="Icono Whatsapp"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-facebook.svg" alt="Icono Facebook"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-messenger.svg" alt="Icono Messenger"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-waze.svg" alt="Icono Waze"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-instagram.svg" alt="Icono Instagram"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-twitter.svg" alt="Icono Twitter"></div>
+							<div class="movil-imagenes"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-whatsapp.svg" alt="Icono Whatsapp"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-facebook.svg" alt="Icono Facebook"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-messenger.svg" alt="Icono Messenger"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-waze.svg" alt="Icono Waze"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-instagram.svg" alt="Icono Instagram"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-twitter.svg" alt="Icono Twitter"></div>
 						</span>
 					</div>
-					<div class="row text-center of-linea-ind">
+					<div class="row text-center of-linea-ind" style="display: block;">
 						<span class="precio-rojo"><span class="precio-decimal">S/</span>59.90</span>
 					</div>
-					<div class="row text-center of-linea-ind movil-claros">
-						<img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/claro-video.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
-						<img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/claro-musica.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
-						<img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/claro-club.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
+					<div class="row text-center of-linea-ind movil-claros" style="display: block;">
+						<img src="<?= FOLDER_PATH ?>/src/assets/image/claro-video.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
+						<img src="<?= FOLDER_PATH ?>/src/assets/image/claro-musica.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
+						<img src="<?= FOLDER_PATH ?>/src/assets/image/claro-club.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
 					</div>
-					<div class="row text-center of-linea-ind">
+					<div class="row text-center of-linea-ind" style="display: block;">
 						<button id="btnPOST1" class="btn-quiero" onclick="abrirModLlamamos(&#39;btnPOST1&#39;)">Pedir tu Chip</button>
 					</div>
 				</div>
@@ -204,34 +244,34 @@
 			<article class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center ">
 				<div class="col-xs-12 panel-box">
 					<h1 class="titulo-oferta" style="">Claro <strong>MAX</strong> Internacional 49.90</h1>
-					<div class="row text-center of-linea-ind">
+					<div class="row text-center of-linea-ind" style="display: block;">
 						<span class="movil-gigas"><span id="megas3">8</span> GB</span>
 						<span class="movil-texto">Internet</span>
 						<span class="movil-oferta">Duplica tus MEGAS x 3 meses</span>
 					</div>
-					<div class="row text-center of-linea-ind">
-						<div class="col-xs-2"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/cobertura.png" alt="Cobertura Internacional"></div>
+					<div class="row text-center of-linea-ind" style="display: block;">
+						<div class="col-xs-2"><img src="<?= FOLDER_PATH ?>/src/assets/image/cobertura.png" alt="Cobertura Internacional"></div>
 						<div class="col-xs-10"><span class="of-txt-linea"><strong>Cobertura Internacional</strong><br>en 16 países de Latinoamérica</span></div>
 					</div>
-					<div class="row text-center of-linea-ind">
-						<div class="col-xs-2"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/telefono-rojo.png"></div>
+					<div class="row text-center of-linea-ind" style="display: block;">
+						<div class="col-xs-2"><img src="<?= FOLDER_PATH ?>/src/assets/image/telefono-rojo.png"></div>
 						<div class="col-xs-10"><span class="of-txt-linea"><strong>Llamadas y SMS ilimitados</strong><br>a cualquier operador</span></div>
 					</div>
-					<div class="row text-center of-linea-ind">
+					<div class="row text-center of-linea-ind" style="display: block;">
 						<span class="of-txt-linea">
 							<strong>Redes Ilimitadas</strong><br>
-							<div class="movil-imagenes"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-whatsapp.svg" alt="Icono Whatsapp"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-facebook.svg" alt="Icono Facebook"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-messenger.svg" alt="Icono Messenger"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-waze.svg" alt="Icono Waze"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-instagram.svg" alt="Icono Instagram"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-twitter.svg" alt="Icono Twitter"></div>
+							<div class="movil-imagenes"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-whatsapp.svg" alt="Icono Whatsapp"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-facebook.svg" alt="Icono Facebook"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-messenger.svg" alt="Icono Messenger"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-waze.svg" alt="Icono Waze"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-instagram.svg" alt="Icono Instagram"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-twitter.svg" alt="Icono Twitter"></div>
 						</span>
 					</div>
-					<div class="row text-center of-linea-ind">
+					<div class="row text-center of-linea-ind" style="display: block;">
 						<span class="precio-rojo"><span class="precio-decimal">S/</span>49.90</span>
 					</div>
-					<div class="row text-center of-linea-ind movil-claros">
-						<img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/claro-video.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
-						<img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/claro-musica.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
-						<img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/claro-club.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
+					<div class="row text-center of-linea-ind movil-claros" style="display: block;">
+						<img src="<?= FOLDER_PATH ?>/src/assets/image/claro-video.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
+						<img src="<?= FOLDER_PATH ?>/src/assets/image/claro-musica.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
+						<img src="<?= FOLDER_PATH ?>/src/assets/image/claro-club.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
 					</div>
-					<div class="row text-center of-linea-ind">
+					<div class="row text-center of-linea-ind" style="display: block;">
 						<button id="btnPOST1" class="btn-quiero" onclick="abrirModLlamamos(&#39;btnPOST3&#39;)">Pedir tu Chip</button>
 					</div>
 				</div>
@@ -239,34 +279,34 @@
 			<article class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center ">
 				<div class="col-xs-12 panel-box">
 					<h1 class="titulo-oferta" style="">Claro <strong>MAX</strong> Internacional 39.90</h1>
-					<div class="row text-center of-linea-ind">
+					<div class="row text-center of-linea-ind" style="display: block;">
 						<span class="movil-gigas"><span id="megas2">5</span> GB</span>
 						<span class="movil-texto">Internet</span>
 						<span class="movil-oferta">Duplica tus MEGAS x 3 meses</span>
 					</div>
-					<div class="row text-center of-linea-ind">
-						<div class="col-xs-2"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/cobertura.png" alt="Cobertura Internacional"></div>
+					<div class="row text-center of-linea-ind" style="display: block;">
+						<div class="col-xs-2"><img src="<?= FOLDER_PATH ?>/src/assets/image/cobertura.png" alt="Cobertura Internacional"></div>
 						<div class="col-xs-10"><span class="of-txt-linea"><strong>Cobertura Internacional</strong><br>en 16 países de Latinoamérica</span></div>
 					</div>
-					<div class="row text-center of-linea-ind">
-						<div class="col-xs-2"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/telefono-rojo.png"></div>
+					<div class="row text-center of-linea-ind" style="display: block;">
+						<div class="col-xs-2"><img src="<?= FOLDER_PATH ?>/src/assets/image/telefono-rojo.png"></div>
 						<div class="col-xs-10"><span class="of-txt-linea"><strong>Llamadas y SMS ilimitados</strong><br>a cualquier operador</span></div>
 					</div>
-					<div class="row text-center of-linea-ind">
+					<div class="row text-center of-linea-ind" style="display: block;">
 						<span class="of-txt-linea">
 							<strong>Redes Ilimitadas</strong><br>
-							<div class="movil-imagenes"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-whatsapp.svg" alt="Icono Whatsapp"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-facebook.svg" alt="Icono Facebook"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-messenger.svg" alt="Icono Messenger"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-waze.svg" alt="Icono Waze"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/ico-instagram.svg" alt="Icono Instagram"></div>
+							<div class="movil-imagenes"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-whatsapp.svg" alt="Icono Whatsapp"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-facebook.svg" alt="Icono Facebook"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-messenger.svg" alt="Icono Messenger"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-waze.svg" alt="Icono Waze"><img src="<?= FOLDER_PATH ?>/src/assets/image/ico-instagram.svg" alt="Icono Instagram"></div>
 						</span>
 					</div>
-					<div class="row text-center of-linea-ind">
+					<div class="row text-center of-linea-ind" style="display: block;">
 						<span class="precio-rojo"><span class="precio-decimal">S/</span>39.90</span>
 					</div>
-					<div class="row text-center of-linea-ind movil-claros">
-						<img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/claro-video.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
-						<img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/claro-musica.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
-						<img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/claro-club.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
+					<div class="row text-center of-linea-ind movil-claros" style="display: block;">
+						<img src="<?= FOLDER_PATH ?>/src/assets/image/claro-video.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
+						<img src="<?= FOLDER_PATH ?>/src/assets/image/claro-musica.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
+						<img src="<?= FOLDER_PATH ?>/src/assets/image/claro-club.png" class="img-responsive centrar" alt="Claro Video + Claro Música" title="Claro Video + Claro Música">
 					</div>
-					<div class="row text-center of-linea-ind">
+					<div class="row text-center of-linea-ind" style="display: block;">
 						<button id="btnPOST1" class="btn-quiero" onclick="abrirModLlamamos(&#39;btnPOST2&#39;)">Pedir tu Chip</button>
 					</div>
 				</div>
@@ -283,10 +323,10 @@
 
 				<div class="row">
 					<div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10">
-						<img class="img-responsive" src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/banderas.svg" alt="Claro Max Internacional">
+						<img class="img-responsive" src="<?= FOLDER_PATH ?>/src/assets/image/banderas.svg" alt="Claro Max Internacional">
 					</div>
 				</div>
-				<div class="row"><button id="btnFMmovil4" class="btn btn-quiero btn-movil" onclick="abrirModLlamamos(&#39;c2cSFM5&#39;)">LLÁMANOS E INFÓRMATE SIN COSTO</button></div>
+				<div class="row"><button id="btnFMmovil4" class="btn-quiero btn-movil" onclick="abrirModLlamamos(&#39;c2cSFM5&#39;)" style="font-size: 10px">LLÁMANOS E INFÓRMATE SIN COSTO</button></div>
 			</div>
 		</section>
 
@@ -295,66 +335,66 @@
 				<h1 class="titulo-seccion">Elige tu equipo Postpago</h1>
 			</header>
 			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
-				<img class="img-responsive" src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/Huawei-P-Smart.png" alt="P Smart 2019" title="P Smart 2019">
+				<img class="img-responsive" src="<?= FOLDER_PATH ?>/src/assets/image/Huawei-P-Smart.png" alt="P Smart 2019" title="P Smart 2019">
 				<h1>Huawei <br>P Smart 2019</h1>
-				<button id="btnFMmovil1" class="btn btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM1&#39;)">Lo Quiero</button>
+				<button id="btnFMmovil1" class="btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM1&#39;)" style="border-radius: 0.5em;padding: 8px 20px;font-size: 14px;">Lo quiero</button>
 			</article>
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-				<img class="img-responsive" src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/Huawei-P20.png" alt="P20 Lite" title="P20 Lite">
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+				<img class="img-responsive" src="<?= FOLDER_PATH ?>/src/assets/image/Huawei-P20.png" alt="P20 Lite" title="P20 Lite">
 				<h1>Huawei<br>P20 Lite</h1>
-				<button id="btnFMmovil2" class="btn btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM2&#39;)">Lo Quiero</button>
+				<button id="btnFMmovil2" class="btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM2&#39;)" style="border-radius: 0.5em;padding: 8px 20px;font-size: 14px;">Lo quiero</button>
 			</article>
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-				<img class="img-responsive" src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/Huawei-Y7.png" alt="Y7" title="Y7">
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+				<img class="img-responsive" src="<?= FOLDER_PATH ?>/src/assets/image/Huawei-Y7.png" alt="Y7" title="Y7">
 				<h1>Huawei<br>Y7</h1>
-				<button id="btnFMmovil3" class="btn btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM3&#39;)">Lo Quiero</button>
+				<button id="btnFMmovil3" class="btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM3&#39;)" style="border-radius: 0.5em;padding: 8px 20px;font-size: 14px;">Lo quiero</button>
 			</article>
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-				<img class="img-responsive" src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/Motorola-G6-Play.png" alt="G6 Play" title="G6 Play">
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+				<img class="img-responsive" src="<?= FOLDER_PATH ?>/src/assets/image/Motorola-G6-Play.png" alt="G6 Play" title="G6 Play">
 				<h1>Motorola<br>G6 Play</h1>
-				<button id="btnFMmovil4" class="btn btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM4&#39;)">Lo Quiero</button>
+				<button id="btnFMmovil4" class="btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM4&#39;)" style="border-radius: 0.5em;padding: 8px 20px;font-size: 14px;">Lo quiero</button>
 			</article>
 			<!-- Linea 2 -->
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-				<img class="img-responsive" src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/Huawei-p30Lite.png" alt="P30 Lite" title="P30 Lite">
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+				<img class="img-responsive" src="<?= FOLDER_PATH ?>/src/assets/image/Huawei-p30Lite.png" alt="P30 Lite" title="P30 Lite">
 				<h1>Huawei<br>P30 Lite</h1>
-				<button id="btnFMmovil5" class="btn btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM5&#39;)">Lo Quiero</button>
+				<button id="btnFMmovil5" class="btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM5&#39;)" style="border-radius: 0.5em;padding: 8px 20px;font-size: 14px;">Lo quiero</button>
 			</article>
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-				<img class="img-responsive" src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/Huawei-P30.png" alt="P30 Pro" title="P30 Pro">
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+				<img class="img-responsive" src="<?= FOLDER_PATH ?>/src/assets/image/Huawei-P30.png" alt="P30 Pro" title="P30 Pro">
 				<h1>Huawei<br>P30 Pro</h1>
-				<button id="btnFMmovil6" class="btn btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM6&#39;)">Lo Quiero</button>
+				<button id="btnFMmovil6" class="btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM6&#39;)" style="border-radius: 0.5em;padding: 8px 20px;font-size: 14px;">Lo quiero</button>
 			</article>
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-				<img class="img-responsive" src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/Galaxy-S10.png" alt="Galaxy S10" title="Galaxy S10">
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+				<img class="img-responsive" src="<?= FOLDER_PATH ?>/src/assets/image/Galaxy-S10.png" alt="Galaxy S10" title="Galaxy S10">
 				<h1>Samsung<br>Galaxy S10</h1>
-				<button id="btnFMmovil7" class="btn btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM7&#39;)">Lo Quiero</button>
+				<button id="btnFMmovil7" class="btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM7&#39;)" style="border-radius: 0.5em;padding: 8px 20px;font-size: 14px;">Lo quiero</button>
 			</article>
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-				<img class="img-responsive" src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/Galaxy-S9Plus.png" alt="Galaxy S9 Plus" title="Galaxy S9 Plus">
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+				<img class="img-responsive" src="<?= FOLDER_PATH ?>/src/assets/image/Galaxy-S9Plus.png" alt="Galaxy S9 Plus" title="Galaxy S9 Plus">
 				<h1>Samsung<br>Galaxy S9 Plus</h1>
-				<button id="btnFMmovil8" class="btn btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM8&#39;)">Lo Quiero</button>
+				<button id="btnFMmovil8" class="btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM8&#39;)" style="border-radius: 0.5em;padding: 8px 20px;font-size: 14px;">Lo quiero</button>
 			</article>
 			<!-- Linea 3 -->
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-				<img class="img-responsive" src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/Galaxy-J6Plus.png" alt="Galaxy J6 Plus" title="Galaxy J6 Plus">
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+				<img class="img-responsive" src="<?= FOLDER_PATH ?>/src/assets/image/Galaxy-J6Plus.png" alt="Galaxy J6 Plus" title="Galaxy J6 Plus">
 				<h1>Samsung<br>Galaxy J6 Plus</h1>
-				<button id="btnFMmovil9" class="btn btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM9&#39;)">Lo Quiero</button>
+				<button id="btnFMmovil9" class="btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM9&#39;)" style="border-radius: 0.5em;padding: 8px 20px;font-size: 14px;">Lo quiero</button>
 			</article>
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-				<img class="img-responsive" src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/Galaxy-J6.png" alt="Galaxy J6" title="Galaxy J6">
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+				<img class="img-responsive" src="<?= FOLDER_PATH ?>/src/assets/image/Galaxy-J6.png" alt="Galaxy J6" title="Galaxy J6">
 				<h1>Samsung<br>Galaxy J6</h1>
-				<button id="btnFMmovil10" class="btn btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM10&#39;)">Lo Quiero</button>
+				<button id="btnFMmovil10" class="btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM10&#39;)" style="border-radius: 0.5em;padding: 8px 20px;font-size: 14px;">Lo quiero</button>
 			</article>
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-				<img class="img-responsive" src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/Galaxy-A7.png" alt="Galaxy A7" title="Galaxy A7">
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+				<img class="img-responsive" src="<?= FOLDER_PATH ?>/src/assets/image/Galaxy-A7.png" alt="Galaxy A7" title="Galaxy A7">
 				<h1>Samsung<br>Galaxy A7</h1>
-				<button id="btnFMmovil11" class="btn btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM11&#39;)">Lo Quiero</button>
+				<button id="btnFMmovil11" class="btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM11&#39;)" style="border-radius: 0.5em;padding: 8px 20px;font-size: 14px;">Lo quiero</button>
 			</article>
-			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-				<img class="img-responsive" src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/Motorola-E5-Play.png" alt="Moto E5 Play" title="Moto E5 Play">
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+				<img class="img-responsive" src="<?= FOLDER_PATH ?>/src/assets/image/Motorola-E5-Play.png" alt="Moto E5 Play" title="Moto E5 Play">
 				<h1>Motorola<br>Moto E5 Play</h1>
-				<button id="btnFMmovil12" class="btn btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM12&#39;)">Lo Quiero</button>
+				<button id="btnFMmovil12" class="btn-quiero" onclick="abrirModLlamamos(&#39;c2cSFM12&#39;)" style="border-radius: 0.5em;padding: 8px 20px;font-size: 14px;">Lo quiero</button>
 			</article>
 		</section>
 	</section>
@@ -381,21 +421,21 @@
 				</article>
 				<article class="col-lg-2 col-md-2 col-sm-4 col-xs-6 d-flex">
 					<div class="cuadrado col-xs-12">
-						<img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/claro-video_xs.png" class="img-responsive" alt="Claro Video" title="Claro Video">
+						<img src="<?= FOLDER_PATH ?>/src/assets/image/claro-video_xs.png" class="img-responsive" alt="Claro Video" title="Claro Video">
 						<h1>Disfruta<br>gratis</h1>
 						<span>a sección Catálogo por 24 meses con tu plan.</span>
 					</div>
 				</article>
 				<article class="col-lg-2 col-md-2 col-sm-4 col-xs-6 d-flex">
 					<div class="cuadrado col-xs-12">
-						<img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/claro-musica_xs.png" class="img-responsive" alt="Claro Música" title="Claro Música">
+						<img src="<?= FOLDER_PATH ?>/src/assets/image/claro-musica_xs.png" class="img-responsive" alt="Claro Música" title="Claro Música">
 						<h1>Música<br>Gratis</h1>
 						<span>Sin consumir tus megas, sección Escucha gratis</span>
 					</div>
 				</article>
 				<article class="col-lg-2 col-md-2 col-sm-4 col-xs-6 d-flex">
 					<div class="cuadrado col-xs-12">
-						<span class="cont-redes"><img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/redessociales.png" class="img-responsive cont-redes-img" alt="Todas las redes Sociales" title="Todas las redes Sociales"></span>
+						<span class="cont-redes"><img src="<?= FOLDER_PATH ?>/src/assets/image/redessociales.png" class="img-responsive cont-redes-img" alt="Todas las redes Sociales" title="Todas las redes Sociales"></span>
 						<h1>Redes<br>Sociales</h1>
 						<span>Ilimitadas para planes ilimitados</span>
 					</div>
@@ -408,7 +448,7 @@
 					</div>
 				</article>
 			</div>
-			<div class="row"><button id="btnFMmovil5" class="btn btn-quiero btn-movil" onclick="abrirModLlamamos(&#39;c2cSFM4&#39;)">LLÁMANOS E INFÓRMATE SIN COSTO</button></div>
+			<div class="row"><button id="btnFMmovil5" class="btn-quiero btn-movil" onclick="abrirModLlamamos(&#39;c2cSFM4&#39;)" style="font-size: 10px;">LLÁMANOS E INFÓRMATE SIN COSTO</button></div>
 
 		</div>
 	</section>
@@ -428,40 +468,7 @@
 
 		</div>
 	</footer>
-	<section class="affix-bottom mo">
-		<div class="col-lg-12">
-			<a href="tel:080078006" id="telefonoPulsa_Mo" class="btn" style="">
-				¡PULSA Y LLAMA GRATIS!<br>
-				<span style="font-size:16px;">y Empieza a Ahorrar Ya Mismo!</span>
-			</a>
-		</div>
-	</section>
-	<aside id="modLoQuiero" class="modal fade modal-sm" style="width: 100%;">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content modalquiero">
-				<header class="modal-header">
-					<img src="./Líneas Claro Móvil_ Ofertas y promociones Claro Perú_files/logodistribuidor.png" alt="Logo Distribuidor Claro" title="Logo Distribuidor Claro" class="img-responsive-inline" style="height:50px;">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
-				</header>
-				<div class="modal-body text-center" style="padding-bottom: 20px;">
-					<h1 class="modal-title text-center">INFÓRMATE AHORA </h1>
-					<h2 class="text-center">0-800-78006</h2>
-					<h3 class="text-center">O SI LO PREFIERES TE LLAMAMOS NOSOTROS</h3>
-					<form id="frmModal" method="POST" action="https://www.ofertasypromocionesclaro.com/enviar.php?utm_camp=0000000000">
-						<input id="c2cMod_origen" name="c2cMod_origen" type="hidden">
-						<input type="tel" id="c2cMod_tel" name="c2cMod_tel" class="input-ico" placeholder="Fijo o móvil" maxlength="9" autocomplete="off" pattern="[0-9]{9}">
-						<br>
-						<input id="c2cMod_chkPolitica" name="c2cMod_chkPolitica" type="checkbox"><span id="c2cMod_txtPolitica">Acepto la <strong onclick="javascript:$(&#39;#modPoliticaPrivacidad&#39;).modal(&#39;show&#39;)" style="cursor: pointer;" id="polPop">política de privacidad</strong></span>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button id="btnC2CModal" type="button" class="btn btn-quiero">Llámame Ahora</button>
-				</div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
-	</aside><!-- /.modal -->
+
 	<aside id="modPrefijo" class="modal fade modal-sm" style="width: 100%; z-index: 1070;">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -593,9 +600,9 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</aside><!-- /.modal -->
-	
+
 	<script type="text/javascript" async="" src="<?= FOLDER_PATH ?>/src/js/myscript.js"></script>
-	
+
 	<aside id="modPoliticaPrivacidad" class="modal fade modal-sm" style="width: 100%; z-index: 1070;">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -737,6 +744,59 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</aside><!-- /.modal -->
+
+	<aside id="modLoQuiero" class="modal fade modal-sm" style="width: 100%; display: none;">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content modalquiero" style="width: 425px;">
+				<header class="modal-header">
+					<img src="<?= FOLDER_PATH ?>/src/assets/image/claro.svg" alt="Logo Distribuidor Claro" title="Logo Distribuidor Claro" class="img-responsive-inline" style="width: 20%;margin-bottom: 15px;display: inline-block">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<img src="<?= FOLDER_PATH ?>/src/assets/image/close.svg" alt="" style="display: inline-block;height: 20px;width: 20px;margin-top: 3px;margin-right: 7px;">
+					</button>
+				</header>
+				<div class="modal-body text-center" style="padding-bottom: 20px;background-color: white;">
+					<h1 class="modal-title text-center">¡Mira lo fácil que es!</h1>
+					<h1 class="text-center">Informáte ahora</h1>
+					<h2 class="text-center" style="color: #da291c">0-800-78006</h2>
+					<h3 class="text-center">Si prefieres llamamos nosotros</h3>
+					<form id="frmModal" method="POST" action="enviar.php?utm_camp=0000000000">
+						<input id="c2cMod_origen" name="c2cMod_origen" type="hidden" value="btnPOST1">
+						<input type="tel" id="c2cMod_tel" name="c2cMod_tel" class="input-ico" placeholder="Fijo o móvil" maxlength="9" autocomplete="off" pattern="[0-9]{9}" style="border-style: hidden;border-bottom: 1px solid #585858;">
+						<br>
+						<input id="c2cMod_chkPolitica" name="c2cMod_chkPolitica" type="checkbox" required><span id="c2cMod_txtPolitica">Acepto la <strong onclick="javascript:$('#modPoliticaPrivacidad').modal('show')" style="cursor: pointer;" id="polPop">política de privacidad</strong></span>
+					</form>
+				</div>
+				<div class="modal-footer" style="background-color: #fff;">
+					<button id="btnC2CModal" type="button" class="btn-quiero">Llámame Ahora</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</aside>
+
+	<script>
+		function aceptoPoliticas(element) {
+			var elementForm = $(element).parent().parent().parent().parent().parent();
+			var idForm = elementForm.attr("id");
+
+			if ($(element).is(":checked")) {
+				$("#" + idForm + " .invalid-feedback").addClass('d-none');
+				$("#" + idForm + " .invalid-feedback").removeClass('d-block');
+			} else {
+				$("#" + idForm + " .invalid-feedback").removeClass('d-none');
+				$("#" + idForm + " .invalid-feedback").addClass('d-block');
+			}
+		}
+
+		function validarTerminos() {
+			$.each(document.forms, function(k, v) {
+				$.each(v, function(k2, v2) {
+					if ($(v2).attr('name') == 'acepta_terminos') {
+						aceptoPoliticas(v2);
+					}
+				});
+			});
+		}
+	</script>
 </body>
 
 </html>
