@@ -28,8 +28,8 @@
 </head>
 
 <body id="fade" class="hold-transition login-page img-transition">
-    <div class="login-box" style="margin: 4% auto; margin-bottom: 0px; margin-top: 0px; padding-top: 5%;width: 330px;">
-        <div class="login-logo"> <img src="<?= FOLDER_PATH ?>/src/assets/image/logo_Claro.png" style="width: 125px; margin-bottom: 0px;"> </div>
+    <div class="login-box" style="margin: 4% auto; margin-bottom: 0px; margin-top: 0px; padding-top: 7%;width: 330px;">
+        <div class="login-logo"> <img src="<?= FOLDER_PATH ?>/src/assets/image/logo_Claro.png" style="width: 175px; margin-bottom: 5px;"> </div>
         <div class="login-box-body" style="background: rgba(0, 0, 0, 0.7294);">
             <p class="login-box-msg" style="color: rgba(0, 197, 255, 0.8901);">Accede para iniciar sesión.</p>
             <form action="<?= FOLDER_PATH . '/login/signin' ?>" method="post"> 
@@ -69,10 +69,7 @@
                 radioClass: "iradio_square-blue",
                 increaseArea: "20%"
             })
-        }), 
-        $(function() {
-            $("#author").html("<?= $dsrldr ?>: <?= $nm ?> <?= $pldp ?> <?= $pldm ?>")
-        });
+        })
     </script>
     <script type="text/javascript">
         var bgImageArray = [];
