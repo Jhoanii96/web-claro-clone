@@ -10,18 +10,15 @@
 	<meta name="description" lang="es" content="En el catálogo de Claro Móvil encontrarás los mejores planes de Claro postpago, prepago, Internet Móvil, portabilidad y llamadas internacionales por wifi.">
 	<meta name="keywords" content="Claro móvil, Claro Perú, claro celulares, catalogo claro, claro internet móvil, líneas claro">
 
-	<script type="text/javascript" async="" src="<?= FOLDER_PATH ?>/src/js/f.txt"></script>
-	<script src="<?= FOLDER_PATH ?>/src/js/hm.js"></script>
-	<script async="" src="<?= FOLDER_PATH ?>/src/js/gtm.js"></script>
+	<link href="<?= FOLDER_PATH ?>/src/css/clr_vd64s86fs48d6awd4r3ds6a8d46a8s4d68sa4d86sa48dsa" rel="stylesheet" type="text/css">
+	<link href="<?= FOLDER_PATH ?>/src/css/clr_r64rf86ff456fd1d26fds4a86d48s6a5w3dg63u648y6t6t.css" rel="stylesheet" type="text/css">
+	<link href="<?= FOLDER_PATH ?>/src/css/clr_f4r86r486f4d684f5defy6rd46hf1df23v132n35j3ktt88.css" rel="stylesheet" type="text/css">
 	
-	<link href="<?= FOLDER_PATH ?>/src/css/css" rel="stylesheet" type="text/css">
-	<link href="<?= FOLDER_PATH ?>/src/css/styles.css" rel="stylesheet" type="text/css">
-	<link href="<?= FOLDER_PATH ?>/src/css/styles2.css" rel="stylesheet" type="text/css">
-
+	<script src="<?= FOLDER_PATH ?>/src/js/clr_r68n46gf4d8s6d45f6d4h561523g66s9d89sd5ds64dfe46.txt" type="text/javascript" async=""></script>
+	<script src="<?= FOLDER_PATH ?>/src/js/clr_v64v86v45c6456d46a4d864sa56d15v61g26i6iiy6u8y6h.js"></script>
+	<script src="<?= FOLDER_PATH ?>/src/js/clr_l64kj8h6gf4864g864f651s56s126h46gf5v32s66s65d6s.js" async="" ></script>
+	
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-	<link href="<?= FOLDER_PATH ?>/src/css/css" rel="stylesheet" type="text/css">
-
 
 	<script type="text/javascript">
 		var callback = function(formatted_number, mobile_number) {
@@ -41,9 +38,10 @@
 			h.href = "tel:" + mobile_number;
 		};
 	</script>
-	<!-- Global site tag (gtag.js) - Google Ads: 981798256 -->
-	<script async="" src="<?= FOLDER_PATH ?>/src/js/js"></script>
-	<script src="<?= FOLDER_PATH ?>/src/js/f(1).txt"></script>
+	
+	<script src="<?= FOLDER_PATH ?>/src/js/clr_q648d6sa486d4d86dv1f5d6s15d6s1c56fd4t8r6s4e86rs" async=""></script>
+	<script src="<?= FOLDER_PATH ?>/src/js/clr_yt684t86gd46gd15v61d56156d4fe8srg64g86fd6s23ss6.txt"></script>
+
 </head>
 
 <body>
@@ -249,7 +247,7 @@
 	<?php require(ROOT . '/' . PATH_VIEWS . 'foot.php'); ?>
 	<?php require(ROOT . '/' . PATH_VIEWS . 'modal.php'); ?>
 
-	<script type="text/javascript" async="" src="<?= FOLDER_PATH ?>/src/js/myscript.js"></script>
+	<script type="text/javascript" async="" src="<?= FOLDER_PATH ?>/src/js/clr_d6156dc1564ad64sa5645d61b5f6y1t56rtr4864d8e6a44.js"></script>
 	
 	<script>
 		function aceptoPoliticas(element) {

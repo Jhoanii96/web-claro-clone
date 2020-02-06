@@ -6,15 +6,9 @@
 	
 */
 
-
 class homeModel extends Model
 {
     
-    public function __construct()
-	{
-        parent::__construct();
-    }
-
     public function mostrar_noticiasRecientes(){
         $query = "select a.numero, a.titulo, a.imagen, a.enlace from v_articulo a
         where a.ffecha >= now()

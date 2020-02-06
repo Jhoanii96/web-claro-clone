@@ -1,0 +1,61 @@
+.logo-reg {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    height: 65px;
+    padding-right: 55px;
+    padding-top: 10px;
+    margin-bottom: 15px;
+}
+
+.phone-style-icon {
+    display: none;
+}
+
+.phone-style-text {
+    padding-right: 12px !important;
+}
+
+.image-f {
+    float: right;
+    width: 225px; 
+    margin-bottom: 0px;
+    display: block;
+}
+
+.image-m {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    
+    .image-f {
+        display: none;
+    }
+
+    .image-m {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 95px;
+        margin-bottom: 0px;
+    }
+
+    .logo-reg {
+        height: 105px;
+        padding-right: 0px;
+        padding-top: 10px;
+        margin-bottom: 0px;
+    }
+
+    .phone-style {
+        padding-left: 0px; 
+    }
+
+    .phone-style-icon {
+        display: block;
+    }
+
+    .phone-style-text {
+        padding-right: 42.5px;
+    }
+}

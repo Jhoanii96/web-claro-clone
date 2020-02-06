@@ -6,26 +6,12 @@
     
 */
 
-
 class loginModel extends Model
+{
+    public function Mostrar_organizador($usuario)
     {
-		
-		public function __construct()
-		{
-            parent::__construct();
-        
-        }
-
-        
-        public function Mostrar_organizador($usuario){
-            $query = "CALL verificar_organizador('".$usuario."');";
-            $res = $this->db->query($query);
-            return $res;
-            
-        }
-
-            
-
+        $query = "CALL verificar_organizador('" . $usuario . "');";
+        $res = $this->db->query($query);
+        return $res;
     }
-
-?>
+}

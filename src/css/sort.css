@@ -1,0 +1,378 @@
+/* Table Sorting */
+input+table {
+    margin-top: 1em;
+}
+
+th.sort {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    min-width: 45px;
+}
+
+th.sort:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+th.sort:focus {
+    outline: none;
+}
+
+th.sort:after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    content: "";
+    position: relative;
+    top: -10px;
+    right: -5px;
+}
+
+th.sort.asc:after {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #000;
+    content: "";
+    position: relative;
+    top: 4px;
+    right: -5px;
+}
+
+th.sort.desc:after {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #000;
+    content: "";
+    position: relative;
+    top: -4px;
+    right: -5px;
+}
+
+
+.button-style {
+    width: 100%;
+    border-radius: 5%;
+    background-color: #363696;
+    border: 2px solid;
+    color: white;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.button-style:hover {
+    border: 2px solid rgb(35, 157, 173);
+    /* Green */
+}
+
+/* ----------- NOTICIAS ----------- */
+/* cabezera */
+
+.sort.order {
+    min-width: 50px;
+    width: 70px;
+    padding-top: 15px;
+    padding-left: 15px !important;
+    display: inline-block;
+}
+
+.sort.titular,
+.sort.description,
+.sort.tags,
+.sort.url {
+    width: 200px;
+    padding-top: 15px;
+    padding-left: 15px;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.sort.date-start,
+.sort.date-end {
+    width: 110px;
+    text-align: left;
+}
+
+/* cuerpo */
+
+td.order {
+    min-width: 50px;
+    width: 70px;
+    display: inline-block;
+    border-bottom: 0px;
+}
+
+td.titular,
+td.description,
+td.url {
+    width: 200px;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    border-bottom: 0px;
+}
+
+td.date-start,
+td.date-end {
+    text-align: left;
+}
+
+td.tags {
+    width: 200px;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    text-align: left;
+    border-bottom: 0px;
+}
+
+/* ----------- ESTUDIANTES ----------- */
+/* cabezera */
+.sort.orderEst {
+    min-width: 25px;
+    width: 50px;
+    padding-top: 15px;
+    padding-left: 15px !important;
+    display: inline-block;
+}
+.sort.nombreEst,
+.sort.apellidoEst,
+.sort.emailEst {
+    width: 175px;
+    padding-top: 15px;
+    overflow: hidden;
+    display: inline-block;
+    text-align: left;
+}
+.sort.dniEst,
+.sort.celEst {
+    padding-top: 15px;
+    overflow: hidden;
+    text-align: left;
+}
+.sort.anioEst,
+.sort.paisEst,
+.sort.ciudadEst {
+    padding-top: 15px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.sort.institEst {
+    width: 200px;
+    padding-top: 15px;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+}
+
+/* cuerpo */
+td.orderEst {
+    min-width: 25px;
+    width: 50px;
+    display: inline-block;
+    border-bottom: 0px;
+    text-align: right;
+}
+td.nombreEst,
+td.apellidoEst,
+td.emailEst {
+    width: 175px;
+    overflow: hidden;
+    display: inline-block;
+    border-bottom: 0px;
+    text-align: left;
+}
+td.anioEst,
+td.paisEst,
+td.ciudadEst,
+td.celEst {
+    text-align: left;
+    border-bottom: 0px;
+}
+
+td.institEst {
+    width: 200px;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    border-bottom: 0px;
+}
+
+/* ----------- PROFESIONAL ----------- */
+/* cabezera */
+.sort.orderPro {
+    min-width: 25px;
+    width: 50px;
+    padding-top: 15px;
+    padding-left: 15px !important;
+    display: inline-block;
+}
+.sort.nombrePro,
+.sort.apellidoPro,
+.sort.emailPro {
+    width: 175px;
+    padding-top: 15px;
+    overflow: hidden;
+    display: inline-block;
+    text-align: left;
+}
+.sort.dniPro,
+.sort.celPro {
+    padding-top: 15px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.sort.paisPro,
+.sort.ciudadPro {
+    padding-top: 15px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.sort.gradoPro {
+    width: 100px;
+    padding-top: 15px;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+}
+
+/* cuerpo */
+td.orderPro {
+    min-width: 25px;
+    width: 50px;
+    display: inline-block;
+    border-bottom: 0px;
+    text-align: right;
+}
+td.nombrePro,
+td.apellidoPro,
+td.emailPro {
+    width: 175px;
+    overflow: hidden;
+    display: inline-block;
+    border-bottom: 0px;
+    text-align: left;
+}
+
+td.paisPro,
+td.ciudadPro,
+td.celPro {
+    text-align: left;
+    border-bottom: 0px;
+}
+
+td.gradoPro {
+    width: 100px;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    border-bottom: 0px;
+}
+
+/* ----------- ORGANIZADOR ----------- */
+/* cabezera */
+.sort.orderOrg {
+    min-width: 25px;
+    width: 50px;
+    padding-top: 15px;
+    padding-left: 15px !important;
+    display: inline-block;
+}
+.sort.nombresOrg {
+    width: 275px;
+    padding-top: 15px;
+    overflow: hidden;
+    display: inline-block;
+    text-align: left;
+}
+
+.sort.emailOrg {
+    width: 200px;
+    padding-top: 15px;
+    overflow: hidden;
+    display: inline-block;
+    text-align: left;
+}
+
+.sort.dniOrg,
+.sort.celOrg {
+    padding-top: 15px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.sort.userOrg,
+.sort.passOrg {
+    width: 125px;
+    padding-top: 15px;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+}
+
+/* cuerpo */
+td.orderOrg {
+    min-width: 25px;
+    width: 50px;
+    display: inline-block;
+    border-bottom: 0px;
+    text-align: right;
+}
+
+td.nombresOrg {
+    width: 275px;
+    overflow: hidden;
+    display: inline-block;
+    border-bottom: 0px;
+    text-align: left;
+}
+
+td.emailOrg {
+    width: 200px;
+    overflow: hidden;
+    display: inline-block;
+    border-bottom: 0px;
+    text-align: left;
+}
+
+td.dniOrg,
+td.celOrg {
+    text-align: left;
+    border-bottom: 0px;
+}
+
+td.userOrg,
+td.passOrg {
+    width: 125px;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    border-bottom: 0px;
+}

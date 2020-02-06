@@ -6,7 +6,6 @@
 
 */
 
-
 require ROOT . FOLDER_PATH . "/app/models/login/loginModel.php";
 require ROOT . FOLDER_PATH . "/system/libs/Session.php";
 
@@ -14,15 +13,15 @@ class login extends Controller
 {
 	private $model;
 	private $session;
-
+	
 	public function __construct()
 	{
 		$this->session = new Session;
 		$this->session->getAll();
 
-		if (!empty($this->session->get('usuarioCIIS'))) {
+		if (!empty($this->session->get('userClaro'))) {
 			header("Location: " . FOLDER_PATH . "/admin");
-		}
+        }
 	}
 
 	public function index()
@@ -39,7 +38,8 @@ class login extends Controller
 		explode(" ", $password);
 
 		$param[0] = $identificacion;
-		$param[1] = base64_encode($password);
+		$param[1] = $password;
+		/* $param[1] = base64_encode($password); */
 
 		if (!$this->VerificarParametros($param)) {
 			header("Location: " . FOLDER_PATH . "/login");
@@ -57,7 +57,7 @@ class login extends Controller
 					header("Location: " . FOLDER_PATH . "/login");
 					$this->renderErrorMessage('*La contraseña es incorrecta');
 				} else {
-					$this->session->add('usuarioCIIS', $identi['cod']);
+					$this->session->add('userClaro', $identi['cod']);
 					//echo $this->session->get('usuario');
 					header("Location: " . FOLDER_PATH . "/admin");
 				}
