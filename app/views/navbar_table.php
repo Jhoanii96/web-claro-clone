@@ -228,60 +228,60 @@ function time2str($ts)
 			<li class="treeview">
 				<a href="#">
 					<i class="fa fa-user-o"></i>
-					<span>Usuarios</span>
+					<span>pestaña</span>
 					<span class="pull-right-container">
 						<i class="fa fa-angle-left pull-right"></i>
 					</span>
 				</a>
 				<ul class="treeview-menu">
-					<li><a href="<?= FOLDER_PATH . '/admin/students' ?>"><i class="fa fa-circle-o"></i> Estudiantes</a></li>
-					<li><a href="<?= FOLDER_PATH . '/admin/professionals' ?>"><i class="fa fa-circle-o"></i> Profesionales</a></li>
-					<li><a href="<?= FOLDER_PATH . '/admin/speakers' ?>"><i class="fa fa-circle-o"></i> Ponentes</a></li>
+					<li><a href="<?= FOLDER_PATH . '/admin/students' ?>"><i class="fa fa-circle-o"></i> pestaña</a></li>
+					<li><a href="<?= FOLDER_PATH . '/admin/professionals' ?>"><i class="fa fa-circle-o"></i> pestaña</a></li>
+					<li><a href="<?= FOLDER_PATH . '/admin/speakers' ?>"><i class="fa fa-circle-o"></i> pestaña</a></li>
 					<?php
 					/* if ($data['rol'] == "Super Administrador") {
 						echo "<li><a href=" . FOLDER_PATH . "/admin/organizers><i class=\"fa fa-circle-o\"></i> Organizadores</a></li>";
 					} */
 					?>
-					<li><a href="#"><i class="fa fa-circle-o"></i> Reportes</a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> pestaña</a></li>
 				</ul>
 			</li>
 			<li class="treeview">
 				<a href="#">
 					<i class="fa fa-file-text-o"></i>
-					<span>Pre/Incripciones</span>
+					<span>pestaña</span>
 					<span class="pull-right-container">
 						<i class="fa fa-angle-left pull-right"></i>
 					</span>
 				</a>
 				<ul class="treeview-menu">
-					<li><a href="<?= FOLDER_PATH . '/admin/inscriptions' ?>"><i class="fa fa-circle-o"></i> Conferencia (Inscripción)</a></li>
-					<li><a href="<?= FOLDER_PATH . '/admin/preinscriptions' ?>"><i class="fa fa-circle-o"></i> Conferencia (Pre-inscripción)</a></li>
-					<li><a href="#"><i class="fa fa-circle-o"></i> Concursos</a></li>
-					<li><a href="#"><i class="fa fa-circle-o"></i> Talleres</a></li>
+					<li><a href="<?= FOLDER_PATH . '/admin/inscriptions' ?>"><i class="fa fa-circle-o"></i> pestaña</a></li>
+					<li><a href="<?= FOLDER_PATH . '/admin/preinscriptions' ?>"><i class="fa fa-circle-o"></i> pestaña</a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> pestaña</a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> pestaña</a></li>
 				</ul>
 			</li>
 			<li class="treeview">
 				<a href="#">
 					<i class="fa fa-calendar-check-o"></i>
-					<span>Registrar (Eventos)</span>
+					<span>pestaña</span>
 					<span class="pull-right-container">
 						<i class="fa fa-angle-left pull-right"></i>
 					</span>
 				</a>
 				<ul class="treeview-menu">
-					<li><a href="<?= FOLDER_PATH . '/admin/talks' ?>"><i class="fa fa-circle-o"></i> Charlas/Conferencias</a></li>
-					<li><a href="javascript:void(0);"><i class="fa fa-circle-o"></i> Concursos</a></li>
-					<li><a href="javascript:void(0);"><i class="fa fa-circle-o"></i> Talleres CIIS</a></li>
+					<li><a href="<?= FOLDER_PATH . '/admin/talks' ?>"><i class="fa fa-circle-o"></i> pestaña/Conferencias</a></li>
+					<li><a href="javascript:void(0);"><i class="fa fa-circle-o"></i> pestaña</a></li>
+					<li><a href="javascript:void(0);"><i class="fa fa-circle-o"></i> pestaña</a></li>
 				</ul>
 			</li>
 			<li>
 				<a href="<?= FOLDER_PATH . '/admin/topics' ?>">
-					<i class="fa fa-star"></i> <span>Temáticas</span>
+					<i class="fa fa-star"></i> <span>pestaña</span>
 				</a>
 			</li>
 			<li>
 				<a href="javascript:void(0);">
-					<i class="fa fa-diamond"></i> <span>Auspiciadores</span>
+					<i class="fa fa-diamond"></i> <span>pestaña</span>
 				</a>
 			</li>
 			<?php
