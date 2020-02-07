@@ -8,10 +8,13 @@
 
 class loginModel extends Model
 {
-    public function Mostrar_organizador($usuario)
-    {
-        $query = "CALL verificar_organizador('" . $usuario . "');";
-        $res = $this->db->query($query);
+    
+    public function Verificar_usuarios($username) {
+
+        $query = "CALL `verificar_usuarios`('" . $username . "');";
+        $res = Model::query_execute($query);
         return $res;
+
     }
+
 }

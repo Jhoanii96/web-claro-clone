@@ -35,15 +35,26 @@
             <form action="<?= FOLDER_PATH . '/login/signin' ?>" method="post"> 
                 <input type="password" style="display: none;" name="password" autocomplete="new-password">
                 <div class="form-group has-feedback" style="margin-bottom: 25px;"> 
-                    <input type="email" class="form-control" name="email" placeholder="Email" style="background-color: #0000008a; color: #eee;" 
+                    <input type="usern" class="form-control" name="usern" placeholder="Usuario" style="background-color: #0000008a; color: #eee;" 
                     value="<?php if (isset($_COOKIE["member_login"])) {echo $_COOKIE["member_login"];} ?>"> 
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span> 
                 </div>
                 <div class="form-group has-feedback" style="margin-bottom: 25px;"> 
-                    <input type="password" class="form-control" name="pass" placeholder="Password" style="background-color: #0000008a; color: #eee;" 
+                    <input type="password" class="form-control" name="passu" placeholder="Password" style="background-color: #0000008a; color: #eee;" 
                     value="<?php if (isset($_COOKIE["member_password"])) {echo $_COOKIE["member_password"];} ?>"> 
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span> 
                 </div>
+                <?php 
+                    if(!empty($data['error_message']))
+                    {
+                        echo '<span style="text-align: center;display: block;color: red;margin-bottom: 15px;">' . $data['error_message'] . '</span>';
+                    }
+                    else
+                    {
+                        echo'';
+                    } 
+                ?>
+                
                 <div class="row" style="margin-bottom: 15px;">
                     <div class="col-xs-7">
                         <div class="checkbox icheck"> <label style="color: #a8a8a8;"> <input name="chkb" type="checkbox" <?php if (isset($_COOKIE["member_login"])) { ?> checked <?php } ?>> Recuérdame </label> </div>

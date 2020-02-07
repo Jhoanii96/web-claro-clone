@@ -31,20 +31,10 @@ define('REQUEST_METHOD', $_SERVER['REQUEST_METHOD']);
 define('HELPER_PATH', 'system/helper/');
 
 //Para la BD
-/* 
-define('HOST', 'www.ciistacna.com');
-define('USER', 'owltie_ciis00');
-define('PASS', 'qyQr(Ir&7G&4');
-define('DB', 'owltie_ciistacna_01'); 
-*/
-
 define('SGBD', 'mysql:host=localhost;dbname=bd_claro;charset=utf8');
 define('USER', 'root');
 define('PASS', '123456');
 define('ERROR_REPORTING_LEVEL', -1);
 
-//DATA INC
-define('ADD_DI', '.inc.');
-define('DATAI', '.inc_data.');
-//AUTOLOAD DATA
-define('DATA', 'app/data/');
+//AUTOLOAD PAKET
+define('PAKET_PATH\AUTO_LOAD', '/claro/app/.paket/autoload.inc_data.php');

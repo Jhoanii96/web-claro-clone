@@ -59,66 +59,7 @@
       <!-- Main content -->
       <section class="content">
         <!-- Info boxes -->
-        <div class="row">
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-aqua"><i class="ion ion-ios-list-outline"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Asistentes pendientes</span>
-                <span class="info-box-number"><?= $data['numap'] ?></span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-red"><i class="ion ion-ios-people-outline"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Asistentes inscritos</span>
-                <span class="info-box-number"><?= $data['numai'] ?></span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-
-          <!-- fix for small devices only -->
-          <div class="clearfix visible-sm-block"></div>
-
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-yellow"><i class="ion ion-ios-person-outline"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Asist. Estudiantes (Ins.)</span>
-                <span class="info-box-number"><?php echo $data['numaie']; ?></span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-green"><i class="ion ion-ios-personadd-outline"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Asist. Profesionales (Ins.)</span>
-                <span class="info-box-number"><?= $data['numaip'] ?></span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
+        
 
 
 

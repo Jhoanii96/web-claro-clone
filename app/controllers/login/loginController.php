@@ -32,8 +32,8 @@ class login extends Controller
 	public function signin()
 	{
 		$this->model = new loginModel();
-		$identificacion = $_POST['nombre'];
-		$password = $_POST['password'];
+		$identificacion = $_POST['usern'];
+		$password = $_POST['passu'];
 		explode(" ", $identificacion);
 		explode(" ", $password);
 
@@ -43,21 +43,19 @@ class login extends Controller
 
 		if (!$this->VerificarParametros($param)) {
 			header("Location: " . FOLDER_PATH . "/login");
-			$this->renderErrorMessage('*El usuario y la contraseña son obligatorios');
+			return $this->renderErrorMessage('*El usuario y la contraseña son obligatorios');
 		} else {
-			@$parametro = $this->model->Mostrar_organizador($param[0]);
-			$identi = $parametro->fetch_array();
+			@$parametro = $this->model->Verificar_usuarios($param[0]);
+			$identi = $parametro->fetch();
 			// if(empty($parametro)){
-			if ($param[0] != $identi['cod']) {
-				header("Location: " . FOLDER_PATH . "/login");
-				$this->renderErrorMessage('*El usuario no existe');
+			if ($param[0] != $identi['usuario']) {
+				return $this->renderErrorMessage('*El usuario no existe');
 			} else {
 				// if($param['password'] != $parametro['clave_organizador']){
-				if ($param[1] != $identi['pas']) {
-					header("Location: " . FOLDER_PATH . "/login");
-					$this->renderErrorMessage('*La contraseña es incorrecta');
+				if ($param[1] != $identi['clave']) {
+					return $this->renderErrorMessage('*La contraseña es incorrecta');
 				} else {
-					$this->session->add('userClaro', $identi['cod']);
+					$this->session->add('userClaro', $identi['usuario']);
 					//echo $this->session->get('usuario');
 					header("Location: " . FOLDER_PATH . "/admin");
 				}
@@ -81,13 +79,8 @@ class login extends Controller
 	}
 
 	private function renderErrorMessage($message)
-	{
+	{ 
 		$this->view('login/login', ['error_message' => $message]);
 	}
-	/*
-        public function index()
-        {
-            $this->view('login/login');
-        }
-        */
+	
 }
