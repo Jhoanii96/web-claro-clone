@@ -269,7 +269,7 @@ function time2str($ts)
 					</span>
 				</a>
 				<ul class="treeview-menu">
-					<li><a href="<?= FOLDER_PATH . '/admin/talks' ?>"><i class="fa fa-circle-o"></i> pestaña/Conferencias</a></li>
+					<li><a href="<?= FOLDER_PATH . '/admin/talks' ?>"><i class="fa fa-circle-o"></i> pestaña</a></li>
 					<li><a href="javascript:void(0);"><i class="fa fa-circle-o"></i> pestaña</a></li>
 					<li><a href="javascript:void(0);"><i class="fa fa-circle-o"></i> pestaña</a></li>
 				</ul>
