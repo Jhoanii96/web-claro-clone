@@ -1,27 +1,28 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Panel de administración | CIIS</title>
-  <link rel="shortcut icon" href="/2019/src/assets/media/image/icon.png">
+  <title>Panel de administración | Claro</title>
+  <link rel="shortcut icon" href="<?= FOLDER_PATH ?>/src/assets/image/favicon.ico">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="/2019/src/admin/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?= FOLDER_PATH ?>/src/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="/2019/src/admin/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?= FOLDER_PATH ?>/src/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="/2019/src/admin/css/ionicons.min.css">
+  <link rel="stylesheet" href="<?= FOLDER_PATH ?>/src/css/ionicons.min.css">
   <!-- jvectormap -->
-  <link rel="stylesheet" href="/2019/src/admin/css/jquery-jvectormap.css">
+  <link rel="stylesheet" href="<?= FOLDER_PATH ?>/src/css/jquery-jvectormap.css">
   <!-- DataTables -->
-  <link rel="stylesheet" href="/2019/src/admin/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="<?= FOLDER_PATH ?>/src/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="/2019/src/admin/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="<?= FOLDER_PATH ?>/src/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="/2019/src/admin/css/_all-skins.min.css">
+  <link rel="stylesheet" href="<?= FOLDER_PATH ?>/src/css/_all-skins.min.css">
+
+  <link rel="stylesheet" href="<?= FOLDER_PATH ?>/src/css/pace.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,6 +35,35 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
 
+  <style>
+    .center_cell {
+      text-align: center;
+    }
+
+    .ctrl_with {
+      display: inline-block;
+      width: 75%;
+    }
+
+    .btn_style {
+      background-color: #e00000;
+      border-style: none;
+      color: #eaeaea;
+      border-radius: 7%;
+      border: 2px solid #fff;
+    }
+
+    .btn_style:hover {
+      border: 2px solid #e0df00;
+      transition: 0.5s;
+    }
+
+    .btn_style:focus {
+      outline: none;
+    }
+  </style>
+
+
 </head>
 
 
@@ -43,127 +73,8 @@
 
     <?php require(ROOT . '/' . PATH_VIEWS . 'navbar_table.php'); ?>
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <h1>
-          Congreso Internacional en Informática y Sistemas
-        </h1>
-        <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-table"></i> Principal</a></li>
-          <li class="active">Inicio</li>
-        </ol>
-      </section>
 
-      <!-- Main content -->
-      <section class="content">
-        <!-- Info boxes -->
-        
-
-
-
-
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="box">
-              <div class="box-header">
-                <h3 class="box-title">Tabla de pre-inscripciones &MediumSpace;<span style="background-color: #007a80;color: white;font-size: 14px;">&MediumSpace;en espera&MediumSpace;</span></h3>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-                <table id="example1" class="table table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <th>Nro</th>
-                      <th>Nombre</th>
-                      <th>Apellido</th>
-                      <th>Fecha pre-inscripción</th>
-                      <th>País</th>
-                      <th>Ciudad</th>
-                      <th>Ver informe</th>
-                      <th>Aprobar</th>
-                      <th>Denegar</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-
-                    <?php
-                    /* while ($rowPreins = $data['preinscripcion']->fetch_assoc()) {
-
-                      if ($rowPreins['tipo'] == '3') {
-                        $pais = $rowPreins['pais_pro'];
-                        $ciudad = $rowPreins['ciudad_pro'];
-                      } elseif ($rowPreins['tipo'] == '4') {
-                        $pais = $rowPreins['pais_est'];
-                        $ciudad = $rowPreins['ciudad_est'];
-                      }
-
-                      $estado = 'En espera';
-                      $color = '#007a80';
-
-                      $nombre = $rowPreins['nombre'] . ' ' . $rowPreins['apellido'];
-                      $nombre = base64_encode(utf8_encode($nombre));
-
-                      echo '
-											<tr>
-												<td>' . $rowPreins['id'] . '</td>	
-												<td>' . $rowPreins['nombre'] . '</td>
-												<td>' . $rowPreins['apellido'] . '</td>
-                        <td>' . $rowPreins['fecha'] . '</td>
-                        <td>' . $pais . '</td>
-                        <td>' . $ciudad . '</td>
-												<td align=\'center\'>
-													<a href="' . FOLDER_PATH . '/admin/dashboard/show/' . $rowPreins['id'] . '" target="_blank" style="text-decoration: underline;">
-														Ver detalle
-													</a>
-												</td>
-												<td class="button" align=\'center\'>
-													<a href="' . FOLDER_PATH . '/admin/dashboard/accept/' . $rowPreins['id'] . '/' . $rowPreins['email'] . '/' . $nombre . '">
-														<button type="button" style="color: black;">Inscribir</button>
-													</a>
-												</td>
-												<td class="button" align=\'center\'>
-													<a href="' . FOLDER_PATH . '/admin/dashboard/decline/' . $rowPreins['id'] . '">
-														<button type="button" style="color: black;">Denegar</button>
-													</a>
-												</td>
-											</tr>
-											'; 
-                    }*/
-                    ?>
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                      <th>Nro</th>
-                      <th>Nombre</th>
-                      <th>Apellido</th>
-                      <th>Fecha pre-inscripción</th>
-                      <th>País</th>
-                      <th>Ciudad</th>
-                      <th>Ver informe</th>
-                      <th>Aprobar</th>
-                      <th>Denegar</th>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
-              <!-- /.box-body -->
-            </div>
-            <!-- /.box -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-
-
-
-
-
-      </section>
-      <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
+    <?php require(ROOT . '/' . PATH_VIEWS . 'admin/principal/principal4View.php'); ?>
 
 
     <?php require(ROOT . '/' . PATH_VIEWS . 'aside_control.php'); ?>
@@ -172,34 +83,36 @@
   <!-- ./wrapper -->
 
   <!-- jQuery 3 -->
-  <script src="/2019/src/admin/js/jquery.min.js"></script>
+  <script src="<?= FOLDER_PATH ?>/src/js/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
-  <script src="/2019/src/admin/js/bootstrap.min.js"></script>
+  <script src="<?= FOLDER_PATH ?>/src/js/bootstrap.min.js"></script>
   <!-- DataTables -->
-  <script src="/2019/src/admin/js/jquery.dataTables.min.js"></script>
-  <script src="/2019/src/admin/js/dataTables.bootstrap.min.js"></script>
+  <script src="<?= FOLDER_PATH ?>/src/js/jquery.dataTables.min.js"></script>
+  <script src="<?= FOLDER_PATH ?>/src/js/dataTables.bootstrap.min.js"></script>
   <!-- FastClick -->
-  <script src="/2019/src/admin/js/fastclick.js"></script>
+  <script src="<?= FOLDER_PATH ?>/src/js/fastclick.js"></script>
   <!-- AdminLTE App -->
-  <script src="/2019/src/admin/dist/js/adminlte.min.js"></script>
+  <script src="<?= FOLDER_PATH ?>/src/js/adminlte.min.js"></script>
   <!-- Sparkline -->
-  <script src="/2019/src/admin/js/jquery.sparkline.min.js"></script>
+  <script src="<?= FOLDER_PATH ?>/src/js/jquery.sparkline.min.js"></script>
+  <!-- Pace -->
+  <script src="<?= FOLDER_PATH ?>/src/js/pace.min.js"></script>
   <!-- jvectormap  -->
-  <script src="/2019/src/admin/js/jquery-jvectormap-1.2.2.min.js"></script>
-  <script src="/2019/src/admin/js/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="<?= FOLDER_PATH ?>/src/js/jquery-jvectormap-1.2.2.min.js"></script>
+  <script src="<?= FOLDER_PATH ?>/src/js/jquery-jvectormap-world-mill-en.js"></script>
   <!-- SlimScroll -->
-  <script src="/2019/src/admin/js/jquery.slimscroll.min.js"></script>
+  <script src="<?= FOLDER_PATH ?>/src/js/jquery.slimscroll.min.js"></script>
   <!-- ChartJS -->
-  <script src="/2019/src/admin/js/Chart.js"></script>
+  <script src="<?= FOLDER_PATH ?>/src/js/Chart.js"></script>
   <!-- AdminLTE for demo purposes -->
-  <script src="/2019/src/admin/dist/js/demo.js"></script>
+  <script src="<?= FOLDER_PATH ?>/src/js/demo.js"></script>
   <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
 
 
-  <script src="/2019/src/js/push.min.js"></script>
+  <script src="<?= FOLDER_PATH ?>/src/js/push.min.js"></script>
 
 
-  <script>
+  <!-- <script>
     Pusher.logToConsole = true;
     var pusher = new Pusher('b2fe8e2fa5b2da11752d', {
       cluster: 'mt1',
@@ -240,7 +153,7 @@
         }
       }
     });
-  </script>
+  </script> -->
 
   <script>
     $(function() {
@@ -258,7 +171,33 @@
     })
   </script>
 
+  <!-- EVENTO SELECT STATUS -->
+  <script type="text/javascript">
+    function selectStatus(codeStatus) {
+      var nom_value = $("#data-status-" + codeStatus).val();
+      var code = codeStatus;
 
+      var data = new FormData();
+
+      data.append("novl", nom_value);
+      data.append("code", code);
+
+      $.ajax({
+        beforeSend: function() {
+          Pace.restart();
+          $("#data-status").prop("disabled", true);
+        },
+        url: "<?= FOLDER_PATH ?>/admin/",
+        type: "POST",
+        data: data,
+        contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+				processData: false, // NEEDED, DON'T OMIT THIS
+        success: function(data) {
+          $("#data-status").prop("disabled", false);
+        }
+      })
+    }
+  </script>
 
 </body>
 

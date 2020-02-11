@@ -220,6 +220,11 @@ function time2str($ts)
 		<ul class="sidebar-menu" data-widget="tree">
 			<li class="header">NAVEGACIÓN PRINCIPAL</li>
 			<!-- <li class="active menu-open"> -->
+			<li>
+				<a href="<?= FOLDER_PATH . '/admin/topics' ?>">
+					<i class="fa fa-tv"></i> <span>Principal</span>
+				</a>
+			</li>
 			<li class="treeview">
 				<a href="#">
 					<i class="fa fa-user-o"></i>

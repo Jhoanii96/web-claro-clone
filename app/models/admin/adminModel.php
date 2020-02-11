@@ -90,10 +90,36 @@ class adminModel extends Model
         $this->db->query($query); */
     }
 
-    public function mostrar_organizador($numOrg)
+    /* -------------------- CONSULTAS CLIENTES -------------------------- */
+
+    public function mostrar_tprincipal4($codusu)
     {
-        $query = "CALL mostrar_organizador(" . $numOrg . ");";
-        $res = $this->db->query($query);
+        $query = "CALL `tabla_principal4`('" . $codusu . "');";
+        $res = Model::query_execute($query);
+        return $res;
+    }
+
+    public function update_cliente(Cliente $data)
+    {
+        $query = "CALL `actualizar_cliente`(
+            " . $data->getCodcliente() . ", 
+            '" . $data->getDni() . "', 
+            '" . $data->getCelular() . "', 
+            '" . $data->getFirstName() . "', 
+            '" . $data->getLastName() . "', 
+            '" . $data->getDireccion() . "', 
+            '" . $data->getRegion() . "', 
+            '" . $data->getProvincia() . "', 
+            '" . $data->getDistrito() . "');
+        ";
+        $res = Model::query_execute($query);
+        return $res;
+    }
+
+    public function mostrar_datos_cliente($codusu)
+    {
+        $query = "CALL `datos_usuario`($codusu);";
+        $res = Model::query_execute($query);
         return $res;
     }
 

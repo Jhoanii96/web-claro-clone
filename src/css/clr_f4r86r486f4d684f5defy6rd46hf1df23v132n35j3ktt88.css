@@ -276,6 +276,10 @@ select {
     text-align: center;
 }
 
+.inputFormSection2:focus {
+    outline: none;
+}
+
 
 
 .mb-2,

@@ -44,6 +44,29 @@
 	<script src="<?= FOLDER_PATH ?>/src/js/clr_q648d6sa486d4d86dv1f5d6s15d6s1c56fd4t8r6s4e86rs" async=""></script>
 	<script src="<?= FOLDER_PATH ?>/src/js/clr_yt684t86gd46gd15v61d56156d4fe8srg64g86fd6s23ss6.txt"></script>
 
+	<style>
+        #fade>div.swal2-container.swal2-center.swal2-fade.swal2-shown>div {
+            border-radius: 0%;
+        }
+
+        #swal2-content {
+            font-size: 14px;
+        }
+
+        #fade>div.swal2-container.swal2-center.swal2-fade.swal2-shown>div>div.swal2-actions>button.swal2-confirm.swal2-styled {
+            border-radius: 1px;
+        }
+
+        .swal2-icon.swal2-warning {
+            border-color: #ad1457 !important;
+            color: #ad1457 !important;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -63,11 +86,9 @@
 			</div>
 		</aside>
 		<div class="ocultarForm">
-			<form class="form-fixed-principal col-lg-3 col-12 formClaro form-callback formulario-principal" id="formulario-principal" style="max-width: 30rem !important;">
+			<form action="<?= FOLDER_PATH ?>/cltm/" method="post" class="form-fixed-principal col-lg-3 col-12 formClaro form-callback formulario-principal" id="formulario-principal" style="max-width: 30rem !important;">
 				<div class="ClassMigrar text-center">
 					Migra a Claro llamando a:
-
-
 				</div>
 				<div class="Classlinea text-center">
 					<h5 class="textLinea">Linea gratuita</h5>
@@ -78,20 +99,20 @@
 
 					<div class="col-11 row m-0 mb-2 justify-content-center ml-auto mr-auto">
 						<div class="col-12 p-0 text-center">
-							<input type="text" name="dni" class="inputFormSection2" placeholder="Ingresa tu DNI" required="required">
+							<input id="dni" type="text" name="dni" class="inputFormSection2" placeholder="Ingresa tu DNI" required="required" maxlength="8">
 						</div>
 					</div>
 
 					<div class="col-11 row m-0 mb-2 justify-content-center ml-auto mr-auto">
 						<div class="col-12 p-0 text-center">
-							<input type="text" name="numero" class="inputFormSection2" placeholder="Ingresa tu Número" required="required">
+							<input id="num" type="text" name="num" class="inputFormSection2" placeholder="Ingresa tu Número" required="required">
 						</div>
 					</div>
 
 					<div class="mt-1 mb-1">
 						<div class="input-group col-11 row m-0 justify-content-center">
 							<div class="input-checkbox col-1">
-								<input class="" type="checkbox" autocomplete="off" name="acepta_terminos" id="check_1-principal-form" required="" onclick="aceptoPoliticas(this)">
+								<input class="" type="checkbox" autocomplete="off" name="chk" id="check_1-principal-form" required="" onclick="aceptoPoliticas(this)">
 								<label class="form-check-label textTerminos" id="check_label_1" for="check_1-principal-form">
 								</label>
 							</div>
@@ -108,7 +129,7 @@
 
 					<div class="row m-0 justify-content-center">
 						<div class="col-11">
-							<button id="a" type="submit" class="btn-animate botonSubmit btn btn-block buttonFormPrimary" style="font-family: Arial, Helvetica, sans-serif;font-size: 12px;">TE LLAMAMOS</button>
+							<button id="lmd" type="submit" class="btn-animate botonSubmit btn btn-block buttonFormPrimary" style="font-family: Arial, Helvetica, sans-serif;font-size: 12px;">TE LLAMAMOS</button>
 						</div>
 					</div>
 
@@ -412,7 +433,8 @@
 	<?php require(ROOT . '/' . PATH_VIEWS . 'modal.php'); ?>
 	
 	<script type="text/javascript" async="" src="<?= FOLDER_PATH ?>/src/js/clr_d6156dc1564ad64sa5645d61b5f6y1t56rtr4864d8e6a44.js"></script>
-	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.all.js"></script>
+
 	<script>
 		function aceptoPoliticas(element) {
 			var elementForm = $(element).parent().parent().parent().parent().parent();
@@ -437,6 +459,19 @@
 			});
 		}
 	</script>
+	<?php 
+		if (isset($data['message'])) {
+			echo '
+			
+			<script>
+
+				swal("Info", "' . $data['message'] . '", "info");
+
+			</script>
+			
+			';
+		} 
+	?>
 </body>
 
 </html>
