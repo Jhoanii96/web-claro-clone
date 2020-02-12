@@ -10,11 +10,11 @@ $this->model = new adminModel();
 
 if ($link == '') {
 
-    $this->table_user = $this->model->mostrar_tusuario();
+    /* $this->table_user = $this->model->mostrar_tusuario(); */
 
-    $this->AdminView('admin/user/user', [
-        'datos_usu' => $this->datos_usu,
-        'table_user' => $this->table_user
+    $this->AdminView('admin/clientes/clientes', [
+        'datos_usu' => $this->datos_usu/* ,
+        'table_user' => $this->table_user */
     ]);
 } else if ($link == 'save') {
     //insertamos el organizador
@@ -54,6 +54,8 @@ if ($link == '') {
 
 } else if ($link == 'edit') {
 
+
+
     if (isset($_POST['update'])) {
         @$update = $_POST['update'];
     } else {
@@ -62,12 +64,12 @@ if ($link == '') {
 
     if ($update == "true") {
 
-        $codcliente = $_POST['cd'];
+        $codcliente = $_POST['idv'];
         $dni = $_POST['dni'];
-        $celular = $_POST['phone'];
-        $firstName = strtoupper(utf8_encode($_POST['fName']));
-        $lastName = strtoupper(utf8_encode($_POST['LName']));
-        $direccion = $_POST['dir'];
+        $celular = $_POST['phn'];
+        $firstName = strtoupper(utf8_encode($_POST['fnm']));
+        $lastName = strtoupper(utf8_encode($_POST['lnm']));
+        $direccion = $_POST['adr'];
         $region = $_POST['reg'];
         $provincia = $_POST['pro'];
         $distrito = $_POST['dis'];
@@ -76,15 +78,14 @@ if ($link == '') {
             $lastName, $direccion, $region, $provincia, $distrito);
 
         $this->model->update_cliente($datosCliente);
-
-        sleep(1);
-        echo ("<script>location.href = '" . FOLDER_PATH . "/admin/';</script>");
-    
+        
     } else {
 
-        $this->datos_cliente = $this->model->mostrar_datos_cliente($dato);
+        $dato = explode('|', base64_decode(utf8_encode($dato)));
 
-        $this->AdminView('admin/cliente/editar/editar', [
+        $this->datos_cliente = $this->model->mostrar_datos_cliente($dato[0]);
+
+        $this->AdminView('admin/clientes/editar/editar', [
             'datos_usu' => $this->datos_usu,
             'datos_cliente' => $this->datos_cliente
         ]);

@@ -112,13 +112,12 @@ class adminModel extends Model
             '" . $data->getProvincia() . "', 
             '" . $data->getDistrito() . "');
         ";
-        $res = Model::query_execute($query);
-        return $res;
+        Model::query_execute($query);
     }
 
     public function mostrar_datos_cliente($codusu)
     {
-        $query = "CALL `datos_usuario`($codusu);";
+        $query = "CALL `datos_cliente`($codusu);";
         $res = Model::query_execute($query);
         return $res;
     }

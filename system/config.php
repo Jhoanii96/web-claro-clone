@@ -38,3 +38,9 @@ define('ERROR_REPORTING_LEVEL', -1);
 
 //AUTOLOAD PAKET
 define('PAKET_PATH\AUTO_LOAD', '/claro/app/.paket/autoload.inc_data.php');
+
+//DATA INC
+define('ADD_DI', '.inc.');
+define('DATAI', '.inc_data.');
+//AUTOLOAD DATA
+define('DATA', 'app/.paket/');

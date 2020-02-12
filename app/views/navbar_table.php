@@ -8,8 +8,6 @@
 	
 */
 
-$datos = $data['datos_usu']->fetch();
-
 function time2str($ts)
 {
 
@@ -91,9 +89,9 @@ function time2str($ts)
 	<!-- Logo -->
 	<a href="#" class="logo">
 		<!-- mini logo for sidebar mini 50x50 pixels -->
-		<span class="logo-mini">CIIS</span>
+		<span class="logo-mini">CLARO</span>
 		<!-- logo for regular state and mobile devices -->
-		<span class="logo-lg" style="letter-spacing: -1px;">CIIS UNJBG</span>
+		<span class="logo-lg" style="letter-spacing: -1px;">Atención CLARO</span>
 	</a>
 
 	<!-- Header Navbar: style can be found in header.less -->
@@ -148,7 +146,7 @@ function time2str($ts)
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<?php
 						if (empty($datos[6])) {
-							echo '<img src="src/assets/image/fperfil/avatar1.png" class="user-image" alt="User Image">';
+							echo '<img src="' . FOLDER_PATH . '/src/assets/image/fperfil/avatar1.png" class="user-image" alt="User Image">';
 						} else {
 							echo '<img src="' . FOLDER_PATH . '/' . $datos[6] . '" class="user-image" alt="User Image">';
 						}
@@ -160,7 +158,7 @@ function time2str($ts)
 						<li class="user-header">
 							<?php
 							if (empty($datos[6])) {
-								echo '<img src="src/assets/image/fperfil/avatar1.png" class="img-circle" alt="User Image">';
+								echo '<img src="' . FOLDER_PATH . '/src/assets/image/fperfil/avatar1.png" class="img-circle" alt="User Image">';
 							} else {
 								echo '<img src="' . FOLDER_PATH . '/' . $datos[6] . '" class="img-circle" alt="User Image">';
 							}
@@ -199,8 +197,8 @@ function time2str($ts)
 		<div class="user-panel" style="padding-left: 7px;">
 			<div class="pull-left image" style="POSITION: relative; top: 6px;">
 				<?php
-				if ($datos[6] == '/2019/src/assets/media/image/') {
-					echo '<img src="/2019/src/assets/media/image/avatar-male3.png" class="img-circle" alt="User Image">';
+				if (empty($datos[6])) {
+					echo '<img src="' . FOLDER_PATH . '/src/assets/image/fperfil/avatar1.png" class="img-circle" alt="User Image">';
 				} else {
 					echo '<img src="' . FOLDER_PATH . '/' . $datos[6] . '" class="img-circle" alt="User Image">';
 				}
@@ -221,67 +219,18 @@ function time2str($ts)
 			<li class="header">NAVEGACIÓN PRINCIPAL</li>
 			<!-- <li class="active menu-open"> -->
 			<li>
-				<a href="<?= FOLDER_PATH . '/admin/topics' ?>">
+				<a href="<?= FOLDER_PATH . '/admin' ?>">
 					<i class="fa fa-tv"></i> <span>Principal</span>
 				</a>
 			</li>
-			<li class="treeview">
-				<a href="#">
-					<i class="fa fa-user-o"></i>
-					<span>pestaña</span>
-					<span class="pull-right-container">
-						<i class="fa fa-angle-left pull-right"></i>
-					</span>
-				</a>
-				<ul class="treeview-menu">
-					<li><a href="<?= FOLDER_PATH . '/admin/students' ?>"><i class="fa fa-circle-o"></i> pestaña</a></li>
-					<li><a href="<?= FOLDER_PATH . '/admin/professionals' ?>"><i class="fa fa-circle-o"></i> pestaña</a></li>
-					<li><a href="<?= FOLDER_PATH . '/admin/speakers' ?>"><i class="fa fa-circle-o"></i> pestaña</a></li>
-					<?php
-					/* if ($data['rol'] == "Super Administrador") {
-						echo "<li><a href=" . FOLDER_PATH . "/admin/organizers><i class=\"fa fa-circle-o\"></i> Organizadores</a></li>";
-					} */
-					?>
-					<li><a href="#"><i class="fa fa-circle-o"></i> pestaña</a></li>
-				</ul>
-			</li>
-			<li class="treeview">
-				<a href="#">
-					<i class="fa fa-file-text-o"></i>
-					<span>pestaña</span>
-					<span class="pull-right-container">
-						<i class="fa fa-angle-left pull-right"></i>
-					</span>
-				</a>
-				<ul class="treeview-menu">
-					<li><a href="<?= FOLDER_PATH . '/admin/inscriptions' ?>"><i class="fa fa-circle-o"></i> pestaña</a></li>
-					<li><a href="<?= FOLDER_PATH . '/admin/preinscriptions' ?>"><i class="fa fa-circle-o"></i> pestaña</a></li>
-					<li><a href="#"><i class="fa fa-circle-o"></i> pestaña</a></li>
-					<li><a href="#"><i class="fa fa-circle-o"></i> pestaña</a></li>
-				</ul>
-			</li>
-			<li class="treeview">
-				<a href="#">
-					<i class="fa fa-calendar-check-o"></i>
-					<span>pestaña</span>
-					<span class="pull-right-container">
-						<i class="fa fa-angle-left pull-right"></i>
-					</span>
-				</a>
-				<ul class="treeview-menu">
-					<li><a href="<?= FOLDER_PATH . '/admin/talks' ?>"><i class="fa fa-circle-o"></i> pestaña</a></li>
-					<li><a href="javascript:void(0);"><i class="fa fa-circle-o"></i> pestaña</a></li>
-					<li><a href="javascript:void(0);"><i class="fa fa-circle-o"></i> pestaña</a></li>
-				</ul>
-			</li>
 			<li>
-				<a href="<?= FOLDER_PATH . '/admin/topics' ?>">
-					<i class="fa fa-star"></i> <span>pestaña</span>
+				<a href="<?= FOLDER_PATH . '/admin/clientes' ?>">
+					<i class="fa fa-user-o"></i> <span>Clientes</span>
 				</a>
 			</li>
 			<li>
-				<a href="javascript:void(0);">
-					<i class="fa fa-diamond"></i> <span>pestaña</span>
+				<a href="<?= FOLDER_PATH . '/admin/register' ?>">
+					<i class="fa fa-file-o"></i> <span>Registro</span>
 				</a>
 			</li>
 			<?php
@@ -295,11 +244,6 @@ function time2str($ts)
 					  ";
 			} */
 			?>
-			<li>
-				<a href="<?= FOLDER_PATH . '/admin/user' ?>">
-					<i class="fa fa-user-o"></i> <span>Usuarios</span>
-				</a>
-			</li>
 		</ul>
 	</section>
 	<!-- /.sidebar -->

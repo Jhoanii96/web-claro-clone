@@ -1,3 +1,10 @@
+
+<?php 
+
+  $datos = $data['datos_usu']->fetch();
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -73,8 +80,29 @@
 
     <?php require(ROOT . '/' . PATH_VIEWS . 'navbar_table.php'); ?>
 
+    
+    <?php 
 
-    <?php require(ROOT . '/' . PATH_VIEWS . 'admin/principal/principal4View.php'); ?>
+      if ($datos[8] == 'Gerente') {
+
+        require(ROOT . '/' . PATH_VIEWS . 'admin/principal/principal1View.php'); 
+
+      } elseif ($datos[8] == 'Administrador') {
+        
+        require(ROOT . '/' . PATH_VIEWS . 'admin/principal/principal2View.php'); 
+
+      } elseif ($datos[8] == 'Supervisor') {
+        
+        require(ROOT . '/' . PATH_VIEWS . 'admin/principal/principal3View.php'); 
+
+      } elseif ($datos[8] == 'Ejecutivo') {
+        
+        require(ROOT . '/' . PATH_VIEWS . 'admin/principal/principal4View.php'); 
+
+      }
+      
+    
+    ?>
 
 
     <?php require(ROOT . '/' . PATH_VIEWS . 'aside_control.php'); ?>
