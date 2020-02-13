@@ -88,9 +88,9 @@
                                             </td>
                                             <td>
                                                 <div class="center_cell">
-                                                    <a style="color: #fff" href="' . FOLDER_PATH . '/atencion/hide/' . $code . '">
-                                                        <span class="ctrl_with btn_style">X (Ocultar)</span>
-                                                    </a>
+                                                    <button class="ctrl_with btn_style" id="data-hide-' . $row[0] . '" style="color: #fff" onclick="statusHide(' . $row[0] . ')">
+                                                        <span>X (Ocultar)</span>
+                                                    </button>
                                                 </div>
                                             </td>
                                         ';
@@ -100,6 +100,8 @@
                                 }
                                 ?>
                             </tbody>
+                            
+                            
                             <tfoot>
                                 <tr>
                                     <th>Nro</th>

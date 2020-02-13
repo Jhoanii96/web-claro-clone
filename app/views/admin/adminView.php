@@ -165,7 +165,6 @@
       $.ajax({
         beforeSend: function() {
           Pace.restart();
-          $("#data-status").prop("disabled", true);
         },
         url: "<?= FOLDER_PATH ?>/admin/attention/s_in",
         type: "POST",
@@ -173,10 +172,29 @@
         contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
 				processData: false, // NEEDED, DON'T OMIT THIS
         success: function(data) {
-          $("#data-status").prop("disabled", false);
-          setTimeout(function () {
-              location.href = "<?= FOLDER_PATH ?>/admin";
-          }, 100);
+          $("#jscrt").html(data);
+        }
+      })
+    }
+
+    function statusHide(codeStatus) {
+      var code = codeStatus;
+
+      var data = new FormData();
+
+      data.append("code", code);
+
+      $.ajax({
+        beforeSend: function() {
+          Pace.restart();
+        },
+        url: "<?= FOLDER_PATH ?>/admin/attention/hide",
+        type: "POST",
+        data: data,
+        contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+				processData: false, // NEEDED, DON'T OMIT THIS
+        success: function(data) {
+          $("#jscrt").html(data);
         }
       })
     }

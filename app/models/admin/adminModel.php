@@ -149,8 +149,15 @@ class adminModel extends Model
     public function actualizar_atencion($value, $code)
     {
         $query = "CALL `actualizar_atencion`($value, $code);";
-        $res = Model::query_execute($query);
-        return $res;
+        Model::query_execute($query);
     }
+
+    public function ocultar_atencion($code)
+    {
+        $query = "CALL `ocultar_atencion`($code);";
+        Model::query_execute($query);
+    }
+
+    
 
 }
