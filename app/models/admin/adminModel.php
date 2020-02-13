@@ -158,6 +158,13 @@ class adminModel extends Model
         Model::query_execute($query);
     }
 
-    
+    /* -------------------- CONSULTAS SUPERVISOR -------------------------- */
+
+    public function mostrar_tprincipal3($codusu)
+    {
+        $query = "CALL `tabla_principal3`('" . $codusu . "');";
+        $res = Model::query_execute($query);
+        return $res;
+    }
 
 }

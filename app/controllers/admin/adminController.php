@@ -5,8 +5,7 @@
     JHON ALVARADO ACHATA
     
     MODIFICACIONES Y COLABORACIONES:
-    LEANDRO ANDRÉ RAMOS VALDEZ
-    JOSUE ALDAIR MAMANI CARIAPAZA
+    RICHARD PONGO
 	
 */
 
@@ -36,21 +35,54 @@ class admin extends Controller
         $this->admin = $this->session->get('userClaro');
 
         $this->datos_usu = $this->model->datos_usuario($this->admin);
-        
+        $tipo_usu = $this->datos_usu->fetch();
+
         if ($actual_link == FOLDER_PATH . "/admin/" || $actual_link == FOLDER_PATH . "/admin") {
 
             $this->model2 = new adminModel();
+
+            if ($tipo_usu[8] == 'Gerente') {
+                $this->datos_usu = $this->model->datos_usuario($this->admin);
+                $this->mostrar_tprincipal1 = $this->model2->mostrar_tprincipal1($this->admin);
+                $this->view(
+                    'admin/admin',
+                    [
+                        'datos_usu' => $this->datos_usu,
+                        'mostrar_tprincipal1' => $this->mostrar_tprincipal1
+                    ]
+                );
+            } elseif ($tipo_usu[8] == 'Administrador') {
+                $this->datos_usu = $this->model->datos_usuario($this->admin);
+                $this->mostrar_tprincipal2 = $this->model2->mostrar_tprincipal2($this->admin);
+                $this->view(
+                    'admin/admin',
+                    [
+                        'datos_usu' => $this->datos_usu,
+                        'mostrar_tprincipal2' => $this->mostrar_tprincipal2
+                    ]
+                );
+            } elseif ($tipo_usu[8] == 'Supervisor') {
+                $this->datos_usu = $this->model->datos_usuario($this->admin);
+                $this->mostrar_tprincipal3 = $this->model2->mostrar_tprincipal3($this->admin);
+                $this->view(
+                    'admin/admin',
+                    [
+                        'datos_usu' => $this->datos_usu,
+                        'mostrar_tprincipal3' => $this->mostrar_tprincipal3
+                    ]
+                );
+            } elseif ($tipo_usu[8] == 'Ejecutivo') {
+                $this->datos_usu = $this->model->datos_usuario($this->admin);
+                $this->mostrar_tprincipal4 = $this->model2->mostrar_tprincipal4($this->admin);
+                $this->view(
+                    'admin/admin',
+                    [
+                        'datos_usu' => $this->datos_usu,
+                        'mostrar_tprincipal4' => $this->mostrar_tprincipal4
+                    ]
+                );
+            }
             
-            $this->mostrar_tprincipal4 = $this->model2->mostrar_tprincipal4($this->admin);
-
-            /* $this->BellNtf = $this->model2->BellNotifications(); */
-
-            $this->view(
-                'admin/admin', [
-                    'datos_usu' => $this->datos_usu, 
-                    'mostrar_tprincipal4' => $this->mostrar_tprincipal4
-                ]
-            );
         }
     }
 
@@ -78,7 +110,4 @@ class admin extends Controller
     {
         include(ROOT . FOLDER_PATH . '/app/controllers/admin/user.inc.php');
     }
-
-    
-    
 }

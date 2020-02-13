@@ -1,6 +1,7 @@
 
 <?php 
 
+  setlocale(LC_ALL, ".UTF-8", 'Spanish_Peru', 'Spanish');
   $datos = $data['datos_usu']->fetch();
 
 ?>
@@ -68,6 +69,19 @@
     .btn_style:focus {
       outline: none;
     }
+
+    @media (min-width: 992px) {
+      .modal-lg, .modal-xl {
+          max-width: 800px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .modal-xl {
+          max-width: 1140px;
+      }
+    }
+
   </style>
 
   <script src="<?= FOLDER_PATH ?>/src/js/push.min.js"></script>
