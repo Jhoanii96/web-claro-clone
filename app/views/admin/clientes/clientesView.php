@@ -189,10 +189,10 @@ $datos = $data['datos_usu']->fetch();
 														<th>Nro</th>
 														<th>Nombre</th>
 														<th>Apellido</th>
-														<th>Oficina</th>
+														<th>DNI</th>
 														<th>Celular</th>
-														<th>Tipo usuario</th>
-														<th>IP Address</th>
+														<th>Región</th>
+														<th>Provincia</th>
 														<th>Acciones</th>
 													</tr>
 												</thead>
@@ -200,39 +200,38 @@ $datos = $data['datos_usu']->fetch();
 
 													<?php
 
+													while ($row = $data['table_cliente']->fetch()) {
+														
+														$code = $row[0] . '|' . $row[2];
+														$code = base64_encode(utf8_encode($code));
 
-													/* while ($rowAdmin = $data['tadministrador']->fetch()) {
-														if ($rowAdmin['ip'] != NULL || $rowAdmin['ip'] != "") {
-															$ip = $rowAdmin['ip'];
-														} else {
-															$ip = '0.0.0.0';
-														}
 														echo '
-													<tr id="data-a_' . $rowAdmin['id'] . '">
-														<td>' . $rowAdmin['id'] . '</td> 
-														<td>' . $rowAdmin['nombre'] . '</td>
-														<td>' . $rowAdmin['apellido'] . '</td>
-														<td>' . $rowAdmin['oficina'] . '<br>' . $rowAdmin['unidad'] . '</td>
-														<td>' . $rowAdmin['celular'] . '</td>
-														<td id="iduser" data-iden-id="' . $rowAdmin['id_tipo'] . '">' . $rowAdmin['nombre_tipo'] . '</td>
-														<td>' . $ip . '</td>
-														<td style="display: flex;">
-															<a href="' . FOLDER_PATH . '/administrador/edit/' . $rowAdmin['id'] . '" title="Editar" style="margin-right: 7px;">
-																<button id="btn-edit" type="button" data-value="' . $rowAdmin['id'] . '" class="btn btn-block btn-success">
-																	<span class="fa fa-pencil"></span>
-																</button>
-															</a>
-															<form method="post">
-																<input style="display: none" name="admi" value="' . $rowAdmin['id'] . '">
-																<button id="btndlt-' . $rowAdmin['id'] . '" type="button" title="Eliminar" class="btn btn-block btn-danger" onclick="deleteAdm(' . $rowAdmin['id'] . ')">
-																	<span class="fa fa-times"></span>
-																</button>
-															</form>
-															<div id="spinner-dlt-' . $rowAdmin['id'] . '"></div>
-														</td>
-													</tr>
-													';
-													} */
+															<tr id="data-a_' . $row[0] . '">
+																<td>' . $row[0] . '</td> 
+																<td>' . $row[3] . '</td>
+																<td>' . $row[4] . '</td>
+																<td>' . $row[1] . '</td>
+																<td>' . $row[2] . '</td>
+																<td>' . $row[6] . '</td>
+																<td>' . $row[7] . '</td>
+																<td style="display: flex;">
+																	<a href="' . FOLDER_PATH . '/admin/clientes/edit/' . $code . '" title="Editar" style="margin-right: 5px;">
+																		<button id="btn-edit" type="button" data-value="' . $row[0] . '" class="btn btn-block btn-success" style="padding: 3px 10px;font-size: 12px;">
+																			<span class="fa fa-pencil"></span>
+																		</button>
+																	</a>
+																	<form method="post">
+																		<input style="display: none" name="admi" value="' . $row[0] . '">
+																		<button id="btndlt-' . $row[0] . '" type="button" title="Eliminar" class="btn btn-block btn-danger"  style="padding: 3px 10px;font-size: 12px;" onclick="deleteAdm(' . $row[0] . ')">
+																			<span class="fa fa-times"></span>
+																		</button>
+																	</form>
+																	<div id="spinner-dlt-' . $row[0] . '"></div>
+																</td>
+															</tr>
+														';
+
+													}
 													?>
 												</tbody>
 												<tfoot>
@@ -240,10 +239,10 @@ $datos = $data['datos_usu']->fetch();
 														<th>Nro</th>
 														<th>Nombre</th>
 														<th>Apellido</th>
-														<th>Oficina</th>
+														<th>DNI</th>
 														<th>Celular</th>
-														<th>Tipo usuario</th>
-														<th>IP Address</th>
+														<th>Región</th>
+														<th>Provincia</th>
 														<th>Acciones</th>
 													</tr>
 												</tfoot>
@@ -366,7 +365,7 @@ $datos = $data['datos_usu']->fetch();
 	<!-- EVENTO SELECT STATUS -->
 	<script type="text/javascript">
 		$('#cliadd').on('click', function() {
-			var idv = <?php echo $id; ?>;
+			var idv = <?= $datos[0] ?>;
 			var dni = $('#dni').val();
 			var phn = $('#phone').val();
 			var fnm = $('#firstName').val();

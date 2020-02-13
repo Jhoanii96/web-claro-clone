@@ -19,16 +19,16 @@ class adminModel extends Model
 
 
     /* ----  ---- */
-    
-    public function datos_usuario($data) {
+
+    public function datos_usuario($data)
+    {
 
         $query = "CALL `datos_usuario`('" . $data . "');";
         $res = Model::query_execute($query);
         return $res;
-
     }
 
-    
+
 
     /* -------------------- CONSULTAS DE USUARIOS -------------------------- */
 
@@ -99,6 +99,28 @@ class adminModel extends Model
         return $res;
     }
 
+    public function mostrar_tcliente()
+    {
+        $query = "CALL `tabla_clientes`();";
+        $res = Model::query_execute($query);
+        return $res;
+    }
+
+    public function save_cliente(Cliente $data)
+    {
+        $query = "CALL `insertar_cliente`(
+            '" . $data->getDni() . "', 
+            '" . $data->getCelular() . "', 
+            '" . $data->getFirstName() . "', 
+            '" . $data->getLastName() . "', 
+            '" . $data->getDireccion() . "', 
+            '" . $data->getRegion() . "', 
+            '" . $data->getProvincia() . "', 
+            '" . $data->getDistrito() . "');
+        ";
+        Model::query_execute($query);
+    }
+
     public function update_cliente(Cliente $data)
     {
         $query = "CALL `actualizar_cliente`(
@@ -121,6 +143,14 @@ class adminModel extends Model
         $res = Model::query_execute($query);
         return $res;
     }
+    
+    /* -------------------- CONSULTAS ATENCIÓN -------------------------- */
 
+    public function actualizar_atencion($value, $code)
+    {
+        $query = "CALL `actualizar_atencion`($value, $code);";
+        $res = Model::query_execute($query);
+        return $res;
+    }
 
 }

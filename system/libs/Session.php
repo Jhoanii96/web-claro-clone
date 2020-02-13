@@ -31,8 +31,13 @@ class Session
 	}
 	public function getAll()
 	{
-		session_start();
-		return $_SESSION;
+		if (session_status() == PHP_SESSION_NONE) {
+			session_start();
+			return $_SESSION;
+		} else {
+			return $_SESSION;
+		}
+		
 	}
 
 	public function getStatus()

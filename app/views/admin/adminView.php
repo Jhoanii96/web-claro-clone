@@ -70,7 +70,7 @@
     }
   </style>
 
-
+  <script src="<?= FOLDER_PATH ?>/src/js/push.min.js"></script>
 </head>
 
 
@@ -109,7 +109,7 @@
 
   </div>
   <!-- ./wrapper -->
-
+  
   <!-- jQuery 3 -->
   <script src="<?= FOLDER_PATH ?>/src/js/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
@@ -134,55 +134,7 @@
   <script src="<?= FOLDER_PATH ?>/src/js/Chart.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="<?= FOLDER_PATH ?>/src/js/demo.js"></script>
-  <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
-
-
-  <script src="<?= FOLDER_PATH ?>/src/js/push.min.js"></script>
-
-
-  <!-- <script>
-    Pusher.logToConsole = true;
-    var pusher = new Pusher('b2fe8e2fa5b2da11752d', {
-      cluster: 'mt1',
-      forceTLS: true
-    });
-    var channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function(data) {
-      if (data.admin == 'new_user') {
-        $.ajax({
-          url: "<?= FOLDER_PATH ?>/notify/notifications",
-          success: function(result) {
-            $("#notifications").html(result);
-          }
-        });
-        $.ajax({
-          url: "<?= FOLDER_PATH ?>/notify/asistentes",
-          success: function(result) {
-            $("#nusers").html(result);
-          }
-        });
-
-        Push.create("CIIS Tacna notificaciones", {
-          body: data.name,
-          icon: "https://scontent.faqp2-1.fna.fbcdn.net/v/t1.0-9/49213040_2150474188378498_2669784385959493632_n.png?_nc_cat=110&_nc_oc=AQkMB69MW-LlEG_rEIHNBx-4S5yJhoOHjOZgrP5-GUiLGHr3rXK2xHldapz4HnQW6L8&_nc_ht=scontent.faqp2-1.fna&oh=c189ef56bad43f5150a4aad80b861546&oe=5E2A1AE9",
-          timeout: 60000,
-          onClick: function() {
-            window.open('<?= FOLDER_PATH ?>/admin', '_blank');
-            this.close();
-          }
-        });
-
-        var audio = new Audio('<?= FOLDER_PATH ?>/src/assets/media/sound/notification.mp3');
-        var promise = audio.play();
-        if (promise) {
-          promise.catch(function(error) {
-            console.error(error);
-          });
-        }
-      }
-    });
-  </script> -->
-
+  
   <script>
     $(function() {
       $('#example1').DataTable({
@@ -215,13 +167,16 @@
           Pace.restart();
           $("#data-status").prop("disabled", true);
         },
-        url: "<?= FOLDER_PATH ?>/admin/",
+        url: "<?= FOLDER_PATH ?>/admin/attention/s_in",
         type: "POST",
         data: data,
         contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
 				processData: false, // NEEDED, DON'T OMIT THIS
         success: function(data) {
           $("#data-status").prop("disabled", false);
+          setTimeout(function () {
+              location.href = "<?= FOLDER_PATH ?>/admin";
+          }, 100);
         }
       })
     }

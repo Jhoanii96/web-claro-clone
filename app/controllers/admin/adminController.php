@@ -19,6 +19,7 @@ class admin extends Controller
     public $model;
     public $session;
     public $datos_usu;
+    public $admin;
 
     public function __construct()
     {
@@ -57,7 +58,14 @@ class admin extends Controller
     {
     }
 
-    /* ------------------------------- PRE-INSCRIPCIONES ------------------------------ */
+    /* ------------------------------------ ATENCION ----------------------------------- */
+
+    public function attention($link = '', $dato = '')
+    {
+        include(ROOT . FOLDER_PATH . '/app/controllers/admin/attention.inc.php');
+    }
+
+    /* ------------------------------------ CLIENTES ----------------------------------- */
 
     public function clientes($link = '', $dato = '')
     {

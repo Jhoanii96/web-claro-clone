@@ -42,26 +42,61 @@
                                     $code = $row[0] . '|' . $row[2];
                                     $code = base64_encode(utf8_encode($code));
 
-                                    echo '
+                                    if($row[7] == '1') {
+                                        echo '
                                         <tr>
                                             <td>' . $row[0] . '</td>	
                                             <td>' . $row[1] . '</td>
                                             <td>' . $row[2] . '</td>
                                             <td>' . $row[3] . '</td>
-                                            <td class="center_cell">
-                                                <a style="color: #fff" href="' . FOLDER_PATH . '/admin/clientes/edit/' . $code . '">
-                                                    <span class="ctrl_with btn_style">Editar</span>
-                                                </a>
+                                            <td>
+                                                <div class="center_cell">
+                                                    <a style="color: #fff" href="' . FOLDER_PATH . '/admin/clientes/edit/' . $code . '">
+                                                        <span class="ctrl_with btn_style">Editar</span>
+                                                    </a>
+                                                </div>
                                             </td>
-                                            <td class="center_cell">
-                                                <select name="status" id="data-status-' . $row[0] . '" class="ctrl_with btn_style" onchange="selectStatus(' . $row[0] . ')">
-                                                    <option value="Pendiente">Pendiente</option>
-                                                    <option value="Vendido">Vendido</option>
-                                                    <option value="Caído">Caído</option>
-                                                </select>
+                                            <td>
+                                                <div class="center_cell">
+                                                    <select name="status" id="data-status-' . $row[0] . '" class="ctrl_with btn_style" onchange="selectStatus(' . $row[0] . ')">
+                                                    ';
+
+                                                    if ($row[6] == '1') {
+                                                        echo '
+                                                        <option value="1" selected>Pendiente</option>
+                                                        <option value="2">Vendido</option>
+                                                        <option value="3">Caído</option>
+                                                        ';
+                                                    } elseif ($row[6] == '2') {
+                                                        echo '
+                                                        <option value="1">Pendiente</option>
+                                                        <option value="2" selected>Vendido</option>
+                                                        <option value="3">Caído</option>
+                                                        ';
+                                                    } elseif ($row[6] == '3') {
+                                                        echo '
+                                                        <option value="1">Pendiente</option>
+                                                        <option value="2">Vendido</option>
+                                                        <option value="3" selected>Caído</option>
+                                                        ';
+                                                    }
+
+
+                                                    echo '
+                                                    </select>
+                                                </div>
                                             </td>
-                                            <td class="center_cell"><a style="color: #fff" href="' . FOLDER_PATH . '/atencion/hide/' . $code . '"><span class="ctrl_with btn_style">X (Ocultar)</span></a>
+                                            <td>
+                                                <div class="center_cell">
+                                                    <a style="color: #fff" href="' . FOLDER_PATH . '/atencion/hide/' . $code . '">
+                                                        <span class="ctrl_with btn_style">X (Ocultar)</span>
+                                                    </a>
+                                                </div>
+                                            </td>
                                         ';
+                                    }
+
+                                    
                                 }
                                 ?>
                             </tbody>
@@ -95,3 +130,39 @@
 </div>
 <!-- /.content-wrapper -->
 
+<div id="jscrt"></div>
+<script src="https://js.pusher.com/5.1/pusher.min.js"></script>
+<script>
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('5f03dcb0303409e74fd6', {
+        cluster: 'mt1',
+        forceTLS: true
+    });
+
+    var channel = pusher.subscribe('ejecutivo');
+    channel.bind('principal', function(data) {
+        if (data.prinl == 'prl4') {
+            if (data.ect == <?= '\'' . $this->admin . '\'' ?>) {
+                $.ajax({
+                    beforeSend: function() {
+                        Pace.restart();
+                    },
+                    url: "<?= FOLDER_PATH ?>/admin/attention/list",
+                    success: function(result) {
+                        $("#jscrt").html(result);
+                    }
+                });
+            }
+            
+            /* var audio = new Audio('<?= FOLDER_PATH ?>/src/assets/media/sound/notification.mp3');
+            var promise = audio.play();
+            if (promise) {
+                promise.catch(function(error) {
+                    console.error(error);
+                });
+            } */
+        }
+    });
+</script>

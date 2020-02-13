@@ -1,3 +1,11 @@
+## 4.1.1 (2019-12-03)
+
+[ADDED] Support for PHP 7.4.
+
+## 4.1.0 (2019-10-28)
+
+[ADDED] `path` configuration option.
+
 ## 4.0.0 (2019-06-17)
 
 [REMOVED] Support for PHP 5.x, PHP 7.0 and HHVM.

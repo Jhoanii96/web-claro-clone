@@ -7,8 +7,6 @@
 */
 
 
-$this->dataPerfil = new dataAdmin();
-
 if ($link == '') {
 
     # editamos organizador segun el dato que pase como parámetro
@@ -35,17 +33,7 @@ if ($link == '') {
 
         if ($textimage == NULL || $textimage == '') {
 
-            $encapsuPerfil = new perfil(
-                $firstName,
-                $lastName,
-                $dni,
-                $contact_point,
-                $correo,
-                '',
-                $code,
-                $password,
-                $rol
-            );
+            
 
             $this->dataPerfil->actualizarPerfilWi($encapsuPerfil, $numOrg);
         } else {
@@ -59,17 +47,7 @@ if ($link == '') {
             move_uploaded_file($file_tmp, $imagen_destino . $file_name);
             $imagen_bd = '/2019/src/assets/media/image/' . $file_name;
 
-            $encapsuPerfil = new perfil(
-                $firstName,
-                $lastName,
-                $dni,
-                $contact_point,
-                $correo,
-                $imagen_bd,
-                $code,
-                $password,
-                $rol
-            );
+            
 
             $this->dataPerfil->actualizarPerfil($encapsuPerfil, $numOrg);
         }

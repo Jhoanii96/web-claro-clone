@@ -8,6 +8,7 @@
 
 require ROOT . FOLDER_PATH . "/app/models/cltm/cltmModel.php";
 require ROOT . FOLDER_PATH . "/app/.paket/simple_html_dom.php";
+require ROOT . FOLDER_PATH . '/vendor/autoload.php';
 
 class cltm extends Controller
 {
@@ -15,6 +16,17 @@ class cltm extends Controller
 
     public function index()
     {
+        
+        $options = array(
+            'cluster' => 'mt1',
+            'useTLS' => true
+        );
+        $pusher = new Pusher\Pusher(
+            '5f03dcb0303409e74fd6',
+            '409189b3558e85699c89',
+            '947052',
+            $options
+        );
 
         if (isset($_GET['page'])) {
             $num_flang = $_GET['page'];
@@ -102,6 +114,15 @@ class cltm extends Controller
         /* $this->model->registrar_cliente($data_dni, $data_num, $data_name, $data_apellido_p, $data_apellido_m); */
         $this->model->registrar_cliente($data_dni, $data_num);
 
+        $this->ejecutivo = $this->model->obtener_ejecutivo_cliente($data_dni, $data_num);
+        $data_ejecutivo = $this->ejecutivo->fetch();
+
+        /* --- Pusher --- */
+        $data['prinl'] = 'prl4';
+        $data['ect'] = $data_ejecutivo[0];
+        $pusher->trigger('ejecutivo', 'principal', $data);
+        /* - End Pusher - */
+        
         $this->message = 'Gracias por su confianza, en instantes nuestro asistente le atenderá gratamente.';
 
         $this->view('home/home' . $num_flang, [

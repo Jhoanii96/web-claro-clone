@@ -17,4 +17,12 @@ class cltmModel extends Model
 
     }
 
+    public function obtener_ejecutivo_cliente($data_dni, $data_num) {
+
+        $query = "CALL `obtener_ejecutivo_cliente`('" . $data_dni . "', '" . $data_num . "');";
+        $res = Model::query_execute($query);
+        return $res;
+
+    }
+
 }

@@ -181,29 +181,29 @@
     },
     {
         "name": "pusher/pusher-php-server",
-        "version": "v4.0.0",
-        "version_normalized": "4.0.0.0",
+        "version": "v4.1.1",
+        "version_normalized": "4.1.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/pusher/pusher-http-php.git",
-            "reference": "43540be9536469f8eaec95a347d3f7532bac852c"
+            "reference": "3c05ef64839845b6114396ff8406712cba052750"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/pusher/pusher-http-php/zipball/43540be9536469f8eaec95a347d3f7532bac852c",
-            "reference": "43540be9536469f8eaec95a347d3f7532bac852c",
+            "url": "https://api.github.com/repos/pusher/pusher-http-php/zipball/3c05ef64839845b6114396ff8406712cba052750",
+            "reference": "3c05ef64839845b6114396ff8406712cba052750",
             "shasum": ""
         },
         "require": {
             "ext-curl": "*",
             "paragonie/sodium_compat": "^1.6",
-            "php": ">=7.1 <7.4",
+            "php": "^7.1",
             "psr/log": "^1.0"
         },
         "require-dev": {
             "phpunit/phpunit": "^7.2"
         },
-        "time": "2019-06-25T09:22:44+00:00",
+        "time": "2019-12-03T13:29:13+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
