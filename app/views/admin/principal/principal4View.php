@@ -134,6 +134,7 @@
 
 <div id="jscrt"></div>
 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
+<script src="<?= FOLDER_PATH ?>/src/js/push.min.js"></script>
 <script>
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
@@ -156,15 +157,24 @@
                         $("#jscrt").html(result);
                     }
                 });
-            }
-            
-            /* var audio = new Audio('<?= FOLDER_PATH ?>/src/assets/media/sound/notification.mp3');
-            var promise = audio.play();
-            if (promise) {
-                promise.catch(function(error) {
-                    console.error(error);
+                Push.create("EL DORADO Notifications", {
+                    body: data.msg,
+                    icon: "<?= FOLDER_PATH ?>/src/assets/image/logo_notificacion2.png",
+                    timeout: 30000,
+                    onClick: function() {
+                        window.open('<?= FOLDER_PATH ?>/admin/', '_blank');
+                        this.close();
+                    }
                 });
-            } */
+                
+                var audio = new Audio('<?= FOLDER_PATH ?>/src/assets/sound/notification.mp3');
+                var promise = audio.play();
+                if (promise) {
+                    promise.catch(function(error) {
+                        console.error(error);
+                    });
+                }
+            }
         }
     });
 </script>

@@ -166,5 +166,12 @@ class adminModel extends Model
         $res = Model::query_execute($query);
         return $res;
     }
+    
+    public function mostrar_datencion($codusu)
+    {
+        $query = "CALL `datos_atencion`('" . $codusu . "');";
+        $res = Model::query_execute($query);
+        return $res;
+    }
 
 }

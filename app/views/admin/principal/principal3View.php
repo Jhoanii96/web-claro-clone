@@ -17,7 +17,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Tabla de ejecutivos</h3>
+                        <h3 class="box-title">Tabla de supervisor</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -61,7 +61,7 @@
                                             <td>' . $estado . '</td>
                                             <td>
                                                 <div class="center_cell">
-                                                    <button class="ctrl_with btn_style" style="color: #fff" data-toggle="modal" data-target="#exampleModal">
+                                                    <button class="ctrl_with btn_style" style="color: #fff" data-toggle="modal" data-target="#info-' . $row[0] . '">
                                                         <span>Detalle</span>
                                                     </button>
                                                 </div>
@@ -108,60 +108,94 @@
 
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div id="modals"></div>
+<?php
+while ($row = $data['mostrar_datencion']->fetch()) {
+
+if ($row[6] == '1') {
+    $estado = 'Pendiente';
+} elseif ($row[6] == '2') {
+    $estado = 'Vendido';
+} elseif ($row[6] == '3') {
+    $estado = 'Caído';
+}
+
+
+
+echo '
+<div class="modal fade" id="info-' . $row[0] . '" tabindex="-1" role="dialog" aria-labelledby="info_label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" style="display: inline-block;">Datos completo del cliente: ' . $row[1] . ' ' . $row[2] . '</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="display: inline-block;">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form autocomplete="false" novalidate>
+                    
+                    <input style="display:none" type="password" name="fakepasswordremembered" />
+                    <input type="text" style="display: none" class="form-control" id="id" name="id" value="">
+
                     <div class="box-body">
 
                         <div class="col-md-6">
 
-                            <input style="display:none" type="password" name="fakepasswordremembered" />
-                            <input type="text" style="display: none" class="form-control" id="id" name="id" value="">
+                            
 
                             <div class="form-group">
-                                <label>DNI</label>
-                                <input type="text" class="form-control" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" value="" name="dni" id="dni" maxlength="8" disabled>
-                            </div>
-                            <div class="form-group">
-                                <label>Celular</label>
-                                <input type="text" class="form-control" pattern="[0-9 ]+" name="cellphone" value="" id="phone" maxlength="15" disabled>
-                            </div>
-                            <div class="form-group">
                                 <label>Nombres</label>
-                                <input type="text" class="form-control" pattern="[A-Za-zÁÉÍÓÚñÑ ]+" style="text-transform: uppercase" value="" name="firstName" id="firstName">
+                                <input type="text" class="form-control" pattern="[A-Za-zÁÉÍÓÚñÑ ]+" style="text-transform: uppercase" value="' . $row[1] . '">
                             </div>
                             <div class="form-group">
                                 <label>Apellidos</label>
-                                <input type="text" class="form-control" pattern="[A-Za-zÁÉÍÓÚñÑ ]+" style="text-transform: uppercase" value="" name="lastName" id="lastName">
+                                <input type="text" class="form-control" pattern="[A-Za-zÁÉÍÓÚñÑ ]+" style="text-transform: uppercase" value="' . $row[2] . '">
+                            </div>
+                            <div class="form-group">
+                                <label>DNI</label>
+                                <input type="text" class="form-control" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" value="' . $row[3] . '" maxlength="8">
+                            </div>
+                            <div class="form-group">
+                                <label>Celular</label>
+                                <input type="text" class="form-control" pattern="[0-9 ]+" value="' . $row[4] . '" maxlength="15">
+                            </div>
+                            <div class="form-group">
+                                <label>Dirección</label>
+                                <input type="text" class="form-control" value="' . $row[5] . '">
+                            </div>
+                            <div class="form-group">
+                                <label>Región</label>
+                                <input type="text" class="form-control" value="' . $row[6] . '">
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Dirección</label>
-                                <input type="text" class="form-control" value="" name="address" id="address">
-                            </div>
-                            <div class="form-group">
-                                <label>Región</label>
-                                <input type="text" class="form-control" name="region" value="" id="region">
-                            </div>
+                            
                             <div class="form-group">
                                 <label>Provincia</label>
-                                <input type="text" class="form-control" name="prov" value="" id="prov">
+                                <input type="text" class="form-control" value="' . $row[7] . '">
                             </div>
                             <div class="form-group">
                                 <label>Distrito</label>
-                                <input type="text" class="form-control" name="dist" value="" id="dist">
+                                <input type="text" class="form-control" value="' . $row[8] . '">
                             </div>
-
+                            <div class="form-group">
+                                <label>Usuario ejecutivo</label>
+                                <input type="text" class="form-control" value="' . $row[9] . '">
+                            </div>
+                            <div class="form-group">
+                                <label>Fecha registro del cliente</label>
+                                <input type="text" class="form-control" value="' . $row[10] . '">
+                            </div>
+                            <div class="form-group">
+                                <label>Fecha atención del ejecutivo</label>
+                                <input type="text" class="form-control" value="' . $row[11] . '">
+                            </div>
+                            <div class="form-group">
+                                <label>Estado</label>
+                                <input type="text" class="form-control" value="' . $estado . '">
+                            </div>
 
                         </div>
 
@@ -175,4 +209,63 @@
             </div>
         </div>
     </div>
-</div>
+</div>';
+}
+
+
+?>
+
+
+
+
+
+
+
+
+
+<div id="jscrt"></div>
+<script src="https://js.pusher.com/5.1/pusher.min.js"></script>
+<script>
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('5f03dcb0303409e74fd6', {
+        cluster: 'mt1',
+        forceTLS: true
+    });
+
+    var channel = pusher.subscribe('supervisor');
+    channel.bind('principal', function(data) {
+        if (data.supr == 'prl3') {
+            if (data.ect == <?= '\'' . $this->admin . '\'' ?>) {
+                $.ajax({
+                    beforeSend: function() {
+                        Pace.restart();
+                    },
+                    url: "<?= FOLDER_PATH ?>/admin/supervisor/change",
+                    success: function(result) {
+                        $("#jscrt").html(result);
+                    }
+                });
+
+                $.ajax({
+                    beforeSend: function() {
+                        Pace.restart();
+                    },
+                    url: "<?= FOLDER_PATH ?>/admin/supervisor/modals",
+                    success: function(result) {
+                        $("#modals").html(result);
+                    }
+                });
+                
+                var audio = new Audio('<?= FOLDER_PATH ?>/src/assets/sound/notification2.mp3');
+                var promise = audio.play();
+                if (promise) {
+                    promise.catch(function(error) {
+                        console.error(error);
+                    });
+                }
+            }
+        }
+    });
+</script>

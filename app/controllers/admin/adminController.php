@@ -64,11 +64,13 @@ class admin extends Controller
             } elseif ($tipo_usu[8] == 'Supervisor') {
                 $this->datos_usu = $this->model->datos_usuario($this->admin);
                 $this->mostrar_tprincipal3 = $this->model2->mostrar_tprincipal3($this->admin);
+                $this->mostrar_datencion = $this->model2->mostrar_datencion($this->admin);
                 $this->view(
                     'admin/admin',
                     [
                         'datos_usu' => $this->datos_usu,
-                        'mostrar_tprincipal3' => $this->mostrar_tprincipal3
+                        'mostrar_tprincipal3' => $this->mostrar_tprincipal3, 
+                        'mostrar_datencion' => $this->mostrar_datencion
                     ]
                 );
             } elseif ($tipo_usu[8] == 'Ejecutivo') {

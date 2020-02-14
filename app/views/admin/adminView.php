@@ -81,7 +81,10 @@
           max-width: 1140px;
       }
     }
-
+    .modal-backdrop {
+        background-color: rgba(255, 255, 255, 1);
+        filter: blur(10px);
+    }
   </style>
 
   <script src="<?= FOLDER_PATH ?>/src/js/push.min.js"></script>

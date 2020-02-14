@@ -9,6 +9,19 @@
 if ($link == '') {
 } elseif ($link == 's_in') {
 
+    require ROOT . FOLDER_PATH . '/vendor/autoload.php';
+
+    $options = array(
+        'cluster' => 'mt1',
+        'useTLS' => true
+    );
+    $pusher = new Pusher\Pusher(
+        '5f03dcb0303409e74fd6',
+        '409189b3558e85699c89',
+        '947052',
+        $options
+    );
+
     $value = $_POST['novl'];
     $code = $_POST['code'];
 
@@ -79,6 +92,13 @@ if ($link == '') {
 
     echo '</script>';
 
+    /* --- Pusher --- */
+    $data['prinl'] = 'prl3';
+    $data['supr'] = $this->admin;
+    $pusher->trigger('supervisor', 'principal', $data);
+    /* - End Pusher - */
+
+
 } elseif ($link == 'list') {
 
     $this->session = new Session;
@@ -146,6 +166,19 @@ if ($link == '') {
 
 
 } elseif ($link == 'hide') {
+
+    require ROOT . FOLDER_PATH . '/vendor/autoload.php';
+
+    $options = array(
+        'cluster' => 'mt1',
+        'useTLS' => true
+    );
+    $pusher = new Pusher\Pusher(
+        '5f03dcb0303409e74fd6',
+        '409189b3558e85699c89',
+        '947052',
+        $options
+    );
 
     $code = $_POST['code'];
 
@@ -215,5 +248,12 @@ if ($link == '') {
     }
 
     echo '</script>';
+
+    /* --- Pusher --- */
+    $data['prinl'] = 'prl3';
+    $data['supr'] = $this->admin;
+    $pusher->trigger('supervisor', 'principal', $data);
+    /* - End Pusher - */
+    
 
 }

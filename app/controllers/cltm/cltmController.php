@@ -120,6 +120,7 @@ class cltm extends Controller
         /* --- Pusher --- */
         $data['prinl'] = 'prl4';
         $data['ect'] = $data_ejecutivo[0];
+        $data['msg'] = 'Se ha registrado un nuevo cliente con el número: ' . $data_num;
         $pusher->trigger('ejecutivo', 'principal', $data);
         /* - End Pusher - */
         
