@@ -223,16 +223,34 @@ function time2str($ts)
 					<i class="fa fa-tv"></i> <span>Principal</span>
 				</a>
 			</li>
-			<li>
-				<a href="<?= FOLDER_PATH . '/admin/clientes' ?>">
-					<i class="fa fa-user-o"></i> <span>Clientes</span>
+			<li class="treeview">
+				<a href="#">
+					<i class="fa fa-file-o"></i>
+					<span>Registro</span>
+					<span class="pull-right-container">
+						<i class="fa fa-angle-left pull-right"></i>
+					</span>
 				</a>
+				<ul class="treeview-menu">
+					<li><a href="javascript:;"><i class="fa fa-circle-o"></i> Atenciones</a></li>
+					<li><a href="<?= FOLDER_PATH . '/admin/clientes' ?>"><i class="fa fa-circle-o"></i> Clientes</a></li>
+				</ul>
 			</li>
-			<li>
-				<a href="<?= FOLDER_PATH . '/admin/register' ?>">
-					<i class="fa fa-file-o"></i> <span>Registro</span>
-				</a>
-			</li>
+			<?php 
+			
+				if ($datos[8] == 'Gerente') {
+					echo '
+					
+						<li>
+							<a href="' . FOLDER_PATH . '/admin/user">
+								<i class="fa fa-user-o"></i> <span>Usuarios</span>
+							</a>
+						</li>
+					
+					';
+				}
+			?>
+			
 			<?php
 			/* if ($data['rol'] == "Super Administrador") {
 				echo "

@@ -55,16 +55,11 @@ if ($link == '') {
         sleep(1);
         echo ("<script>location.href = '" . FOLDER_PATH . "/admin/perfil';</script>");
     } else {
-        $this->model2 = new adminModel();
-        $this->BellNtf = $this->model2->BellNotifications();
-        $this->datos_perfil = $this->dataPerfil->mostrarEditarPerfil($this->session->get('usuarioCIIS'));
-        $this->AdminView('admin/perfil/perfil', [
-            'nombre'    => $this->datos_org['nombre'],
-            'apellido'  => $this->datos_org['apellido'],
-            'rol'       => $this->datos_org['rol'],
-            'fotoUsu'   => $this->datos_org['fotoUsu'],
-            'BellNtf' => $this->BellNtf, 
-            'datos_perfil' => $this->datos_perfil
+        $this->datos_usu = $this->model->datos_usuario($this->admin);
+        $this->datos_perfil = $this->model->mostrar_perfil($this->admin);
+        $this->AdminView('admin/perfil/perfil', [ 
+            'datos_usu' => $this->datos_usu, 
+            'datos_perfil' => $this->datos_perfil 
         ]);
     }
 }

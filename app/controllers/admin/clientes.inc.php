@@ -8,6 +8,7 @@
 
 if ($link == '') {
 
+    $this->datos_usu = $this->model->datos_usuario($this->admin);
     $this->table_cliente = $this->model->mostrar_tcliente();
 
     $this->AdminView('admin/clientes/clientes', [
@@ -80,6 +81,7 @@ if ($link == '') {
 
         $dato = explode('|', base64_decode(utf8_encode($dato)));
 
+        $this->datos_usu = $this->model->datos_usuario($this->admin);
         $this->datos_cliente = $this->model->mostrar_datos_cliente($dato[0]);
 
         $this->AdminView('admin/clientes/editar/editar', [

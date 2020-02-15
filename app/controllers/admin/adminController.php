@@ -69,7 +69,7 @@ class admin extends Controller
                     'admin/admin',
                     [
                         'datos_usu' => $this->datos_usu,
-                        'mostrar_tprincipal3' => $this->mostrar_tprincipal3, 
+                        'mostrar_tprincipal3' => $this->mostrar_tprincipal3,
                         'mostrar_datencion' => $this->mostrar_datencion
                     ]
                 );
@@ -84,12 +84,18 @@ class admin extends Controller
                     ]
                 );
             }
-            
         }
     }
 
     public function index()
     {
+    }
+
+    /* --------------------------------- PERFIL --------------------------------- */
+
+    public function perfil($link = '', $dato = '')
+    {
+        include(ROOT . FOLDER_PATH . '/app/controllers/admin/perfil.inc.php');
     }
 
     public function supervisor($link = '', $dato = '')

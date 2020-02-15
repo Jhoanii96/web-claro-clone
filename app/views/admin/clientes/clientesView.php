@@ -73,7 +73,28 @@ $datos = $data['datos_usu']->fetch();
 			margin-left: 0px;
 		}
 	</style>
+	<style>
+		#fade>div.swal2-container.swal2-center.swal2-fade.swal2-shown>div {
+			border-radius: 0%;
+		}
 
+		#swal2-content {
+			font-size: 14px;
+		}
+
+		#fade>div.swal2-container.swal2-center.swal2-fade.swal2-shown>div>div.swal2-actions>button.swal2-confirm.swal2-styled {
+			border-radius: 1px;
+		}
+
+		.swal2-icon.swal2-warning {
+			border-color: #ad1457 !important;
+			color: #ad1457 !important;
+		}
+
+		.form-group {
+			margin-bottom: 20px;
+		}
+	</style>
 
 </head>
 
@@ -201,7 +222,7 @@ $datos = $data['datos_usu']->fetch();
 													<?php
 
 													while ($row = $data['table_cliente']->fetch()) {
-														
+
 														$code = $row[0] . '|' . $row[2];
 														$code = base64_encode(utf8_encode($code));
 
@@ -230,7 +251,6 @@ $datos = $data['datos_usu']->fetch();
 																</td>
 															</tr>
 														';
-
 													}
 													?>
 												</tbody>
@@ -302,49 +322,7 @@ $datos = $data['datos_usu']->fetch();
 
 	<script src="<?= FOLDER_PATH ?>/src/js/push.min.js"></script>
 
-
-	<!-- <script>
-    Pusher.logToConsole = true;
-    var pusher = new Pusher('b2fe8e2fa5b2da11752d', {
-      cluster: 'mt1',
-      forceTLS: true
-    });
-    var channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function(data) {
-      if (data.admin == 'new_user') {
-        $.ajax({
-          url: "<?= FOLDER_PATH ?>/notify/notifications",
-          success: function(result) {
-            $("#notifications").html(result);
-          }
-        });
-        $.ajax({
-          url: "<?= FOLDER_PATH ?>/notify/asistentes",
-          success: function(result) {
-            $("#nusers").html(result);
-          }
-        });
-
-        Push.create("CIIS Tacna notificaciones", {
-          body: data.name,
-          icon: "https://scontent.faqp2-1.fna.fbcdn.net/v/t1.0-9/49213040_2150474188378498_2669784385959493632_n.png?_nc_cat=110&_nc_oc=AQkMB69MW-LlEG_rEIHNBx-4S5yJhoOHjOZgrP5-GUiLGHr3rXK2xHldapz4HnQW6L8&_nc_ht=scontent.faqp2-1.fna&oh=c189ef56bad43f5150a4aad80b861546&oe=5E2A1AE9",
-          timeout: 60000,
-          onClick: function() {
-            window.open('<?= FOLDER_PATH ?>/admin', '_blank');
-            this.close();
-          }
-        });
-
-        var audio = new Audio('<?= FOLDER_PATH ?>/src/assets/media/sound/notification.mp3');
-        var promise = audio.play();
-        if (promise) {
-          promise.catch(function(error) {
-            console.error(error);
-          });
-        }
-      }
-    });
-  </script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.all.js"></script>
 
 	<script>
 		$(function() {
@@ -391,8 +369,8 @@ $datos = $data['datos_usu']->fetch();
 				swal("Atención!", "Debe ingresar el apellido del cliente", "warning");
 				return;
 			}
-			
-            var data = new FormData();
+
+			var data = new FormData();
 
 			data.append("idv", idv);
 			data.append("dni", dni);
@@ -403,10 +381,10 @@ $datos = $data['datos_usu']->fetch();
 			data.append("reg", reg);
 			data.append("pro", pro);
 			data.append("dis", dis);
-			
+
 			$.ajax({
 				beforeSend: function() {
-                    Pace.restart();
+					Pace.restart();
 					var btnadd = document.getElementById('cliadd');
 					var text = btnadd.getAttribute('data-name-text');
 					$("#cliadd").html('');

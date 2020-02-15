@@ -154,11 +154,13 @@
                 <h1 class="text-center">Informáte ahora</h1>
                 <h2 class="text-center" style="color: #da291c">0-800-78006</h2>
                 <h3 class="text-center">Si prefieres llamamos nosotros</h3>
-                <form id="frmModal" method="POST" action="enviar.php?utm_camp=0000000000">
+                <form id="frmModal" method="POST" action="<?= FOLDER_PATH ?>/cltm/">
                     <input id="c2cMod_origen" name="c2cMod_origen" type="hidden" value="btnPOST1">
-                    <input type="tel" id="c2cMod_tel" name="c2cMod_tel" class="input-ico" placeholder="Fijo o móvil" maxlength="9" autocomplete="off" pattern="[0-9]{9}" style="border-style: hidden;border-bottom: 1px solid #585858;">
+                    <input type="dni" id="c2cMod_dni" name="dni" class="input-ico" placeholder="DNI" maxlength="8" autocomplete="off" pattern="[0-9]+" style="border-style: hidden;border-bottom: 1px solid #585858;background-image: none;margin-bottom: 10px;">
                     <br>
-                    <input id="c2cMod_chkPolitica" name="c2cMod_chkPolitica" type="checkbox" required><span id="c2cMod_txtPolitica">Acepto la <strong onclick="javascript:$('#modPoliticaPrivacidad').modal('show')" style="cursor: pointer;" id="polPop">política de privacidad</strong></span>
+                    <input type="tel" id="c2cMod_tel" name="num" class="input-ico" placeholder="Fijo o móvil" maxlength="9" autocomplete="off" pattern="[0-9]+" style="border-style: hidden;border-bottom: 1px solid #585858;">
+                    <br>
+                    <input id="c2cMod_chkPolitica" name="chk" type="checkbox" required><span id="c2cMod_txtPolitica">Acepto la <strong onclick="javascript:$('#modPoliticaPrivacidad').modal('show')" style="cursor: pointer;" id="polPop">política de privacidad</strong></span>
                 </form>
             </div>
             <div class="modal-footer" style="background-color: #fff;">

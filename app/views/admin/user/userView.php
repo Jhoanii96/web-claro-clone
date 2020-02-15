@@ -1,10 +1,16 @@
 
 <!--    
     
-    AUTOR DE PROGRAMACIÓN Y DISEÑO DE LA PAGINA WEB CON ADMINLTE / ORGANIZADORES: 
-	JOSUE ALDAIR MAMANI CARIAPAZA
+    AUTOR DE PROGRAMACIÓN Y DISEÑO DE LA PAGINA WEB CON ADMINLTE / USUARIOS: 
+	JHON ALVARADO ACHATA
 
 -->
+
+<?php 
+
+$datos = $data['datos_usu']->fetch();
+
+?>
 
 
 <!DOCTYPE html>
@@ -13,8 +19,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-	<link rel="shortcut icon" href="<?= FOLDER_PATH ?>/src/assets/media/image/icon.png">
-	<title>Usuarios | XX CIIS</title>
+	<link rel="shortcut icon" href="<?= FOLDER_PATH ?>/src/assets/image/favicon.ico">
+	<title>Usuarios | El Dorado</title>
 	<!-- Bootstrap 3.3.7 -->
 	<link rel="stylesheet" href="<?= FOLDER_PATH ?>/src/css/bootstrap.min.css">
 	<!-- Font Awesome -->
@@ -68,9 +74,7 @@
 					<small>Gerente\Administrador\Supervisor\Ejecutivo</small>
 				</h1>
 				<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-table"></i><a href="<?= FOLDER_PATH . '/admin' ?>">
-								Principal</a></a>
-					</li>
+					<li><a href="<?= FOLDER_PATH . '/admin' ?>"><i class="fa fa-tv"></i>Principal</a></li>
 					<li class="active">Usuarios</a></li>
 				</ol>
 			</section>
@@ -101,23 +105,6 @@
 											style="text-transform:uppercase" name="lastName">
 									</div>
 								</div>
-								<div class="form-group">
-									<label for="inputDni" class="col-sm-2 control-label">DNI</label>
-
-									<div class="col-sm-10">
-										<input type="text" class="form-control" id="inputDni" placeholder=""
-											pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" name="dni" maxlength="8">
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label for="contact_point" class="col-sm-2 control-label">Celular</label>
-
-									<div class="col-sm-10">
-										<input type="text" class="form-control" placeholder="" pattern="[0-9 ]+" name="contact_point"
-											id="contact_point" maxlength="15">
-									</div>
-								</div>
 								
 								<div class="form-group">
 									<label for="correo" class="col-sm-2 control-label">E-mail</label>
@@ -128,18 +115,52 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="yearStudent" class="col-sm-2 control-label">Rol organizador</label>
+									<label for="status" class="col-sm-2 control-label">Estado</label>
 
 									<div class="col-sm-10">
-										<select class="form-control" name="rol">
-											<option>Super Administrador</option>
-											<option>Administrador</option>
-											<option>Usuario</option>
+										<select class="form-control" name="status">
+											<option value="1">Activo</option>
+											<option value="0">Inactivo</option>
 										</select>
 									</div>
 								</div>
+
 								<div class="form-group">
-									<label for="photoInputFilePhoto" class="col-sm-2 control-label" style="font-size: 12px;">Agregar foto organizador</label>
+									<label class="col-sm-2 control-label">Género</label>
+
+									<div class="col-sm-10">
+										<select class="form-control" name="gen">
+											<option value="M">Masculino</option>
+											<option value="F">Femenino</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="yearStudent" class="col-sm-2 control-label">Rol usuario</label>
+
+									<div class="col-sm-10">
+										<select class="form-control" name="rol">
+											<option value="1">Gerente</option>
+											<option value="2">Administrador</option>
+											<option value="3">Supervisor</option>
+											<option value="4">Ejecutivo</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-2 control-label">Supervisor</label>
+
+									<div class="col-sm-10">
+										<select class="form-control" name="supr">
+											<option value="desc">etc</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="photoInputFilePhoto" class="col-sm-2 control-label">Agregar foto</label>
 
 									<div class="col-sm-10">
 										<input type="file" id="photoInputFilePhoto" name="image" accept="image/png,image/jpeg" style="margin-top: 4px;">
@@ -162,7 +183,7 @@
 								
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-10">
-										<button type="submit" class="btn btn-primary">Agregar Organizador</button>
+										<button type="submit" style="border-radius: 0" class="btn btn-primary">Agregar usuario</button>
 									</div>
 								</div>
 							</form>
@@ -181,11 +202,11 @@
 											<table id="example1" class="table table-bordered table-hover" style="font-size: 12px;">
 												<thead>
 													<tr>
-														<th>N°</th>
+														<th>Nro</th>
 														<th>Nombres</th>
 														<th>Apellidos</th>
-														<th>Celular</th>
 														<th>E-Mail</th>
+														<th>Tipo</th>
 														<th>Código</th>
 														<th>Editar</th>
 														<th>Borrar</th>
@@ -200,13 +221,13 @@
 																<td>'.$row[0].'</td>	
 																<td>'.$row[1].'</td>
 																<td>'.$row[2].'</td>	
-																<td> </td>
 																<td>'.$row[5].'</td>
+																<td>'.$row[8].'</td>
 																<td>'.$row[3].'</td>
 																<td class="button" align=\'center\'>
-																<a href="' . FOLDER_PATH . '/admin/organizers/edit/' . $row[0] . '">
-																	<input class="button-style" type=button value="Editar">
-																</a>
+																	<a href="' . FOLDER_PATH . '/admin/user/edit/' . $row[0] . '">
+																		<input class="button-style" type=button value="Editar">
+																	</a>
 																</td>
 																<td class="button">
 																	<form><input class="button-style" type=submit value="Borrar"></form>
@@ -221,8 +242,8 @@
 														<th>N°</th>
 														<th>Nombres</th>
 														<th>Apellidos</th>
-														<th>Celular</th>
 														<th>E-Mail</th>
+														<th>Tipo</th>
 														<th>Código</th>
 														<th>Editar</th>
 														<th>Borrar</th>

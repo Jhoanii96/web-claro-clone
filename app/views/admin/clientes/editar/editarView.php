@@ -177,7 +177,7 @@ $distrito = $row[8];
 
                                 <div class="box-footer">
                                     <div class="col-md-12">
-                                        <button type="button" data-name-text="Actualizando..." class="btn btn-success" name="update" value="true" id="cliact">
+                                        <button type="button" style="border-radius: 0;" data-name-text="Actualizando..." class="btn btn-success" name="update" value="true" id="cliact">
                                             Actualizar
                                         </button>
                                     </div>

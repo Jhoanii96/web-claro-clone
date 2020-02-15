@@ -2,15 +2,14 @@
 /* 
     
     AUTOR DE PROGRAMACIÓN PHP: 
-    JOSUE ALDAIR MAMANI CARIAPAZA
+    JHON ALVARADO ACHATA
     
 */
 
 
 if ($link == ''){
 
-    $this->model = new adminModel();
-    /* $this->BellNtf = $this->model2->BellNotifications(); */
+    $this->datos_usu = $this->model->datos_usuario($this->admin);
     $this->table_user = $this->model->mostrar_tusuario();
     
     $this->AdminView('admin/user/user', [

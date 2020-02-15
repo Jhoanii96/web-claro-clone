@@ -6,8 +6,7 @@
     JHON ALVARADO ACHATA
     
     MODIFICACIONES Y COLABORACIONES:
-    LEANDRO ANDRÉ RAMOS VALDEZ
-    JOSUE ALDAIR MAMANI CARIAPAZA
+    RICHARD PONGO
 	
 */
 
@@ -178,6 +177,32 @@ class adminModel extends Model
         $query = "CALL `datos_atencion`('" . $codusu . "');";
         $res = Model::query_execute($query);
         return $res;
+    }
+
+
+    /* -------------------- CONSULTAS PERFIL -------------------------- */
+
+    public function mostrar_perfil($codusu)
+    {
+        $query = "CALL `datos_perfil`('" . $codusu . "');";
+        $res = Model::query_execute($query);
+        return $res;
+    }
+
+    
+    /* -------------------- CONSULTAS GERENTE -------------------------- */
+    
+    public function mostrar_tprincipal1()
+    {
+        
+    }
+
+    
+    /* -------------------- CONSULTAS GERENTE -------------------------- */
+    
+    public function mostrar_tprincipal2()
+    {
+        
     }
 
 }
