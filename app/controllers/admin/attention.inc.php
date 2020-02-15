@@ -35,6 +35,9 @@ if ($link == '') {
     $this->model = new adminModel();
     $this->mostrar_tprincipal4 = $this->model->mostrar_tprincipal4($this->admin);
 
+    $this->supervisor = $this->model->obtener_supervisor_ejecutivo($this->admin);
+    $data_supervisor = $this->supervisor->fetch();
+
     echo '<script type="text/javascript">', '';
 
 
@@ -94,7 +97,7 @@ if ($link == '') {
 
     /* --- Pusher --- */
     $data['prinl'] = 'prl3';
-    $data['supr'] = $this->admin;
+    $data['supr'] = $data_supervisor[0];
     $pusher->trigger('supervisor', 'principal', $data);
     /* - End Pusher - */
 
@@ -192,6 +195,9 @@ if ($link == '') {
     $this->model = new adminModel();
     $this->mostrar_tprincipal4 = $this->model->mostrar_tprincipal4($this->admin);
 
+    $this->supervisor = $this->model->obtener_supervisor_ejecutivo($this->admin);
+    $data_supervisor = $this->supervisor->fetch();
+
     echo '<script type="text/javascript">', '';
 
 
@@ -251,7 +257,7 @@ if ($link == '') {
 
     /* --- Pusher --- */
     $data['prinl'] = 'prl3';
-    $data['supr'] = $this->admin;
+    $data['supr'] = $data_supervisor[0];
     $pusher->trigger('supervisor', 'principal', $data);
     /* - End Pusher - */
     

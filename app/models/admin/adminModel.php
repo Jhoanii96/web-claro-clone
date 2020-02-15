@@ -158,6 +158,12 @@ class adminModel extends Model
         Model::query_execute($query);
     }
 
+    public function obtener_supervisor_ejecutivo($codusu) {
+        $query = "CALL `obtener_supervisor_ejecutivo`('" . $codusu . "');";
+        $res = Model::query_execute($query);
+        return $res;
+    }
+
     /* -------------------- CONSULTAS SUPERVISOR -------------------------- */
 
     public function mostrar_tprincipal3($codusu)

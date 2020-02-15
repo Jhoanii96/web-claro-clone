@@ -236,8 +236,8 @@ echo '
 
     var channel = pusher.subscribe('supervisor');
     channel.bind('principal', function(data) {
-        if (data.supr == 'prl3') {
-            if (data.ect == <?= '\'' . $this->admin . '\'' ?>) {
+        if (data.prinl == 'prl3') {
+            if (data.supr == <?= '\'' . $this->admin . '\'' ?>) {
                 $.ajax({
                     beforeSend: function() {
                         Pace.restart();
@@ -249,9 +249,6 @@ echo '
                 });
 
                 $.ajax({
-                    beforeSend: function() {
-                        Pace.restart();
-                    },
                     url: "<?= FOLDER_PATH ?>/admin/supervisor/modals",
                     success: function(result) {
                         $("#modals").html(result);

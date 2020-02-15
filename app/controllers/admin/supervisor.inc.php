@@ -26,9 +26,6 @@ if ($link == '') {
 
     while ($row = $this->mostrar_tprincipal3->fetch()) {
 
-        $code = $row[0] . '|' . $row[2];
-        $code = base64_encode(utf8_encode($code));
-
         if ($row[6] == '1') {
             $estado = 'Pendiente';
         } elseif ($row[6] == '2') {
@@ -37,22 +34,19 @@ if ($link == '') {
             $estado = 'Caído';
         }
 
-        if ($row[7] == '1') {
-
-            echo 'dataTable.fnAddData([
-            \'' . $row[0] . '\',
-            \'' . $row[1] . '\',
-            \'' . $row[2] . '\',
-            \'' . $row[3] . '\',
-            \'' . $row[4] . '\',
-            \'' . $row[5] . '\',
-            \'' . $estado . '\',
-            \'<div class="center_cell">',
-                '<button class="ctrl_with btn_style" style="color: #fff" data-toggle="modal" data-target="#info-' . $row[0] . '">',
+        echo 'dataTable.fnAddData([
+        \'' . $row[0] . '\',
+        \'' . $row[1] . '\',
+        \'' . $row[2] . '\',
+        \'' . $row[3] . '\',
+        \'' . $row[4] . '\',
+        \'' . $row[5] . '\',
+        \'' . $estado . '\',
+        \'<div class="center_cell">',
+            '<button class="ctrl_with btn_style" style="color: #fff" data-toggle="modal" data-target="#info-' . $row[0] . '">',
                 '<span>Detalle</span>',
-                ',</button>',
-                '</div>\']);';
-        }
+            '</button>',
+        '</div>\']);';
     }
 
     echo '</script>';
@@ -66,13 +60,13 @@ if ($link == '') {
     $this->model = new adminModel();
     $this->mostrar_datencion = $this->model->mostrar_datencion($this->admin);
 
-    while ($row = $data['mostrar_datencion']->fetch()) {
+    while ($row = $this->mostrar_datencion->fetch()) {
 
-        if ($row[6] == '1') {
+        if ($row[13] == '1') {
             $estado = 'Pendiente';
-        } elseif ($row[6] == '2') {
+        } elseif ($row[13] == '2') {
             $estado = 'Vendido';
-        } elseif ($row[6] == '3') {
+        } elseif ($row[13] == '3') {
             $estado = 'Caído';
         }
 

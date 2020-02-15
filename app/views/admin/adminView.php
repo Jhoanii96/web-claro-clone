@@ -155,7 +155,7 @@
   <script>
     $(function() {
       $('#example1').DataTable({
-        order: [0, "desc"]
+        'ordering': false
       })
       $('#example2').DataTable({
         'paging': true,

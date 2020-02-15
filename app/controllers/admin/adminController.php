@@ -92,6 +92,11 @@ class admin extends Controller
     {
     }
 
+    public function supervisor($link = '', $dato = '')
+    {
+        include(ROOT . FOLDER_PATH . '/app/controllers/admin/supervisor.inc.php');
+    }
+
     /* ------------------------------------ ATENCION ----------------------------------- */
 
     public function attention($link = '', $dato = '')
