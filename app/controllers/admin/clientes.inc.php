@@ -9,13 +9,12 @@
 if ($link == '') {
 
     $this->datos_usu = $this->model->datos_usuario($this->admin);
-    $this->table_cliente = $this->model->mostrar_tcliente();
+    $this->table_cliente = $this->model->mostrar_tcliente($this->admin);
 
     $this->AdminView('admin/clientes/clientes', [
         'datos_usu' => $this->datos_usu,
         'table_cliente' => $this->table_cliente
     ]);
-
 } else if ($link == 'save') {
 
     $dni = $_POST['dni'];
@@ -27,7 +26,7 @@ if ($link == '') {
     $provincia = $_POST['pro'];
     $distrito = $_POST['dis'];
 
-    $datosCliente = new Cliente(
+    /* $datosCliente = new Cliente(
         0,
         $dni,
         $celular,
@@ -37,10 +36,18 @@ if ($link == '') {
         $region,
         $provincia,
         $distrito
-    );
-    
-    $this->model->save_cliente($datosCliente);
+    ); */
 
+    $this->model->save_cliente(
+        $dni,
+        $celular,
+        $firstName,
+        $lastName,
+        $direccion,
+        $region,
+        $provincia,
+        $distrito
+    );
 } else if ($link == 'edit') {
 
 
@@ -63,7 +70,19 @@ if ($link == '') {
         $provincia = $_POST['pro'];
         $distrito = $_POST['dis'];
 
-        $datosCliente = new Cliente(
+        /* $datosCliente = new Cliente(
+            $codcliente,
+            $dni,
+            $celular,
+            $firstName,
+            $lastName,
+            $direccion,
+            $region,
+            $provincia,
+            $distrito
+        ); */
+
+        $this->model->update_cliente(
             $codcliente,
             $dni,
             $celular,
@@ -74,9 +93,6 @@ if ($link == '') {
             $provincia,
             $distrito
         );
-
-        $this->model->update_cliente($datosCliente);
-
     } else {
 
         $dato = explode('|', base64_decode(utf8_encode($dato)));
@@ -89,4 +105,11 @@ if ($link == '') {
             'datos_cliente' => $this->datos_cliente
         ]);
     }
+} else if ($link == 'delete') {
+
+    $codcliente = $_POST['acd'];
+
+    $this->model->delete_cliente(
+        $codcliente
+    );
 }

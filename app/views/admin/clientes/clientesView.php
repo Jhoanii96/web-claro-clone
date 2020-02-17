@@ -241,9 +241,9 @@ $datos = $data['datos_usu']->fetch();
 																			<span class="fa fa-pencil"></span>
 																		</button>
 																	</a>
-																	<form method="post">
-																		<input style="display: none" name="admi" value="' . $row[0] . '">
-																		<button id="btndlt-' . $row[0] . '" type="button" title="Eliminar" class="btn btn-block btn-danger"  style="padding: 3px 10px;font-size: 12px;" onclick="deleteAdm(' . $row[0] . ')">
+																	<form>
+																		<input style="display: none" name="acd" value="' . $row[0] . '">
+																		<button id="btndlt-' . $row[0] . '" type="button" title="Eliminar" class="btn btn-block btn-danger"  style="padding: 3px 10px;font-size: 12px;" onclick="deleteCli(' . $row[0] . ')">
 																			<span class="fa fa-times"></span>
 																		</button>
 																	</form>
@@ -343,7 +343,6 @@ $datos = $data['datos_usu']->fetch();
 	<!-- EVENTO SELECT STATUS -->
 	<script type="text/javascript">
 		$('#cliadd').on('click', function() {
-			var idv = <?= $datos[0] ?>;
 			var dni = $('#dni').val();
 			var phn = $('#phone').val();
 			var fnm = $('#firstName').val();
@@ -372,7 +371,6 @@ $datos = $data['datos_usu']->fetch();
 
 			var data = new FormData();
 
-			data.append("idv", idv);
 			data.append("dni", dni);
 			data.append("phn", phn);
 			data.append("fnm", fnm);
@@ -396,7 +394,7 @@ $datos = $data['datos_usu']->fetch();
 				data: data,
 				contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
 				processData: false, // NEEDED, DON'T OMIT THIS
-				success: function(resp) {
+				success: function() {
 					$("#spinner-cl").remove();
 					$("#cliadd").html('Agregado');
 					$("#cliadd").attr("disabled", false);
@@ -406,6 +404,33 @@ $datos = $data['datos_usu']->fetch();
 				}
 			})
 		});
+
+		function deleteCli(idCli) {
+			var cliente_code = idCli;
+			$("#btndlt-" + cliente_code).attr("disabled", true);
+
+			var data = new FormData();
+			data.append("acd", cliente_code);
+
+			$.ajax({
+				beforeSend: function() {
+					Pace.restart();
+					$("#spinner-dlt-" + cliente_code).append("<span id='spinner-cl-" + cliente_code + "' class='fa fa-spinner fa-spin' style=\"padding-top: 4px;margin-left: 5px;font-size:15px\"></span>");
+				},
+				url: "<?= FOLDER_PATH ?>/admin/clientes/delete",
+				type: "POST",
+				data: data,
+				contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+				processData: false, // NEEDED, DON'T OMIT THIS
+				success: function() {
+					$("#spinner-cl-" + cliente_code).remove();
+					$("#btndlt-" + cliente_code).attr("disabled", false);
+					setTimeout(function() {
+						location.href = "<?= FOLDER_PATH ?>/admin/clientes";
+					}, 500);
+				}
+			})
+		}
 	</script>
 
 </body>

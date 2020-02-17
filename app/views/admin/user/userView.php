@@ -1,4 +1,3 @@
-
 <!--    
     
     AUTOR DE PROGRAMACIÓN Y DISEÑO DE LA PAGINA WEB CON ADMINLTE / USUARIOS: 
@@ -6,7 +5,7 @@
 
 -->
 
-<?php 
+<?php
 
 $datos = $data['datos_usu']->fetch();
 
@@ -33,6 +32,7 @@ $datos = $data['datos_usu']->fetch();
 	<link rel="stylesheet" href="<?= FOLDER_PATH ?>/src/css/AdminLTE.min.css">
 	<!-- DataTables -->
 	<link rel="stylesheet" href="<?= FOLDER_PATH ?>/src/css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="<?= FOLDER_PATH ?>/src/css/pace.min.css">
 
 	<!-- AdminLTE Skins. Choose a skin from the css/skins
 		folder instead of downloading all of them to reduce the load. -->
@@ -42,23 +42,23 @@ $datos = $data['datos_usu']->fetch();
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
 	<style>
-        #example1_wrapper>div:nth-child(2) {
-            overflow-x: auto;
-            border-right: none;
-        }
+		#example1_wrapper>div:nth-child(2) {
+			overflow-x: auto;
+			border-right: none;
+		}
 
-        @media only screen and (min-width: 128px) and (max-width: 992px) {
-            #example1_wrapper>div:nth-child(2) {
-                overflow-x: auto;
-                padding-right: 0px;
-                margin-right: 0px;
-                border-right: 1px solid #f4f4f4;
-                padding-top: 0px;
-                margin-top: 0px;
-            }
-        }
+		@media only screen and (min-width: 128px) and (max-width: 992px) {
+			#example1_wrapper>div:nth-child(2) {
+				overflow-x: auto;
+				padding-right: 0px;
+				margin-right: 0px;
+				border-right: 1px solid #f4f4f4;
+				padding-top: 0px;
+				margin-top: 0px;
+			}
+		}
 	</style>
-	
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -88,37 +88,34 @@ $datos = $data['datos_usu']->fetch();
 					<div class="tab-content">
 						<div class="active tab-pane" id="adding">
 
-							<form method="POST" enctype="multipart/form-data" autocomplete="off" class="form-horizontal" action="<?= FOLDER_PATH ?>/admin/organizers/save">
+							<form class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action="#" autocomplete="off">
 								<div class="form-group">
-									<label for="inputName" class="col-sm-2 control-label">Nombres</label>
+									<label class="col-sm-2 control-label">Nombres</label>
 
 									<div class="col-sm-10">
-										<input type="text" class="form-control" id="inputName" placeholder="" pattern="[A-Za-zÁÉÍÓÚáéíóú ]+"
-											style="text-transform:uppercase" name="firstName">
+										<input type="text" class="form-control" id="fname" placeholder="" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" style="text-transform:uppercase" name="fname">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="inputLast" class="col-sm-2 control-label">Apellidos</label>
+									<label class="col-sm-2 control-label">Apellidos</label>
 
 									<div class="col-sm-10">
-										<input type="text" class="form-control" id="inputLast" placeholder="" pattern="[A-Za-zÁÉÍÓÚáéíóú ]+"
-											style="text-transform:uppercase" name="lastName">
+										<input type="text" class="form-control" id="lname" placeholder="" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" style="text-transform:uppercase" name="lname">
 									</div>
 								</div>
-								
+
 								<div class="form-group">
-									<label for="correo" class="col-sm-2 control-label">E-mail</label>
+									<label class="col-sm-2 control-label">E-mail</label>
 
 									<div class="col-sm-10">
-										<input autocomplete="off" class="form-control" type="text"
-										pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="correo" id="correo">
+										<input autocomplete="off" class="form-control" type="text" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="correo" id="correo">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="status" class="col-sm-2 control-label">Estado</label>
+									<label class="col-sm-2 control-label">Estado</label>
 
 									<div class="col-sm-10">
-										<select class="form-control" name="status">
+										<select class="form-control" name="status" id="status">
 											<option value="1">Activo</option>
 											<option value="0">Inactivo</option>
 										</select>
@@ -129,7 +126,7 @@ $datos = $data['datos_usu']->fetch();
 									<label class="col-sm-2 control-label">Género</label>
 
 									<div class="col-sm-10">
-										<select class="form-control" name="gen">
+										<select class="form-control" name="gen" id="gender">
 											<option value="M">Masculino</option>
 											<option value="F">Femenino</option>
 										</select>
@@ -137,10 +134,10 @@ $datos = $data['datos_usu']->fetch();
 								</div>
 
 								<div class="form-group">
-									<label for="yearStudent" class="col-sm-2 control-label">Rol usuario</label>
+									<label class="col-sm-2 control-label">Rol usuario</label>
 
 									<div class="col-sm-10">
-										<select class="form-control" name="rol">
+										<select class="form-control" name="rol" id="rol_user" onchange="selectSupr(this)">
 											<option value="1">Gerente</option>
 											<option value="2">Administrador</option>
 											<option value="3">Supervisor</option>
@@ -149,41 +146,47 @@ $datos = $data['datos_usu']->fetch();
 									</div>
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" id="select_supr" style="display: none;">
 									<label class="col-sm-2 control-label">Supervisor</label>
 
 									<div class="col-sm-10">
-										<select class="form-control" name="supr">
-											<option value="desc">etc</option>
+										<select class="form-control" name="supr" id="supr">
+											<?php
+											while ($data_row = $data['supervisor']->fetch()) {
+												echo '
+													<option value="' . $data_row[0] . '">' . $data_row[1] . ' ' . $data_row[2] . '</option>
+												';
+											}
+											?>
 										</select>
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="photoInputFilePhoto" class="col-sm-2 control-label">Agregar foto</label>
+									<label class="col-sm-2 control-label">Agregar foto</label>
 
 									<div class="col-sm-10">
 										<input type="file" id="photoInputFilePhoto" name="image" accept="image/png,image/jpeg" style="margin-top: 4px;">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="code" class="col-sm-2 control-label">Código</label>
+									<label class="col-sm-2 control-label">Código</label>
 
 									<div class="col-sm-10">
 										<input type="text" class="form-control" type="text" name="code" id="code">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="password" class="col-sm-2 control-label">Contraseña</label>
+									<label class="col-sm-2 control-label">Contraseña</label>
 
 									<div class="col-sm-10">
 										<input type="password" class="form-control" name="password" id="password" autocomplete="new-password">
 									</div>
 								</div>
-								
+
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-10">
-										<button type="submit" style="border-radius: 0" class="btn btn-primary">Agregar usuario</button>
+										<button type="button" id="add_user" style="border-radius: 0" data-name-text="Agregando..." class="btn btn-primary">Agregar usuario</button>
 									</div>
 								</div>
 							</form>
@@ -213,17 +216,16 @@ $datos = $data['datos_usu']->fetch();
 													</tr>
 												</thead>
 												<tbody>
-												<?php 
-													$this->model = new adminModel();
-													while($row=$data['table_user']->fetch()){
+													<?php
+													while ($row = $data['table_user']->fetch()) {
 														echo '
 															<tr>
-																<td>'.$row[0].'</td>	
-																<td>'.$row[1].'</td>
-																<td>'.$row[2].'</td>	
-																<td>'.$row[5].'</td>
-																<td>'.$row[8].'</td>
-																<td>'.$row[3].'</td>
+																<td>' . $row[0] . '</td>	
+																<td>' . $row[1] . '</td>
+																<td>' . $row[2] . '</td>	
+																<td>' . $row[5] . '</td>
+																<td>' . $row[8] . '</td>
+																<td>' . $row[3] . '</td>
 																<td class="button" align=\'center\'>
 																	<a href="' . FOLDER_PATH . '/admin/user/edit/' . $row[0] . '">
 																		<input class="button-style" type=button value="Editar">
@@ -234,7 +236,7 @@ $datos = $data['datos_usu']->fetch();
 																</td>
 															</tr>
 															';
-														}
+													}
 													?>
 												</tbody>
 												<tfoot>
@@ -290,11 +292,15 @@ $datos = $data['datos_usu']->fetch();
 	<script src="<?= FOLDER_PATH ?>/src/js/adminlte.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="<?= FOLDER_PATH ?>/src/js/demo.js"></script>
+	<!-- Pace -->
+	<script src="<?= FOLDER_PATH ?>/src/js/pace.min.js"></script>
+	<!-- SWEETALERT -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.all.js"></script>
 
 	<?php require(ROOT . '/' . PATH_VIEWS . 'pushjs.php'); ?>
 
 	<script>
-		$(function () {
+		$(function() {
 			$('#example1').DataTable()
 			$('#example2').DataTable({
 				'paging': true,
@@ -305,6 +311,88 @@ $datos = $data['datos_usu']->fetch();
 				'autoWidth': false
 			})
 		})
+	</script>
+
+	<script>
+
+		function selectSupr(e) {
+			var nom_value = e.value;
+			if (nom_value == 4) {
+				document.getElementById("select_supr").style.display="block";
+			} else {
+				document.getElementById("select_supr").style.display="none";
+			}
+		}
+
+		$('#add_user').on('click', function() {
+			var fname = $('#fname').val();
+			var lname = $('#lname').val();
+			var correo = $('#correo').val();
+			var status = $("#status").children("option:selected").val();
+			var gender = $("#gender").children("option:selected").val();
+			var rol_user = $("#rol_user").children("option:selected").val();
+			var supr = $("#supr").children("option:selected").val();
+			var code = $('#code').val();
+			var password = $('#password').val();
+
+			if (fname == "") {
+				swal("Atención!", "Debe ingresar el nombre del usuario", "warning");
+				return;
+			}
+			if (lname == "") {
+				swal("Atención!", "Debe ingresar el apellido del usuario", "warning");
+				return;
+			}
+			if (correo == "") {
+				swal("Atención!", "Debe ingresar el correo del usuario", "warning");
+				return;
+			}
+			if (code == "") {
+				swal("Atención!", "Debe ingresar el nombre de acceso del usuario", "warning");
+				return;
+			}
+			if (password == "") {
+				swal("Atención!", "Debe ingresar la contraseña del usuario", "warning");
+				return;
+			}
+
+			var data = new FormData();
+
+			data.append("fname", fname);
+			data.append("lname", lname);
+			data.append("correo", correo);
+			data.append("status", status);
+			data.append("gender", gender);
+			data.append("rol_user", rol_user);
+			data.append("supr", supr);
+			data.append("image", $('input[type=file]')[0].files[0]);
+			data.append("code", code);
+			data.append("password", password);
+
+			$.ajax({
+				beforeSend: function() {
+					Pace.restart();
+					var btnadd = document.getElementById('add_user');
+					var text = btnadd.getAttribute('data-name-text');
+					$("#add_user").html('');
+					$("#add_user").append("" + text + "&ThinSpace;&ThinSpace;<span id='spinner-us' class='fa fa-spinner fa-spin'></span>");
+					$("#add_user").attr("disabled", true);
+				},
+				url: "<?= FOLDER_PATH ?>/admin/user/save",
+				type: "POST",
+				data: data,
+				contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+				processData: false, // NEEDED, DON'T OMIT THIS
+				success: function() {
+					$("#spinner-us").remove();
+					$("#add_user").html('Agregado');
+					$("#add_user").attr("disabled", false);
+					setTimeout(function() {
+						location.href = "<?= FOLDER_PATH ?>/admin/user";
+					}, 500);
+				}
+			})
+		});
 	</script>
 
 </body>

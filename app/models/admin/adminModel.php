@@ -38,38 +38,37 @@ class adminModel extends Model
         return $res;
     }
 
-    public function insertar_usuario(user $data_user)
+    public function datos_supervisor()
     {
-
-        /* $query = "CALL Insertar_organizador(
-                        '" . $data_user->getNombre() . "', 
-                        '" . $data_user->getApellido() . "', 
-                        '" . $data_user->getEmail() . "', 
-                        '" . $data_user->getDni() . "', 
-                        '" . $data_user->getCelular() . "', 
-                        " . $data_user->getRol_organizador() . ", 
-                        '" . $imagen_perfil . "', 
-                        '" . $data_user->getCodigo() . "', 
-                        '" . $data_user->getClave() . "');";
-        $this->db->query($query); */
+        $query = "CALL `datos_supervisor`();";
+        $res = Model::query_execute($query);
+        return $res;
     }
 
-    // Actualizar organizador con imagen
-    public function update_organizador(user $data_user, $imagen_perfil, $numOrg)
+    public function guardar_usuario($fname, $lname, $correo, $status, $gender, $rol_user,
+        $supr, $imagen_bd, $code, $password)
     {
 
-        /* $query = "CALL actualizar_organizador(
-                        '" . $data_user->getNombre() . "', 
-                        '" . $data_user->getApellido() . "', 
-                        '" . $data_user->getEmail() . "', 
-                        '" . $data_user->getDni() . "', 
-                        '" . $data_user->getCelular() . "', 
-                        " .  $data_user->getRol_organizador() . ", 
-                        '" . $imagen_perfil . "', 
-                        '" . $data_user->getCodigo() . "', 
-                        '" . $data_user->getClave() . "',
-                        " . $numOrg . " );";
-        $this->db->query($query); */
+        $query = "CALL insertar_usuario(
+                        '" . $fname . "', 
+                        '" . $lname . "', 
+                        '" . $correo . "', 
+                        '" . $status . "', 
+                        '" . $gender . "', 
+                        " . $rol_user . ", 
+                        '" . $supr . "', 
+                        '" . $imagen_bd . "', 
+                        '" . $code . "',
+                        '" . $password . "');";
+        Model::query_execute($query);
+    }
+
+    public function datos_editar_usuario($data)
+    {
+
+        $query = "CALL `datos_editar_usuario`(" . $data . ");";
+        $res = Model::query_execute($query);
+        return $res;
     }
 
     // Actualizar organizador sin imagen
@@ -98,41 +97,62 @@ class adminModel extends Model
         return $res;
     }
 
-    public function mostrar_tcliente()
+    public function mostrar_tcliente($codusu)
     {
-        $query = "CALL `tabla_clientes`();";
+        $query = "CALL `tabla_clientes`('" . $codusu . "');";
         $res = Model::query_execute($query);
         return $res;
     }
 
-    public function save_cliente(Cliente $data)
+    public function save_cliente($dni,
+    $celular,
+    $firstName,
+    $lastName,
+    $direccion,
+    $region,
+    $provincia,
+    $distrito)
     {
         $query = "CALL `insertar_cliente`(
-            '" . $data->getDni() . "', 
-            '" . $data->getCelular() . "', 
-            '" . $data->getFirstName() . "', 
-            '" . $data->getLastName() . "', 
-            '" . $data->getDireccion() . "', 
-            '" . $data->getRegion() . "', 
-            '" . $data->getProvincia() . "', 
-            '" . $data->getDistrito() . "');
+            '" . $dni . "', 
+            '" . $celular . "', 
+            '" . $firstName . "', 
+            '" . $lastName . "', 
+            '" . $direccion . "', 
+            '" . $region . "', 
+            '" . $provincia . "', 
+            '" . $distrito . "');
         ";
         Model::query_execute($query);
     }
 
-    public function update_cliente(Cliente $data)
+    public function update_cliente($codcliente,
+    $dni,
+    $celular,
+    $firstName,
+    $lastName,
+    $direccion,
+    $region,
+    $provincia,
+    $distrito)
     {
         $query = "CALL `actualizar_cliente`(
-            " . $data->getCodcliente() . ", 
-            '" . $data->getDni() . "', 
-            '" . $data->getCelular() . "', 
-            '" . $data->getFirstName() . "', 
-            '" . $data->getLastName() . "', 
-            '" . $data->getDireccion() . "', 
-            '" . $data->getRegion() . "', 
-            '" . $data->getProvincia() . "', 
-            '" . $data->getDistrito() . "');
+            " . $codcliente . ", 
+            '" . $dni . "', 
+            '" . $celular . "', 
+            '" . $firstName . "', 
+            '" . $lastName . "', 
+            '" . $direccion . "', 
+            '" . $region . "', 
+            '" . $provincia . "', 
+            '" . $distrito . "'); 
         ";
+        Model::query_execute($query);
+    }
+
+    public function delete_cliente($codcliente)
+    {
+        $query = "CALL `borrar_cliente`(" . $codcliente . ");";
         Model::query_execute($query);
     }
 
