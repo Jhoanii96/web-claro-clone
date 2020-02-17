@@ -234,7 +234,7 @@ $datos_usuario = $data['datos_usuario']->fetch();
 
 		</div>
 		<!-- /.content-wrapper -->
-
+		
 		<?php require(ROOT . '/' . PATH_VIEWS . 'aside_control.php'); ?>
 
 	</div>
@@ -255,6 +255,9 @@ $datos_usuario = $data['datos_usuario']->fetch();
 	<script src="/2019/src/admin/js/adminlte.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="/2019/src/admin/js/demo.js"></script>
+	<!-- Pace -->
+	<script src="<?= FOLDER_PATH ?>/src/js/pace.min.js"></script>
+	
 
 	<?php require(ROOT . '/' . PATH_VIEWS . 'pushjs.php'); ?>
 
@@ -365,7 +368,7 @@ $datos_usuario = $data['datos_usuario']->fetch();
 					$("#usredt").append("" + text + "&ThinSpace;&ThinSpace;<span id='spinner-us' class='fa fa-spinner fa-spin'></span>");
 					$("#usredt").attr("disabled", true);
 				},
-				url: "<?= FOLDER_PATH ?>/admin/user/save",
+				url: "<?= FOLDER_PATH ?>/admin/user/edit",
 				type: "POST",
 				data: data,
 				contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)

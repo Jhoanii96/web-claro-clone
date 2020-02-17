@@ -50,8 +50,6 @@ if ($link == '') {
     );
 } else if ($link == 'edit') {
 
-
-
     if (isset($_POST['update'])) {
         @$update = $_POST['update'];
     } else {
@@ -112,4 +110,5 @@ if ($link == '') {
     $this->model->delete_cliente(
         $codcliente
     );
+
 }

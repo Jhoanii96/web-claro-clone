@@ -49,7 +49,7 @@ class adminModel extends Model
         $supr, $imagen_bd, $code, $password)
     {
 
-        $query = "CALL insertar_usuario(
+        $query = "CALL `insertar_usuario`(
                         '" . $fname . "', 
                         '" . $lname . "', 
                         '" . $correo . "', 
@@ -72,20 +72,39 @@ class adminModel extends Model
     }
 
     // Actualizar organizador sin imagen
-    public function update_organizadorWi(user $data_user, $numOrg)
+    public function editar_usuario(
+
+        $codusu, 
+        $fname, 
+        $lname, 
+        $correo, 
+        $status, 
+        $gender, 
+        $rol_user, 
+        $supr, 
+        $imagen_bd, 
+        $code, 
+        $password, 
+        $dont_edit_photo 
+
+    )
     {
 
-        /* $query = "CALL actualizar_organizadorWi(
-                        '" . $data_user->getNombre() . "', 
-                        '" . $data_user->getApellido() . "', 
-                        '" . $data_user->getEmail() . "', 
-                        '" . $data_user->getDni() . "', 
-                        '" . $data_user->getCelular() . "', 
-                        " .  $data_user->getRol_organizador() . ", 
-                        '" . $data_user->getCodigo() . "', 
-                        '" . $data_user->getClave() . "', 
-                        " . $numOrg . " );";
-        $this->db->query($query); */
+        $query = "CALL `editar_usuario`(
+                    " . $codusu . ", 
+                    '" . $fname . "', 
+                    '" . $lname . "', 
+                    '" . $correo . "', 
+                    '" . $status . "', 
+                    '" . $gender . "', 
+                    " . $rol_user . ", 
+                    " . $supr . ", 
+                    '" . $imagen_bd . "', 
+                    '" . $code . "', 
+                    '" . $password . "', 
+                    '" . $dont_edit_photo . "');";
+        $this->db->query($query); 
+
     }
 
     /* -------------------- CONSULTAS CLIENTES -------------------------- */

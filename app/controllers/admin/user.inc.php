@@ -78,6 +78,7 @@ if ($link == '') {
 
     if ($update == "true") {
 
+        $codusu = $dato;
         $fname = $_POST["fname"];
         $lname = $_POST["lname"];
         $correo = $_POST["correo"];
@@ -94,8 +95,10 @@ if ($link == '') {
 
         if (!isset($_FILES["image"]["tmp_name"])) {
             $file_tmp = '';
+            $dont_edit_photo = '1';
         } else {
             $file_tmp = $_FILES["image"]["tmp_name"];
+            $dont_edit_photo = '0';
         }
 
         if (!isset($_FILES["image"]["name"])) {
@@ -115,17 +118,19 @@ if ($link == '') {
 
         $imagen_bd = 'src/assets/image/fperfil/' . $file_name;
 
-        $this->model->guardar_usuario(
-            $fname,
-            $lname,
-            $correo,
-            $status,
-            $gender,
-            $rol_user,
-            $supr,
-            $imagen_bd,
-            $code,
-            $password
+        $this->model->editar_usuario(
+            $codusu, 
+            $fname, 
+            $lname, 
+            $correo, 
+            $status, 
+            $gender, 
+            $rol_user, 
+            $supr, 
+            $imagen_bd, 
+            $code, 
+            $password, 
+            $dont_edit_photo 
         );
 
     } else {
