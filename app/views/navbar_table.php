@@ -8,79 +8,6 @@
 	
 */
 
-function time2str($ts)
-{
-
-	date_default_timezone_set('America/Lima');
-
-	if (!ctype_digit($ts)) {
-		$ts = strtotime($ts);
-	}
-
-	$fecha_ahora = (new \DateTime())->format('Y-m-d H:i:s');
-	$fecha_ahora = strtotime($fecha_ahora);
-
-	$diff = $fecha_ahora - $ts;
-	if ($diff == 0) {
-		return 'now';
-	} elseif ($diff > 0) {
-		$day_diff = floor($diff / 86400);
-		if ($day_diff == 0) {
-			if ($diff < 60) return 'Justo ahora';
-			if ($diff < 120) return 'Hace 1 minuto';
-			if ($diff < 3600) return 'Hace ' . floor($diff / 60) . ' minutos';
-			if ($diff < 7200) return 'Hace 1 hora';
-			if ($diff < 86400) return 'Hace ' . floor($diff / 3600) . ' horas';
-		}
-		if ($day_diff == 1) {
-			return 'Ayer';
-		}
-		if ($day_diff < 7) {
-			return 'Hace ' . $day_diff . ' días';
-		}
-		if ($day_diff < 31) {
-			return 'Hace ' . ceil($day_diff / 7) . ' semanas';
-		}
-		if ($day_diff < 60) {
-			return 'El mes pasado';
-		}
-		return date('F Y', $ts);
-	} else {
-		$diff = abs($diff);
-		$day_diff = floor($diff / 86400);
-		if ($day_diff == 0) {
-			if ($diff < 120) {
-				return 'in a minute';
-			}
-			if ($diff < 3600) {
-				return 'in ' . floor($diff / 60) . ' minutes';
-			}
-			if ($diff < 7200) {
-				return 'in an hour';
-			}
-			if ($diff < 86400) {
-				return 'in ' . floor($diff / 3600) . ' hours';
-			}
-		}
-		if ($day_diff == 1) {
-			return 'Tomorrow';
-		}
-		if ($day_diff < 4) {
-			return date('l', $ts);
-		}
-		if ($day_diff < 7 + (7 - date('w'))) {
-			return 'next week';
-		}
-		if (ceil($day_diff / 7) < 4) {
-			return 'in ' . ceil($day_diff / 7) . ' weeks';
-		}
-		if (date('n', $ts) == date('n') + 1) {
-			return 'next month';
-		}
-		return date('F Y', $ts);
-	}
-}
-
 
 ?>
 
@@ -104,51 +31,14 @@ function time2str($ts)
 		<div class="navbar-custom-menu">
 			<ul class="nav navbar-nav">
 
-				<!-- Notifications: style can be found in dropdown.less -->
-				<li id="notifications" class="dropdown notifications-menu">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-bell-o"></i>
-					</a>
-					<ul class="dropdown-menu" style="width: 350px;">
-						<li class="header">Notificaciones</li>
-						<li>
-							<!-- inner menu: contains the actual data -->
-							<ul class="menu">
-								<!-- <li> <a href="#" align='center'> No tiene notificaciones </a></li>-->
-								<?php
-								/* while ($datoBellNotificacion = $data['BellNtf']->fetch_array()) {
-
-									$fecha = time2str($datoBellNotificacion['date_notify']);
-
-									echo '
-										<li>
-											<a href="' . FOLDER_PATH . '/admin/preinscriptions/show/' . $datoBellNotificacion['id_inscripcion'] . '" target="_blank" style="display: flex;">
-												<div style="width: 70%;">
-													<span>' . $datoBellNotificacion['name_notify'] . '</span>
-												</div>
-												<div style="width: 30%;">
-													<small><i class="fa fa-clock-o"></i> ' . $fecha . '</small>
-												</div>
-											</a>
-										</li>
-									';
-								} */
-								?>
-							</ul>
-						</li>
-					</ul>
-				</li>
-
-
-
 				<!-- User Account: style can be found in dropdown.less -->
 				<li class="dropdown user user-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<?php
 						if (empty($datos[6])) {
-							echo '<img src="' . FOLDER_PATH . '/src/assets/image/fperfil/avatar1.png" class="user-image" alt="User Image">';
+							echo '<div class="circle_nav" style="background-image: url(' . FOLDER_PATH . '/src/assets/image/fperfil/avatar1.png);"></div>';
 						} else {
-							echo '<img src="' . FOLDER_PATH . '/' . $datos[6] . '" class="user-image" alt="User Image">';
+							echo '<div class="circle_nav" style="background-image: url(' . FOLDER_PATH . '/' . $datos[6] . ');"></div>';
 						}
 						?>
 						<span class="hidden-xs"><?= $datos[1] . ' ' . $datos[2] ?></span>
@@ -156,13 +46,15 @@ function time2str($ts)
 					<ul class="dropdown-menu">
 						<!-- User image -->
 						<li class="user-header">
-							<?php
-							if (empty($datos[6])) {
-								echo '<img src="' . FOLDER_PATH . '/src/assets/image/fperfil/avatar1.png" class="img-circle" alt="User Image">';
-							} else {
-								echo '<img src="' . FOLDER_PATH . '/' . $datos[6] . '" class="img-circle" alt="User Image">';
-							}
-							?>
+							<div style="height: 96px; width: 96px; margin-left: auto; margin-right: auto; border-radius: 50%; border: 3px solid; border-color: rgba(255, 255, 255, 0.2);">
+								<?php
+									if (empty($datos[6])) {
+										echo '<div class="circle_dropdown" style="background-image: url(' . FOLDER_PATH . '/src/assets/image/fperfil/avatar1.png);"></div>';
+									} else {
+										echo '<div class="circle_dropdown" style="background-image: url(' . FOLDER_PATH . '/' . $datos[6] . ');"></div>';
+									}
+								?>
+							</div>
 							<p>
 								<?= $datos[1] . ' ' . $datos[2] ?>
 								<small style="margin-top: 7px; font-size: 14px;"><?= $datos[8] ?></small>
@@ -198,12 +90,12 @@ function time2str($ts)
 			<div class="pull-left image" style="POSITION: relative; top: 6px;">
 				<?php
 				if (empty($datos[6])) {
-					echo '<img src="' . FOLDER_PATH . '/src/assets/image/fperfil/avatar1.png" class="img-circle" alt="User Image">';
+					echo '<div class="circle_navleft" style="background-image: url(' . FOLDER_PATH . '/src/assets/image/fperfil/avatar1.png);"></div>';
 				} else {
-					echo '<img src="' . FOLDER_PATH . '/' . $datos[6] . '" class="img-circle" alt="User Image">';
+					echo '<div class="circle_navleft" style="background-image: url(' . FOLDER_PATH . '/' . $datos[6] . ');"></div>';
 				}
 				?>
-				<p>
+				<p></p>
 			</div>
 			<div class="pull-left info" style="padding-top: 0px; padding-bottom: 0px; top: 0px; bottom: 0px; width: 170px; padding-left: 0px; padding-right: 0px; margin-left: 5px;">
 				<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: block; width: 100%;">
@@ -218,12 +110,16 @@ function time2str($ts)
 		<ul class="sidebar-menu" data-widget="tree">
 			<li class="header">NAVEGACIÓN PRINCIPAL</li>
 			<!-- <li class="active menu-open"> -->
+			<?php if ($datos[8] != 'Administrador') { ?>
 			<li>
 				<a href="<?= FOLDER_PATH . '/admin' ?>">
 					<i class="fa fa-tv"></i> <span>Principal</span>
 				</a>
 			</li>
+			<?php }  ?>
+			<?php if ($datos[8] != 'Ejecutivo') { ?>
 			<li class="treeview">
+				
 				<a href="#">
 					<i class="fa fa-file-o"></i>
 					<span>Registro</span>
@@ -231,14 +127,18 @@ function time2str($ts)
 						<i class="fa fa-angle-left pull-right"></i>
 					</span>
 				</a>
+				
 				<ul class="treeview-menu">
-					<li><a href="javascript:;"><i class="fa fa-circle-o"></i> Atenciones</a></li>
+					<!--<li><a href="javascript:;"><i class="fa fa-circle-o"></i> Atenciones</a></li>-->
 					<li><a href="<?= FOLDER_PATH . '/admin/clientes' ?>"><i class="fa fa-circle-o"></i> Clientes</a></li>
 				</ul>
+			
 			</li>
+			<?php }  ?>
+			
 			<?php 
 			
-				if ($datos[8] == 'Gerente') {
+				if ($datos[8] == 'Gerente' || $datos[8] == 'Administrador') {
 					echo '
 					
 						<li>

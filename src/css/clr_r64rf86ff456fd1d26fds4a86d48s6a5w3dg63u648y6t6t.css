@@ -10927,8 +10927,6 @@ button.close {
     content: "\f280"
 }
 
-</style><style>
-
 /*@font-face {font-family: 'alternate';src: url('fonts/DINComp.ttf');font-weight: normal;font-style: normal;font-display: fallback;}
 @font-face {font-family: 'alternate';src: url('fonts/DINComp-Medium.ttf');font-weight: 500;font-style: normal;font-display: fallback;}
 @font-face {font-family: 'alternate';src: url('fonts/DINComp-Bold.ttf');font-weight: bold;font-style: normal;font-display: fallback;
@@ -11007,15 +11005,17 @@ section {
     background-blend-mode: overlay;
 }
 
+/*
 .fondopostpago {
     background-color: #b7222f;
-    background-image: url(/claro/src/assets/image/claromovil.jpg);
+    background-image: url(/src/assets/image/claromovil.jpg);
     background-position: 50% 26%;
     
     background-repeat: no-repeat;
     background-size: cover;
     height: 85vh;
 }
+*/
 
 .fondointernet {
     background-color: #b7222f;

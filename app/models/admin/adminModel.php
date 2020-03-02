@@ -46,7 +46,7 @@ class adminModel extends Model
     }
 
     public function guardar_usuario($fname, $lname, $correo, $status, $gender, $rol_user,
-        $supr, $imagen_bd, $code, $password)
+        $supr, $imagen_bd, $code, $password, $date, $pdf_destino)
     {
 
         $query = "CALL `insertar_usuario`(
@@ -59,7 +59,9 @@ class adminModel extends Model
                         '" . $supr . "', 
                         '" . $imagen_bd . "', 
                         '" . $code . "',
-                        '" . $password . "');";
+                        '" . $password . "',
+                        '" . $date . "',
+                        '" . $pdf_destino . "');";
         Model::query_execute($query);
     }
 
@@ -71,7 +73,6 @@ class adminModel extends Model
         return $res;
     }
 
-    // Actualizar organizador sin imagen
     public function editar_usuario(
 
         $codusu, 
@@ -85,7 +86,9 @@ class adminModel extends Model
         $imagen_bd, 
         $code, 
         $password, 
-        $dont_edit_photo 
+        $dont_edit_photo, 
+        $date,
+        $pdf_destino 
 
     )
     {
@@ -102,8 +105,10 @@ class adminModel extends Model
                     '" . $imagen_bd . "', 
                     '" . $code . "', 
                     '" . $password . "', 
-                    '" . $dont_edit_photo . "');";
-        $this->db->query($query); 
+                    '" . $dont_edit_photo . "', 
+                    '" . $date . "', 
+                    '" . $pdf_destino . "');"; 
+        Model::query_execute($query); 
 
     }
 
@@ -130,7 +135,9 @@ class adminModel extends Model
     $direccion,
     $region,
     $provincia,
-    $distrito)
+    $distrito, 
+    $celular_s, 
+    $observacion)
     {
         $query = "CALL `insertar_cliente`(
             '" . $dni . "', 
@@ -140,7 +147,9 @@ class adminModel extends Model
             '" . $direccion . "', 
             '" . $region . "', 
             '" . $provincia . "', 
-            '" . $distrito . "');
+            '" . $distrito . "', 
+            '" . $celular_s . "', 
+            '" . $observacion . "'); 
         ";
         Model::query_execute($query);
     }
@@ -153,7 +162,9 @@ class adminModel extends Model
     $direccion,
     $region,
     $provincia,
-    $distrito)
+    $distrito, 
+    $celular_s, 
+    $observacion)
     {
         $query = "CALL `actualizar_cliente`(
             " . $codcliente . ", 
@@ -164,7 +175,9 @@ class adminModel extends Model
             '" . $direccion . "', 
             '" . $region . "', 
             '" . $provincia . "', 
-            '" . $distrito . "'); 
+            '" . $distrito . "', 
+            '" . $celular_s . "', 
+            '" . $observacion . "'); 
         ";
         Model::query_execute($query);
     }
@@ -227,6 +240,13 @@ class adminModel extends Model
         $res = Model::query_execute($query);
         return $res;
     }
+    
+    public function update_perfil($codusu, $firstName, $lastName, $correo, $dont_edit_photo, $password, $imagen_bd)
+    {
+        $query = "CALL `actualizar_perfil`('" . $codusu . "', '" . $firstName . "', '" . $lastName . "', 
+                '" . $correo . "', '" . $dont_edit_photo . "', '" . $password . "', '" . $imagen_bd . "');";
+        Model::query_execute($query);
+    }
 
     
     /* -------------------- CONSULTAS GERENTE -------------------------- */
@@ -237,7 +257,7 @@ class adminModel extends Model
     }
 
     
-    /* -------------------- CONSULTAS GERENTE -------------------------- */
+    /* ------------------ CONSULTAS ADMINISTRADOR ---------------------- */
     
     public function mostrar_tprincipal2()
     {

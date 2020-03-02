@@ -8,9 +8,9 @@
 			<div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 text-right">
 				<span style="color: #FFFFFF;display: inline-block;font-size: 12px;margin-right: 15px;">Información y Contratación<br>Teléfono SIN COSTO</span>
 				<div class="telefono" style="display: inline-block;">
-					<img class="header" src="<?= FOLDER_PATH ?>/src/assets/image/telefone_header.png" style="width: 20px; margin-bottom: 7px;" alt="Ilustración de un teléfono en color blanco">
-					<a href="tel:080078006" id="telefono900" style="font-size: 30px">
-						0-800-78006
+					<img class="header" src="<?= FOLDER_PATH ?>/src/assets/image/what3.png" style="width: 30px; margin-bottom: 7px;" alt="Ilustración de un teléfono en color blanco">
+				    <a href="https://wa.me/51977303674" id="telefono900" style="font-size: 30px" target="_blank">
+						977 303 674
 					</a>
 				</div>
 			</div>

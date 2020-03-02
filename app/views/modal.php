@@ -32,7 +32,7 @@
             </header>
             <div class="modal-body text-justify" style="padding-right: 20px; font-size: 10.5pt; font-family: &#39;Gotham-Book&#39;,serif; color: #838383;">
                 <p style="margin-bottom: 7.5pt; text-align: justify; line-height: normal; background: white;"><span>Las presentes Condiciones Generales tienen por objeto regular las condiciones de uso del Sitio Web "ofertasypromocionesclaro.com" (en adelante, "la web"), cuyo titular es GIT GRUPO GESINTEL PERU SAC.</span> &nbsp;(en adelante GESINTEL) RUC : 20544740670, domicilio en la dirección JR. UCAYALI NRO. 142 INT. 201 CERCADO DE LIMA LIMA - LIMA – LIMA, con la cual se puede poner en contacto a través de info@gesintel.net.</p>
-                <p style="line-height: 15.75pt; background: white; margin: 7.5pt 0cm 7.5pt 0cm;"><strong><span "="">Condiciones de acceso</span></strong></p>
+                <p style="line-height: 15.75pt; background: white; margin: 7.5pt 0cm 7.5pt 0cm;"><strong><span>Condiciones de acceso</span></strong></p>
                 <p style=" margin-bottom: 7.5pt; text-align: justify; line-height: normal; background: white;"><span>La finalidad de esta web es ofrecer información sobre ofertas, promociones y contratación de servicios de telecomunicaciones. No se realizan contrataciones por vía electrónica, siendo necesaria en todo caso la contratación telefónica. Su utilización supone la aceptación plena por el Usuario de estas condiciones, por lo que si no está de acuerdo con el contenido de las mismas deberá abstenerse de hacer uso de la web, así como de los servicios ofrecidos en ella. GESINTEL se reserva el derecho a efectuar las modificaciones que estime oportunas, pudiendo modificar, suprimir o incluir, sin previo aviso, nuevos contenidos y/o servicios, así como la forma en que estos aparezcan presentados y localizados y las condiciones de uso de la web.</span></p>
                 <p style="margin-bottom: 7.5pt; text-align: justify; line-height: normal; background: white;">
                     <span">El Usuario acepta que el acceso y uso de la web y de los contenidos incluidos en la misma tiene lugar libre y conscientemente, bajo su exclusiva responsabilidad, y en consecuencia se compromete a:</span">
@@ -151,20 +151,22 @@
             </header>
             <div class="modal-body text-center" style="padding-bottom: 20px;background-color: white;">
                 <h1 class="modal-title text-center">¡Mira lo fácil que es!</h1>
-                <h1 class="text-center">Informáte ahora</h1>
-                <h2 class="text-center" style="color: #da291c">0-800-78006</h2>
+                <h1 class="text-center">Escríbenos al WhatsApp</h1>
+                <h2 class="text-center" style="color: #da291c">977 303 674</h2>
                 <h3 class="text-center">Si prefieres llamamos nosotros</h3>
-                <form id="frmModal" method="POST" action="<?= FOLDER_PATH ?>/cltm/">
-                    <input id="c2cMod_origen" name="c2cMod_origen" type="hidden" value="btnPOST1">
-                    <input type="dni" id="c2cMod_dni" name="dni" class="input-ico" placeholder="DNI" maxlength="8" autocomplete="off" pattern="[0-9]+" style="border-style: hidden;border-bottom: 1px solid #585858;background-image: none;margin-bottom: 10px;">
+                <form method="post" id="formulario-modLoQuiero">
+                    <input type="dni" id="dni_s" name="dni" class="input-ico" placeholder="DNI" maxlength="8" autocomplete="off" pattern="[0-9]+" style="border-style: hidden;border-bottom: 1px solid #585858;background-image: none;margin-bottom: 10px;">
                     <br>
-                    <input type="tel" id="c2cMod_tel" name="num" class="input-ico" placeholder="Fijo o móvil" maxlength="9" autocomplete="off" pattern="[0-9]+" style="border-style: hidden;border-bottom: 1px solid #585858;">
+                    <input type="tel" id="num_s" name="num" class="input-ico" placeholder="Fijo o móvil" maxlength="11" autocomplete="off" pattern="[0-9]+" style="border-style: hidden;border-bottom: 1px solid #585858;margin-bottom: 10px;">
                     <br>
-                    <input id="c2cMod_chkPolitica" name="chk" type="checkbox" required><span id="c2cMod_txtPolitica">Acepto la <strong onclick="javascript:$('#modPoliticaPrivacidad').modal('show')" style="cursor: pointer;" id="polPop">política de privacidad</strong></span>
+                    <input id="check_2-principal-form" name="chk" type="checkbox" onclick="aceptoPoliticas(this)" required><span id="c2cMod_txtPolitica">Acepto la <strong onclick="javascript:$('#modPoliticaPrivacidad').modal('show')" style="cursor: pointer;" id="polPop">política de privacidad</strong></span>
+                    <div id="invalid2" class="invalid-feedback" style="margin-left: 0px;">
+						Es requerido aceptar políticas.
+					</div>
                 </form>
             </div>
             <div class="modal-footer" style="background-color: #fff;">
-                <button id="btnC2CModal" type="button" class="btn-quiero">Llámame Ahora</button>
+                <button id="lmd2" type="button" class="btn-quiero">Llámame Ahora</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

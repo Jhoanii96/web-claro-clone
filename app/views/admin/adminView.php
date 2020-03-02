@@ -1,16 +1,15 @@
+<?php
 
-<?php 
-
-  setlocale(LC_ALL, ".UTF-8", 'Spanish_Peru', 'Spanish');
-  $datos = $data['datos_usu']->fetch();
+setlocale(LC_ALL, ".UTF-8", 'Spanish_Peru', 'Spanish');
+$datos = $data['datos_usu']->fetch();
 
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-  <meta charset="UTF-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Panel de administración | Claro</title>
   <link rel="shortcut icon" href="<?= FOLDER_PATH ?>/src/assets/image/favicon.ico">
@@ -41,8 +40,7 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
-
+  
   <style>
     .center_cell {
       text-align: center;
@@ -71,19 +69,46 @@
     }
 
     @media (min-width: 992px) {
-      .modal-lg, .modal-xl {
-          max-width: 800px;
+
+      .modal-lg,
+      .modal-xl {
+        max-width: 800px;
       }
     }
 
     @media (min-width: 1200px) {
       .modal-xl {
-          max-width: 1140px;
+        max-width: 1140px;
       }
     }
+
     .modal-backdrop {
-        background-color: rgba(255, 255, 255, 1);
-        filter: blur(10px);
+      background-color: rgba(255, 255, 255, 1);
+      filter: blur(10px);
+    }
+  </style>
+  
+  <style>
+    #example1_wrapper>div:nth-child(2) {
+      overflow-x: auto;
+      border-right: none;
+    }
+
+    @media only screen and (min-width: 128px) and (max-width: 992px) {
+      #example1_wrapper>div:nth-child(2) {
+        overflow-x: auto;
+        padding-right: 0px;
+        margin-right: 0px;
+        border-right: 1px solid #f4f4f4;
+        padding-top: 0px;
+        margin-top: 0px;
+      }
+    }
+    
+    @media (max-width: 1400px) {
+        .ctrl_with {
+            width: 100%;
+        }
     }
   </style>
 
@@ -97,35 +122,65 @@
 
     <?php require(ROOT . '/' . PATH_VIEWS . 'navbar_table.php'); ?>
 
-    
-    <?php 
 
-      if ($datos[8] == 'Gerente') {
+    <?php
 
-        require(ROOT . '/' . PATH_VIEWS . 'admin/principal/principal1View.php'); 
+    if ($datos[8] == 'Gerente') {
 
-      } elseif ($datos[8] == 'Administrador') {
-        
-        require(ROOT . '/' . PATH_VIEWS . 'admin/principal/principal2View.php'); 
+      require(ROOT . '/' . PATH_VIEWS . 'admin/principal/principal1View.php');
+    } elseif ($datos[8] == 'Administrador') {
 
-      } elseif ($datos[8] == 'Supervisor') {
-        
-        require(ROOT . '/' . PATH_VIEWS . 'admin/principal/principal3View.php'); 
+      require(ROOT . '/' . PATH_VIEWS . 'admin/principal/principal2View.php');
+    } elseif ($datos[8] == 'Supervisor') {
 
-      } elseif ($datos[8] == 'Ejecutivo') {
-        
-        require(ROOT . '/' . PATH_VIEWS . 'admin/principal/principal4View.php'); 
+      require(ROOT . '/' . PATH_VIEWS . 'admin/principal/principal3View.php');
+    } elseif ($datos[8] == 'Ejecutivo') {
 
-      }
-      
-    
+      require(ROOT . '/' . PATH_VIEWS . 'admin/principal/principal4View.php');
+    }
+
+
     ?>
 
 
     <?php require(ROOT . '/' . PATH_VIEWS . 'aside_control.php'); ?>
 
-  
+
 
 </body>
+
+<script>
+    /* if (Notification.permission !== "granted") {
+      Notification.requestPermission()
+           .then(function() {});
+    }; */ 
+    
+    // request permission on page load
+document.addEventListener('DOMContentLoaded', function() {
+ if (!Notification) {
+  alert('Desktop notifications not available in your browser. Try Chromium.');
+  return;
+ }
+
+ if (Notification.permission !== 'granted')
+  Notification.requestPermission();
+});
+
+
+function notifyMe() {
+ if (Notification.permission !== 'granted')
+  Notification.requestPermission();
+ else {
+  var notification = new Notification('Notification title', {
+   icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+   body: 'Hey there! You\'ve been notified!',
+  });
+  notification.onclick = function() {
+   window.open('http://stackoverflow.com/a/13328397/1269037');
+  };
+ }
+}
+    
+</script>
 
 </html>

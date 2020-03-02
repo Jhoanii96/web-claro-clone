@@ -1,13 +1,3 @@
-<!--    
-    
-    AUTOR DE PROGRAMACIÓN Y DISEÑO DE LA PAGINA WEB CON ADMINLTE / ORGANIZADORES: 
-	JOSUE ALDAIR MAMANI CARIAPAZA
-
--->
-
-
-
-
 <?php
 
 $datos = $data['datos_usu']->fetch();
@@ -62,6 +52,31 @@ $datos_usuario = $data['datos_usuario']->fetch();
 		.button-edit:hover {
 			border: 2px solid rgb(76, 172, 175);
 		}
+		
+		.dropzone {
+			width: 100%;
+			height: 200px;
+			border: 2px dashed #ccc;
+			color: #ccc;
+			line-height: 200px;
+			text-align: center;
+		}
+
+		.dropzone.dragover {
+			border-color: #000;
+			color: #000;
+		}
+		
+		.col-md-12 {
+		    width: 100%;
+		}
+		
+		@media (max-width: 767px) {
+		    .content-wrapper {
+		        display: flex;
+                width: 100%;
+		    }
+		}
 	</style>
 
 </head>
@@ -71,7 +86,7 @@ $datos_usuario = $data['datos_usuario']->fetch();
 		<?php require(ROOT . '/' . PATH_VIEWS . 'navbar_table.php'); ?>
 
 		<!-- Content Wrapper. Contains page content -->
-		<div class="content-wrapper">
+		<div class="content-wrapper" style="display: flex; padding-top: 17px;">
 			<!-- Content Header (Page header) -->
 			<br>
 			<div class="col-md-12">
@@ -91,14 +106,14 @@ $datos_usuario = $data['datos_usuario']->fetch();
 							<label class="col-sm-2 control-label">Nombres</label>
 
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="fname" placeholder="" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" style="text-transform:uppercase" name="fname" value="<?= $datos_usuario[1] ?>">
+								<input type="text" class="form-control" id="fname" placeholder="" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" name="fname" value="<?= $datos_usuario[1] ?>">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Apellidos</label>
 
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="lname" placeholder="" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" style="text-transform:uppercase" name="lname" value="<?= $datos_usuario[2] ?>">
+								<input type="text" class="form-control" id="lname" placeholder="" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" name="lname" value="<?= $datos_usuario[2] ?>">
 							</div>
 						</div>
 						<div class="form-group">
@@ -116,6 +131,19 @@ $datos_usuario = $data['datos_usuario']->fetch();
 									<option value="1" <?php ($datos_usuario[4] == 1) ? print(' selected') : ''; ?>>Activo</option>
 									<option value="0" <?php ($datos_usuario[4] == 0) ? print(' selected') : ''; ?>>Inactivo</option>
 								</select>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Fecha de nacimiento</label>
+
+							<div class="col-sm-10">
+								<div class="input-group">
+									<div class="input-group-addon">
+										<i class="fa fa-calendar"></i>
+									</div>
+									<input id="date" type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" value="<?= date_format(date_create($datos_usuario[11]),"d/m/Y") ?>">
+								</div>
 							</div>
 						</div>
 
@@ -173,6 +201,7 @@ $datos_usuario = $data['datos_usuario']->fetch();
 							<label class="col-sm-2 control-label">Agregar foto</label>
 
 							<div class="col-sm-10">
+							    <input style="display: none" type="text" id="uploadFile" name="textImage" readonly />
 								<input type="file" id="photoInputFilePhoto" name="image" accept="image/png,image/jpeg" style="margin-top: 4px;">
 							</div>
 						</div>
@@ -189,7 +218,25 @@ $datos_usuario = $data['datos_usuario']->fetch();
 
 							</div>
 						</div>
+						
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Agregar CV</label>
 
+							<div class="col-sm-10">
+							    <?php 
+									if (isset($datos_usuario[12])) {
+									    echo '<a href="' . FOLDER_PATH . '/' . $datos_usuario[12] . '" target="_blank" rel="noopener noreferrer" style="display: block; padding-top: 7px;">- Ver CV en una nueva pestaña -</a>';
+									    echo '<input id="up_pdf" style="display: none;" value="' . $datos_usuario[12] . '">';
+    								} else {
+    								    echo '<input id="up_pdf" style="display: none;" value="no_pdf">';
+    								}
+								?>
+							    <div id="uploads"></div>
+								<div class="dropzone" id="dropzone" style="display: block;">Arrastre archivo PDF aquí para subirlo</div>
+								<input id="filepdf" type="file" style="display: none;" accept="application/pdf"/>
+							</div>
+						</div>
+						
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Código</label>
 
@@ -241,22 +288,28 @@ $datos_usuario = $data['datos_usuario']->fetch();
 	<!-- ./wrapper -->
 
 	<!-- JQUERY -->
-	<script src="/2019/src/admin/js/jquery.min.js"></script>
+	<script src="<?= FOLDER_PATH ?>/src/js/jquery.min.js"></script>
 	<!-- Bootstrap 3.3.7 -->
-	<script src="/2019/src/admin/js/bootstrap.min.js"></script>
+	<script src="<?= FOLDER_PATH ?>/src/js/bootstrap.min.js"></script>
 	<!-- Select2 -->
-	<script src="/2019/src/admin/js/select2.full.min.js"></script>
+	<script src="<?= FOLDER_PATH ?>/src/js/select2.full.min.js"></script>
 	<!-- DataTables -->
-	<script src="/2019/src/admin/js/jquery.dataTables.min.js"></script>
-	<script src="/2019/src/admin/js/dataTables.bootstrap.min.js"></script>
+	<script src="<?= FOLDER_PATH ?>/src/js/jquery.dataTables.min.js"></script>
+	<script src="<?= FOLDER_PATH ?>/src/js/dataTables.bootstrap.min.js"></script>
 	<!-- FastClick -->
-	<script src="/2019/src/admin/js/fastclick.js"></script>
+	<script src="<?= FOLDER_PATH ?>/src/js/fastclick.js"></script>
 	<!-- AdminLTE App -->
-	<script src="/2019/src/admin/js/adminlte.min.js"></script>
+	<script src="<?= FOLDER_PATH ?>/src/js/adminlte.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
-	<script src="/2019/src/admin/js/demo.js"></script>
+	<script src="<?= FOLDER_PATH ?>/src/js/demo.js"></script>
+	<!-- InputMask -->
+	<script src="<?= FOLDER_PATH ?>/src/js/jquery.inputmask.js"></script>
+	<script src="<?= FOLDER_PATH ?>/src/js/jquery.inputmask.date.extensions.js"></script>
+	<script src="<?= FOLDER_PATH ?>/src/js/jquery.inputmask.extensions.js"></script>
 	<!-- Pace -->
 	<script src="<?= FOLDER_PATH ?>/src/js/pace.min.js"></script>
+	<!-- Sweetalert2 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.all.js"></script>
 	
 
 	<?php require(ROOT . '/' . PATH_VIEWS . 'pushjs.php'); ?>
@@ -272,6 +325,9 @@ $datos_usuario = $data['datos_usuario']->fetch();
 				'info': true,
 				'autoWidth': false
 			})
+		})
+		$('#date').inputmask('dd/mm/yyyy', {
+			'placeholder': 'dd/mm/yyyy'
 		})
 	</script>
 
@@ -289,40 +345,116 @@ $datos_usuario = $data['datos_usuario']->fetch();
 			}
 		}
 
-		$("#photoInputFile").change(function() {
+		$("#photoInputFilePhoto").change(function() {
 			readURL(this);
 		});
 	</script>
 
 	<script>
-		document.getElementById("photoInputFile").onchange = function() {
+
+		document.getElementById("photoInputFilePhoto").onchange = function() {
 			document.getElementById("uploadFile").value = this.files[0].name;
 		};
+
+		var pdf_file;
+
+		(function() {
+			var dropzone = document.getElementById('dropzone');
+			var fileupload = $("#filepdf");
+
+			var upload = function(files) {
+				pdf_file = files[0];
+				document.getElementById("dropzone").style.lineHeight = "normal";
+				document.getElementById("dropzone").style.color = "rgb(253, 0, 0)";
+				document.getElementById("dropzone").style.border = "2px inset rgb(255, 77, 0)";
+				$("#dropzone").html('<i class="fa fa-file-pdf-o" style="font-size: 60px; display: block; height: 125px; padding-top: 55px; color: rgb(255, 38, 38);"></i><span id="title_pdf" style="display: block; height: 75px; color: rgb(255, 38, 38);">' + pdf_file.name + '</span>');
+			}
+
+			dropzone.ondrop = function(e) {
+				e.preventDefault();
+				this.className = 'dropzone';
+				if (e.dataTransfer.files.length >= 2) {
+					swal("Atención!", "Debe ingresar solamente (1) archivo PDF", "warning");
+					return;
+				}
+				if (e.dataTransfer.files[0].type != 'application/pdf') {
+					swal("Atención!", "Debe se ingresado solo el archivo PDF", "warning");
+					return;
+				}
+				upload(e.dataTransfer.files);
+			}
+
+			dropzone.onmouseover = function() {
+				document.getElementById("dropzone").style.cursor = "pointer";
+				document.getElementById("dropzone").style.backgroundColor = "rgb(247, 247, 255)";
+				document.getElementById("dropzone").style.color = "#777777";
+			}
+			dropzone.onmouseleave = function() {
+				document.getElementById("dropzone").style.backgroundColor = "rgb(255, 255, 255)";
+				document.getElementById("dropzone").style.color = "#ccc";
+			}
+
+			dropzone.onclick = function() {
+				document.getElementById("dropzone").style.backgroundColor = "rgb(0, 0, 0)";
+				fileupload.click();
+			}
+
+			fileupload.change(function () {
+				if (this.files.length >= 2) {
+					swal("Atención!", "Debe ingresar solamente (1) archivo PDF", "warning");
+					return;
+				}
+				if (this.files[0].type != 'application/pdf') {
+					swal("Atención!", "Debe se ingresado solo el archivo PDF", "warning");
+					return;
+				}
+				upload(this.files);
+			});
+
+			dropzone.ondragover = function() {
+				this.className = 'dropzone dragover';
+				return false;
+			}
+
+			dropzone.ondragleave = function() {
+				this.className = 'dropzone';
+				return false;
+			}
+		}());
 
 		function selectSupr(e) {
 			var nom_value = e.value;
 			if (nom_value == 4) {
-				document.getElementById("select_supr").style.display="block";
+				document.getElementById("select_supr").style.display = "block";
 			} else {
-				document.getElementById("select_supr").style.display="none";
+				document.getElementById("select_supr").style.display = "none";
 			}
 		}
-	</script>
-
-	<script>
+		
 		$('#usredt').on('click', function() {
+			var codus = <?= $datos_usuario[0] ?>;
 			var fname = $('#fname').val();
 			var lname = $('#lname').val();
 			var correo = $('#correo').val();
 			var status = $("#status").children("option:selected").val();
 			var gender = $("#gender").children("option:selected").val();
+			var date = $('#date').val();
 			var rol_user = $("#rol_user").children("option:selected").val();
 			var supr = $("#supr").children("option:selected").val();
 			var textImage = $('#uploadFile').val();
+			var textpdf = $('#up_pdf').val();
 			var code = $('#code').val();
 			var password = $('#password').val();
 			var update = $('#usredt').val();
-
+            
+            <?php 
+				if (!isset($datos_usuario[12])) {
+				    echo 'if (pdf_file == null) {
+        				swal("Atención!", "Debe ingresar el CV del usuario", "warning");
+        				return;
+        			}';
+    			}
+			?>
 			if (fname == "") {
 				swal("Atención!", "Debe ingresar el nombre del usuario", "warning");
 				return;
@@ -335,26 +467,41 @@ $datos_usuario = $data['datos_usuario']->fetch();
 				swal("Atención!", "Debe ingresar el correo del usuario", "warning");
 				return;
 			}
-			if (code == "") {
+			if (date == "") {
+				swal("Atención!", "Debe ingresar la fecha de nacimiento del usuario", "warning");
+				return;
+			}
+			if (code.length != 0) {
+				if (code.length < 4) {
+					swal("Atención!", "El nombre de acceso del usuario debe contener más de 4 caracteres", "warning");
+					return;
+				}
+			} else {
 				swal("Atención!", "Debe ingresar el nombre de acceso del usuario", "warning");
 				return;
 			}
-			if (password == "") {
-				swal("Atención!", "Debe ingresar la contraseña del usuario", "warning");
-				return;
+			if (password.length != 0) {
+				if (password.length < 6) {
+					swal("Atención!", "Debe ingresar la contraseña mayor de 6 caracteres", "warning");
+					return;
+				}
 			}
 
 			var data = new FormData();
 
+			data.append("codus", codus);
 			data.append("fname", fname);
 			data.append("lname", lname);
 			data.append("correo", correo);
 			data.append("status", status);
 			data.append("gender", gender);
+			data.append("date", date);
 			data.append("rol_user", rol_user);
 			data.append("supr", supr);
 			data.append("textImage", textImage);
 			data.append("image", $('input[type=file]')[0].files[0]);
+			data.append("file_pdf", pdf_file);
+			data.append("textpdf", textpdf);
 			data.append("code", code);
 			data.append("password", password);
 			data.append("update", update);

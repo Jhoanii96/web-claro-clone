@@ -47,9 +47,9 @@ if ($link == '') {
 
     while ($row = $this->mostrar_tprincipal4->fetch()) {
         
-        $code = $row[0] . '|' . $row[2];
-        $code = base64_encode(utf8_encode($code));
-
+        $code = $row[8] . '|' . $row[2];
+        $code = base64_encode(utf8_encode($code)); 
+        
         if($row[7] == '1') {
 
             echo 'dataTable.fnAddData([
@@ -58,7 +58,7 @@ if ($link == '') {
             \'' . $row[2] . '\',
             \'' . $row[3] . '\',
             \'<div class="center_cell">',
-                '<a style="color: #fff" href="' . FOLDER_PATH . '/admin/clientes/edit/' . $code . '">',
+                '<a style="color: #fff" href="' . FOLDER_PATH . '/admin/clientes/edit/' . $row[8] . '?its_ec=1">',
                     '<span class="ctrl_with btn_style">Editar</span>',
                 '</a>',
             '</div>\',
@@ -67,25 +67,34 @@ if ($link == '') {
                 '';
                 if ($row[6] == '1') {
                     echo '<option value="1" selected>Pendiente</option>',
-                    '<option value="2">Vendido</option>',
+                    '<option value="4">En ejecución</option>',
+                    '<option value="2">Instalado</option>',
                     '<option value="3">Caído</option>',
                     '';
                 } elseif ($row[6] == '2') {
                     echo '<option value="1">Pendiente</option>',
-                    '<option value="2" selected>Vendido</option>',
+                    '<option value="4">En ejecución</option>',
+                    '<option value="2" selected>Instalado</option>',
                     '<option value="3">Caído</option>',
                     '';
                 } elseif ($row[6] == '3') {
                     echo '<option value="1">Pendiente</option>',
-                    '<option value="2">Vendido</option>',
+                    '<option value="4">En ejecución</option>',
+                    '<option value="2">Instalado</option>',
                     '<option value="3" selected>Caído</option>',
+                    '';
+                } elseif ($row[6] == '4') {
+                    echo '<option value="1">Pendiente</option>',
+                    '<option value="4" selected>En ejecución</option>',
+                    '<option value="2">Instalado</option>',
+                    '<option value="3">Caído</option>',
                     '';
                 }
                 echo '</select>',
             '</div>\',
             \'<div class="center_cell">',
                 '<button class="ctrl_with btn_style" id="data-hide-' . $row[0] . '" style="color: #fff" onclick="statusHide(' . $row[0] . ')">',
-                    '<span>X (Ocultar)</span>',
+                    '<span>Ocultar</span>',
                 '</button>',
             '</div>\']);';
         
@@ -119,8 +128,8 @@ if ($link == '') {
 
     while ($row = $this->mostrar_tprincipal4->fetch()) {
         
-        $code = $row[0] . '|' . $row[2];
-        $code = base64_encode(utf8_encode($code));
+        $code = $row[8] . '|' . $row[2];
+        $code = base64_encode(utf8_encode($code)); 
 
         if($row[7] == '1') {
 
@@ -130,7 +139,7 @@ if ($link == '') {
             \'' . $row[2] . '\',
             \'' . $row[3] . '\',
             \'<div class="center_cell">',
-                '<a style="color: #fff" href="' . FOLDER_PATH . '/admin/clientes/edit/' . $code . '">',
+                '<a style="color: #fff" href="' . FOLDER_PATH . '/admin/clientes/edit/' . $row[8] . '?its_ec=1">',
                     '<span class="ctrl_with btn_style">Editar</span>',
                 '</a>',
             '</div>\',
@@ -139,25 +148,34 @@ if ($link == '') {
                 '';
                 if ($row[6] == '1') {
                     echo '<option value="1" selected>Pendiente</option>',
-                    '<option value="2">Vendido</option>',
+                    '<option value="4">En ejecución</option>',
+                    '<option value="2">Instalado</option>',
                     '<option value="3">Caído</option>',
                     '';
                 } elseif ($row[6] == '2') {
                     echo '<option value="1">Pendiente</option>',
-                    '<option value="2" selected>Vendido</option>',
+                    '<option value="4">En ejecución</option>',
+                    '<option value="2" selected>Instalado</option>',
                     '<option value="3">Caído</option>',
                     '';
                 } elseif ($row[6] == '3') {
                     echo '<option value="1">Pendiente</option>',
-                    '<option value="2">Vendido</option>',
+                    '<option value="4">En ejecución</option>',
+                    '<option value="2">Instalado</option>',
                     '<option value="3" selected>Caído</option>',
+                    '';
+                } elseif ($row[6] == '4') {
+                    echo '<option value="1">Pendiente</option>',
+                    '<option value="4" selected>En ejecución</option>',
+                    '<option value="2">Instalado</option>',
+                    '<option value="3">Caído</option>',
                     '';
                 }
                 echo '</select>',
             '</div>\',
             \'<div class="center_cell">',
                 '<button class="ctrl_with btn_style" id="data-hide-' . $row[0] . '" style="color: #fff" onclick="statusHide(' . $row[0] . ')">',
-                    '<span>X (Ocultar)</span>',
+                    '<span>Ocultar</span>',
                 '</button>',
             '</div>\']);';
         
@@ -207,8 +225,8 @@ if ($link == '') {
 
     while ($row = $this->mostrar_tprincipal4->fetch()) {
         
-        $code = $row[0] . '|' . $row[2];
-        $code = base64_encode(utf8_encode($code));
+        $code = $row[8] . '|' . $row[2];
+        $code = base64_encode(utf8_encode($code)); 
 
         if($row[7] == '1') {
 
@@ -218,7 +236,7 @@ if ($link == '') {
             \'' . $row[2] . '\',
             \'' . $row[3] . '\',
             \'<div class="center_cell">',
-                '<a style="color: #fff" href="' . FOLDER_PATH . '/admin/clientes/edit/' . $code . '">',
+                '<a style="color: #fff" href="' . FOLDER_PATH . '/admin/clientes/edit/' . $row[8] . '?its_ec=1">',
                     '<span class="ctrl_with btn_style">Editar</span>',
                 '</a>',
             '</div>\',
@@ -227,25 +245,34 @@ if ($link == '') {
                 '';
                 if ($row[6] == '1') {
                     echo '<option value="1" selected>Pendiente</option>',
-                    '<option value="2">Vendido</option>',
+                    '<option value="4">En ejecución</option>',
+                    '<option value="2">Instalado</option>',
                     '<option value="3">Caído</option>',
                     '';
                 } elseif ($row[6] == '2') {
                     echo '<option value="1">Pendiente</option>',
-                    '<option value="2" selected>Vendido</option>',
+                    '<option value="4">En ejecución</option>',
+                    '<option value="2" selected>Instalado</option>',
                     '<option value="3">Caído</option>',
                     '';
                 } elseif ($row[6] == '3') {
                     echo '<option value="1">Pendiente</option>',
-                    '<option value="2">Vendido</option>',
+                    '<option value="4">En ejecución</option>',
+                    '<option value="2">Instalado</option>',
                     '<option value="3" selected>Caído</option>',
+                    '';
+                } elseif ($row[6] == '4') {
+                    echo '<option value="1">Pendiente</option>',
+                    '<option value="4" selected>En ejecución</option>',
+                    '<option value="2">Instalado</option>',
+                    '<option value="3">Caído</option>',
                     '';
                 }
                 echo '</select>',
             '</div>\',
             \'<div class="center_cell">',
                 '<button class="ctrl_with btn_style" id="data-hide-' . $row[0] . '" style="color: #fff" onclick="statusHide(' . $row[0] . ')">',
-                    '<span>X (Ocultar)</span>',
+                    '<span>Ocultar</span>',
                 '</button>',
             '</div>\']);';
         

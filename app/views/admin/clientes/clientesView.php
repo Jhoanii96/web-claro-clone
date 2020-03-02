@@ -141,17 +141,20 @@ $datos = $data['datos_usu']->fetch();
 										</div>
 										<div class="form-group">
 											<label>Celular</label>
-											<input type="text" class="form-control" pattern="[0-9 ]+" name="cellphone" id="phone" maxlength="15">
+											<input type="text" class="form-control" name="cellphone" id="phone" maxlength="15">
 										</div>
 										<div class="form-group">
 											<label>Nombres</label>
-											<input type="text" class="form-control" pattern="[A-Za-zÁÉÍÓÚñÑ ]+" style="text-transform: uppercase" name="firstName" id="firstName">
+											<input type="text" class="form-control" pattern="[A-Za-zÁÉÍÓÚñÑ ]+" name="firstName" id="firstName">
 										</div>
 										<div class="form-group">
 											<label>Apellidos</label>
-											<input type="text" class="form-control" pattern="[A-Za-zÁÉÍÓÚñÑ ]+" style="text-transform: uppercase" name="lastName" id="lastName">
+											<input type="text" class="form-control" pattern="[A-Za-zÁÉÍÓÚñÑ ]+" name="lastName" id="lastName">
 										</div>
-
+                                        <div class="form-group">
+                                            <label>Segundo número celular</label>
+                                            <input type="text" class="form-control" name="cellphone_s" id="phone_s" maxlength="15">
+                                        </div>
 
 									</div>
 
@@ -173,10 +176,9 @@ $datos = $data['datos_usu']->fetch();
 											<input type="text" class="form-control" name="dist" id="dist">
 										</div>
 										<div class="form-group">
-											<div class="col-sm-offset-2 col-sm-10">
-
-											</div>
-										</div>
+        									<label>Descripción\Observación</label>
+        									<textarea class="form-control" rows="2" placeholder="Ingrese ..." name="descripcion" id="descripcion"></textarea>
+        								</div>
 									</div>
 
 								</div>
@@ -351,6 +353,8 @@ $datos = $data['datos_usu']->fetch();
 			var reg = $('#region').val();
 			var pro = $('#prov').val();
 			var dis = $('#dist').val();
+			var phn_s = $('#phone_s').val();
+            var des = $('#descripcion').val();
 
 			if (dni == "") {
 				swal("Atención!", "Debe ingresar su número de DNI", "warning");
@@ -379,6 +383,8 @@ $datos = $data['datos_usu']->fetch();
 			data.append("reg", reg);
 			data.append("pro", pro);
 			data.append("dis", dis);
+			data.append("phn_s", phn_s);
+			data.append("des", des);
 
 			$.ajax({
 				beforeSend: function() {

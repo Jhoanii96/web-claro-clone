@@ -57,8 +57,21 @@ $datos = $data['datos_usu']->fetch();
 				margin-top: 0px;
 			}
 		}
-	</style>
 
+		.dropzone {
+			width: 100%;
+			height: 200px;
+			border: 2px dashed #ccc;
+			color: #ccc;
+			line-height: 200px;
+			text-align: center;
+		}
+
+		.dropzone.dragover {
+			border-color: #000;
+			color: #000;
+		}
+	</style>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -93,14 +106,14 @@ $datos = $data['datos_usu']->fetch();
 									<label class="col-sm-2 control-label">Nombres</label>
 
 									<div class="col-sm-10">
-										<input type="text" class="form-control" id="fname" placeholder="" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" style="text-transform:uppercase" name="fname">
+										<input type="text" class="form-control" id="fname" placeholder="" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" name="fname">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 control-label">Apellidos</label>
 
 									<div class="col-sm-10">
-										<input type="text" class="form-control" id="lname" placeholder="" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" style="text-transform:uppercase" name="lname">
+										<input type="text" class="form-control" id="lname" placeholder="" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]+" name="lname">
 									</div>
 								</div>
 
@@ -130,6 +143,19 @@ $datos = $data['datos_usu']->fetch();
 											<option value="M">Masculino</option>
 											<option value="F">Femenino</option>
 										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-2 control-label">Fecha de nacimiento</label>
+
+									<div class="col-sm-10">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar"></i>
+											</div>
+											<input id="date" type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+										</div>
 									</div>
 								</div>
 
@@ -167,6 +193,14 @@ $datos = $data['datos_usu']->fetch();
 
 									<div class="col-sm-10">
 										<input type="file" id="photoInputFilePhoto" name="image" accept="image/png,image/jpeg" style="margin-top: 4px;">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">Agregar CV</label>
+
+									<div class="col-sm-10">
+										<div id="uploads"></div>
+										<div class="dropzone" id="dropzone" style="display: block;">Arrastre archivo PDF aquí para subirlo</div>
 									</div>
 								</div>
 								<div class="form-group">
@@ -212,7 +246,9 @@ $datos = $data['datos_usu']->fetch();
 														<th>Tipo</th>
 														<th>Código</th>
 														<th>Editar</th>
-														<th>Borrar</th>
+														<?php if ($datos[8] == 'Gerente') { ?>
+															<th>Borrar</th>
+														<?php } ?>
 													</tr>
 												</thead>
 												<tbody>
@@ -231,11 +267,15 @@ $datos = $data['datos_usu']->fetch();
 																		<input class="button-style" type=button value="Editar">
 																	</a>
 																</td>
-																<td class="button">
-																	<form><input class="button-style" type=submit value="Borrar"></form>
-																</td>
-															</tr>
 															';
+														if ($datos[8] == 'Gerente') {
+															echo '
+    															<td class="button">
+    																<form><input class="button-style" type=submit value="Borrar"></form>
+    															</td>
+    														    ';
+														}
+														echo '</tr>';
 													}
 													?>
 												</tbody>
@@ -248,7 +288,9 @@ $datos = $data['datos_usu']->fetch();
 														<th>Tipo</th>
 														<th>Código</th>
 														<th>Editar</th>
-														<th>Borrar</th>
+														<?php if ($datos[8] == 'Gerente') { ?>
+															<th>Borrar</th>
+														<?php } ?>
 													</tr>
 												</tfoot>
 											</table>
@@ -292,6 +334,10 @@ $datos = $data['datos_usu']->fetch();
 	<script src="<?= FOLDER_PATH ?>/src/js/adminlte.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="<?= FOLDER_PATH ?>/src/js/demo.js"></script>
+	<!-- InputMask -->
+	<script src="<?= FOLDER_PATH ?>/src/js/jquery.inputmask.js"></script>
+	<script src="<?= FOLDER_PATH ?>/src/js/jquery.inputmask.date.extensions.js"></script>
+	<script src="<?= FOLDER_PATH ?>/src/js/jquery.inputmask.extensions.js"></script>
 	<!-- Pace -->
 	<script src="<?= FOLDER_PATH ?>/src/js/pace.min.js"></script>
 	<!-- SWEETALERT -->
@@ -311,16 +357,54 @@ $datos = $data['datos_usu']->fetch();
 				'autoWidth': false
 			})
 		})
+		$('#date').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
 	</script>
 
 	<script>
+		var pdf_file;
+
+		(function() {
+			var dropzone = document.getElementById('dropzone');
+
+			var upload = function(files) {
+				pdf_file = files[0];
+				document.getElementById("dropzone").style.lineHeight = "normal";
+				document.getElementById("dropzone").style.color = "rgb(253, 0, 0)";
+				document.getElementById("dropzone").style.border = "2px inset rgb(255, 77, 0)";
+				$("#dropzone").html('<i class="fa fa-file-pdf-o" style="font-size: 60px; display: block; height: 125px; padding-top: 55px;"></i><span id="title_pdf" style="display: block; height: 75px;">' + pdf_file.name + '</span>');
+			}
+
+			dropzone.ondrop = function(e) {
+				e.preventDefault();
+				this.className = 'dropzone';
+				if (e.dataTransfer.files.length >= 2) {
+					swal("Atención!", "Debe ingresar solamente (1) archivo PDF", "warning");
+					return;
+				}
+				if (e.dataTransfer.files[0].type != 'application/pdf') {
+					swal("Atención!", "Debe se ingresado solo el archivo PDF", "warning");
+					return;
+				}
+				upload(e.dataTransfer.files);
+			}
+
+			dropzone.ondragover = function() {
+				this.className = 'dropzone dragover';
+				return false;
+			}
+
+			dropzone.ondragleave = function() {
+				this.className = 'dropzone';
+				return false;
+			}
+		}());
 
 		function selectSupr(e) {
 			var nom_value = e.value;
 			if (nom_value == 4) {
-				document.getElementById("select_supr").style.display="block";
+				document.getElementById("select_supr").style.display = "block";
 			} else {
-				document.getElementById("select_supr").style.display="none";
+				document.getElementById("select_supr").style.display = "none";
 			}
 		}
 
@@ -330,11 +414,16 @@ $datos = $data['datos_usu']->fetch();
 			var correo = $('#correo').val();
 			var status = $("#status").children("option:selected").val();
 			var gender = $("#gender").children("option:selected").val();
+			var date = $('#date').val();
 			var rol_user = $("#rol_user").children("option:selected").val();
 			var supr = $("#supr").children("option:selected").val();
 			var code = $('#code').val();
 			var password = $('#password').val();
 
+			if (pdf_file == null) {
+				swal("Atención!", "Debe ingresar el CV del usuario", "warning");
+				return;
+			}
 			if (fname == "") {
 				swal("Atención!", "Debe ingresar el nombre del usuario", "warning");
 				return;
@@ -347,14 +436,27 @@ $datos = $data['datos_usu']->fetch();
 				swal("Atención!", "Debe ingresar el correo del usuario", "warning");
 				return;
 			}
-			if (code == "") {
+			if (date == "") {
+				swal("Atención!", "Debe ingresar la fecha de nacimiento del usuario", "warning");
+				return;
+			}
+			if (code.length != 0) {
+				if (code.length < 4) {
+					swal("Atención!", "El nombre de acceso del usuario debe contener más de 4 caracteres", "warning");
+					return;
+				}
+			} else {
 				swal("Atención!", "Debe ingresar el nombre de acceso del usuario", "warning");
 				return;
 			}
-			if (password == "") {
-				swal("Atención!", "Debe ingresar la contraseña del usuario", "warning");
-				return;
+			if (password.length != 0) {
+				if (password.length < 6) {
+					swal("Atención!", "Debe ingresar la contraseña mayor de 6 caracteres", "warning");
+					return;
+				}
 			}
+			
+
 
 			var data = new FormData();
 
@@ -363,9 +465,11 @@ $datos = $data['datos_usu']->fetch();
 			data.append("correo", correo);
 			data.append("status", status);
 			data.append("gender", gender);
+			data.append("date", date);
 			data.append("rol_user", rol_user);
 			data.append("supr", supr);
 			data.append("image", $('input[type=file]')[0].files[0]);
+			data.append("file_pdf", pdf_file);
 			data.append("code", code);
 			data.append("password", password);
 

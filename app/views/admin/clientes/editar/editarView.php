@@ -13,6 +13,9 @@ $region = $row[6];
 $provincia = $row[7];
 $distrito = $row[8];
 
+$celular_s = $row[9];
+$observacion = $row[10];
+
 ?>
 
 
@@ -138,15 +141,19 @@ $distrito = $row[8];
                                         </div>
                                         <div class="form-group">
                                             <label>Celular</label>
-                                            <input type="text" class="form-control" pattern="[0-9 ]+" name="cellphone" value="<?= $celular ?>" id="phone" maxlength="15" disabled>
+                                            <input type="text" class="form-control" name="cellphone" value="<?= $celular ?>" id="phone" maxlength="15" disabled>
                                         </div>
                                         <div class="form-group">
                                             <label>Nombres</label>
-                                            <input type="text" class="form-control" pattern="[A-Za-zÁÉÍÓÚñÑ ]+" style="text-transform: uppercase" value="<?= $nombre ?>" name="firstName" id="firstName">
+                                            <input type="text" class="form-control" pattern="[A-Za-zÁÉÍÓÚñÑ ]+" value="<?= $nombre ?>" name="firstName" id="firstName">
                                         </div>
                                         <div class="form-group">
                                             <label>Apellidos</label>
-                                            <input type="text" class="form-control" pattern="[A-Za-zÁÉÍÓÚñÑ ]+" style="text-transform: uppercase"  value="<?= $apellido ?>" name="lastName" id="lastName">
+                                            <input type="text" class="form-control" pattern="[A-Za-zÁÉÍÓÚñÑ ]+" value="<?= $apellido ?>" name="lastName" id="lastName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Segundo número celular</label>
+                                            <input type="text" class="form-control" name="cellphone_s" value="<?= $celular_s ?>" id="phone_s" maxlength="15">
                                         </div>
                                     </div>
 
@@ -167,7 +174,10 @@ $distrito = $row[8];
                                             <label>Distrito</label>
                                             <input type="text" class="form-control" name="dist" value="<?= $distrito ?>" id="dist">
                                         </div>
-
+                                        <div class="form-group">
+        									<label>Descripción\Observación</label>
+        									<textarea class="form-control" rows="2" placeholder="Ingrese ..." name="descripcion" id="descripcion"><?= $observacion ?></textarea>
+        								</div>
 
                                     </div>
 
@@ -262,6 +272,8 @@ $distrito = $row[8];
 			var pro = $('#prov').val();
 			var dis = $('#dist').val();
             var upd = $('#cliact').val();
+            var phn_s = $('#phone_s').val();
+            var des = $('#descripcion').val();
 
             var data = new FormData();
 
@@ -274,6 +286,8 @@ $distrito = $row[8];
 			data.append("reg", reg);
 			data.append("pro", pro);
 			data.append("dis", dis);
+			data.append("phn_s", phn_s);
+			data.append("des", des);
             data.append("update", upd);
 			
 			$.ajax({
@@ -294,9 +308,23 @@ $distrito = $row[8];
 					$("#spinner-cl").remove();
 					$("#cliact").html('Actualizado');
 					$("#cliact").attr("disabled", false);
-					setTimeout(function() {
-						location.href = "<?= FOLDER_PATH ?>/admin/clientes";
-					}, 500);
+					
+					<?php 
+					    if ($data['return_page'] == '1') {
+					        echo '
+					        setTimeout(function() {
+        						location.href = "' . FOLDER_PATH . '/admin";
+        					}, 500);
+					        ';
+					    } else {
+					        echo '
+					        setTimeout(function() {
+        						location.href = "' . FOLDER_PATH . '/admin/clientes";
+        					}, 500);
+					        ';
+					    }
+					?>
+					
 				}
 			})
 		});

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Iniciar de sesión | USI</title>
+    <title>Iniciar de sesión | El Dorado</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="shortcut icon" href="<?= FOLDER_PATH ?>/src/assets/image/favicon.ico">
     <link rel="stylesheet" href="<?= FOLDER_PATH ?>/src/css/bootstrap.min.css">
@@ -64,7 +64,7 @@
                     </div>
                 </div>
             </form> 
-            <span style="font-weight: lighter; color: #fff">¿No eres miembro? <a href="<?= FOLDER_PATH ?>/register" class="text-center" style="font-weight: normal;">Regístrate aquí</a></span>
+            <span style="font-weight: lighter; font-size: 12px; color: #fff">Derechos de <a href="javascript:;" class="text-center" style="font-weight: normal;">política de datos</a> y <a href="javascript:;" class="text-center" style="font-weight: normal;">política de cookies</a></span>
         </div>
         <div class="footer">
             <p id="author" style="font-size: 15px;"></p>

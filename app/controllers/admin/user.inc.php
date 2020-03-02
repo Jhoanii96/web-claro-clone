@@ -24,6 +24,9 @@ if ($link == '') {
     $correo = $_POST["correo"];
     $status = $_POST["status"];
     $gender = $_POST["gender"];
+    $date = $_POST["date"];
+    $date = str_replace('/', '-', $date);
+    $date = date("Y-m-d", strtotime($date));
     $rol_user = $_POST["rol_user"];
     if ($rol_user == '4') {
         $supr = $_POST["supr"];
@@ -32,6 +35,8 @@ if ($link == '') {
     }
     $code = $_POST["code"];
     $password = $_POST["password"];
+    
+    /* ----- IMAGEN ----- */
 
     if (!isset($_FILES["image"]["tmp_name"])) {
         $file_tmp = '';
@@ -56,6 +61,22 @@ if ($link == '') {
 
     $imagen_bd = 'src/assets/image/fperfil/' . $file_name;
 
+    /* ------ PDF ------ */
+
+    
+    if (!isset($_FILES["file_pdf"]["tmp_name"])) {
+        $file_pdf_tmp = '';
+    } else {
+        $file_pdf_tmp = $_FILES["file_pdf"]["tmp_name"];
+    }
+
+    $file_pdf_name = date("m" . "d" . "y") . date("h" . "i" . "s" . microtime(TRUE)) . "." . basename($_FILES['file_pdf']['type']);
+    
+    $pdf_destino = ROOT . FOLDER_PATH . '/src/assets/files/pdf/';
+    move_uploaded_file($file_pdf_tmp, $pdf_destino . $file_pdf_name);
+
+    $pdf_bd = 'src/assets/files/pdf/' . $file_pdf_name;
+
     $this->model->guardar_usuario(
         $fname,
         $lname,
@@ -66,7 +87,9 @@ if ($link == '') {
         $supr,
         $imagen_bd,
         $code,
-        $password
+        $password, 
+        $date, 
+        $pdf_bd 
     );
 } else if ($link == 'edit') {
 
@@ -78,20 +101,27 @@ if ($link == '') {
 
     if ($update == "true") {
 
-        $codusu = $dato;
+        $codusu = $_POST['codus'];
         $fname = $_POST["fname"];
         $lname = $_POST["lname"];
         $correo = $_POST["correo"];
         $status = $_POST["status"];
         $gender = $_POST["gender"];
+        $date = $_POST["date"];
+        $date = str_replace('/', '-', $date);
+        $date = date("Y-m-d", strtotime($date));
         $rol_user = $_POST["rol_user"];
         if ($rol_user == '4') {
             $supr = $_POST["supr"];
         } else {
-            $supr = '';
+            $supr = '0';
         }
+        $textImage = $_POST["textImage"];
         $code = $_POST["code"];
         $password = $_POST["password"];
+        $textpdf = $_POST["textpdf"];
+
+        /* ----- IMAGEN ----- */
 
         if (!isset($_FILES["image"]["tmp_name"])) {
             $file_tmp = '';
@@ -118,19 +148,43 @@ if ($link == '') {
 
         $imagen_bd = 'src/assets/image/fperfil/' . $file_name;
 
+        /* ------ PDF ------ */
+
+        if (!isset($_FILES["file_pdf"]["tmp_name"])) {
+            $file_pdf_tmp = '';
+        } else {
+            $file_pdf_tmp = $_FILES["file_pdf"]["tmp_name"];
+        }
+        
+        if ($file_pdf_tmp != '') {
+            $file_pdf_name = date("m" . "d" . "y") . date("h" . "i" . "s" . microtime(TRUE)) . "." . basename($_FILES['file_pdf']['type']);
+
+            $pdf_destino = ROOT . FOLDER_PATH . '/src/assets/files/pdf/';
+            move_uploaded_file($file_pdf_tmp, $pdf_destino . $file_pdf_name);
+            
+            $pdf_bd = 'src/assets/files/pdf/' . $file_pdf_name;
+        } else {
+            if ($textpdf != 'no_pdf') {
+                $pdf_bd = $textpdf;
+            }
+        }
+            
+        
         $this->model->editar_usuario(
-            $codusu, 
-            $fname, 
-            $lname, 
-            $correo, 
-            $status, 
-            $gender, 
-            $rol_user, 
-            $supr, 
-            $imagen_bd, 
-            $code, 
-            $password, 
-            $dont_edit_photo 
+            $codusu,
+            $fname,
+            $lname,
+            $correo,
+            $status,
+            $gender,
+            $rol_user,
+            $supr,
+            $imagen_bd,
+            $code,
+            $password,
+            $dont_edit_photo,
+            $date,
+            $pdf_bd 
         );
 
     } else {

@@ -10,50 +10,50 @@
 if ($link == '') {
 
     # editamos organizador segun el dato que pase como parámetro
-    @$update = $_POST['update'];
+    
+    if (isset($_POST['update'])) {
+        @$update = $_POST['update'];
+    } else {
+        @$update = NULL;
+    }
+    
     if ($update == "true") {
-        $numOrg = $_POST['numOrg'];
-        $firstName = strtoupper($_POST['firstName']);
-        $lastName = strtoupper($_POST['lastName']);
-        $dni = $_POST['dni'];
-        $contact_point = $_POST['contact_point'];
+        $codusu = $this->admin;
+        $firstName = $_POST['fname'];
+        $lastName = $_POST['lname'];
         $correo = $_POST['correo'];
         // comprobación de cambios en la imagen
-        @$textimage = $_POST['textImage'];
-
-        $rol = $_POST['rol'];
-        $code = $this->session->get('usuarioCIIS');
+        @$textimage = $_POST['ufile'];
         @$password = $_POST['password'];
 
-        if (@$password != '' || @$password != NULL) {
-            $password = base64_encode($password);
-        } else {
-            $password = "";
+        if (@$password == '' || @$password == NULL) {
+            $password = "not";
         }
 
-        if ($textimage == NULL || $textimage == '') {
-
-            
-
-            $this->dataPerfil->actualizarPerfilWi($encapsuPerfil, $numOrg);
+        if ($textimage == '' || $textimage == NULL) {
+            $textimage = "";
+        } 
+        
+        if (!isset($_FILES["image"]["tmp_name"])) {
+            $file_tmp = '';
+            $dont_edit_photo = '1';
         } else {
-            $file_name = $_FILES['image']['name'];
-            $file_type = $_FILES['image']['type'];
-            $file_size = $_FILES['image']['size'];
-
-            $file_tmp = $_FILES['image']['tmp_name'];
-
-            $imagen_destino = ROOT . FOLDER_PATH . '/src/assets/media/image/';
-            move_uploaded_file($file_tmp, $imagen_destino . $file_name);
-            $imagen_bd = '/2019/src/assets/media/image/' . $file_name;
-
-            
-
-            $this->dataPerfil->actualizarPerfil($encapsuPerfil, $numOrg);
+            $file_tmp = $_FILES["image"]["tmp_name"];
+            $dont_edit_photo = '0';
         }
 
-        sleep(1);
-        echo ("<script>location.href = '" . FOLDER_PATH . "/admin/perfil';</script>");
+        if (!isset($_FILES["image"]["name"])) {
+            $file_name = 'avatar1.png';
+        } else {
+            $file_name = date("m" . "d" . "y") . date("h" . "i" . "s" . microtime(TRUE)) . "." . basename($_FILES['image']['type']);
+        }
+
+        $imagen_destino = ROOT . FOLDER_PATH . '/src/assets/image/fperfil/';
+        move_uploaded_file($file_tmp, $imagen_destino . $file_name);
+        $imagen_bd = 'src/assets/image/fperfil/' . $file_name;
+
+        $this->model->update_perfil($codusu, $firstName, $lastName, $correo, $dont_edit_photo, $password, $imagen_bd);
+
     } else {
         $this->datos_usu = $this->model->datos_usuario($this->admin);
         $this->datos_perfil = $this->model->mostrar_perfil($this->admin);

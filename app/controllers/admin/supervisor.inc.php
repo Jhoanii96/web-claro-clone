@@ -65,9 +65,11 @@ if ($link == '') {
         if ($row[13] == '1') {
             $estado = 'Pendiente';
         } elseif ($row[13] == '2') {
-            $estado = 'Vendido';
-        } elseif ($row[13] == '3') {
+            $estado = 'Instalado';
+        } elseif ($row[6] == '3') {
             $estado = 'Caído';
+        } elseif ($row[6] == '4') {
+            $estado = 'En ejecución';
         }
 
 
@@ -84,9 +86,6 @@ if ($link == '') {
                     <div class="modal-body">
                         <form autocomplete="false" novalidate>
                             
-                            <input style="display:none" type="password" name="fakepasswordremembered" />
-                            <input type="text" style="display: none" class="form-control" id="id" name="id" value="">
-        
                             <div class="box-body">
         
                                 <div class="col-md-6">
@@ -108,6 +107,10 @@ if ($link == '') {
                                     <div class="form-group">
                                         <label>Celular</label>
                                         <input type="text" class="form-control" pattern="[0-9 ]+" value="' . $row[4] . '" maxlength="15">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Segundo número celular</label>
+                                        <input type="text" class="form-control" value="' . $row[14] . '" maxlength="15">
                                     </div>
                                     <div class="form-group">
                                         <label>Dirección</label>
@@ -145,6 +148,10 @@ if ($link == '') {
                                         <label>Estado</label>
                                         <input type="text" class="form-control" value="' . $estado . '">
                                     </div>
+                                    <div class="form-group">
+                						<label>Descripción\Observación</label>
+                						<textarea class="form-control" rows="2">' . $row[15] . '</textarea>
+                					</div>
         
                                 </div>
         
@@ -154,7 +161,7 @@ if ($link == '') {
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" style="background-color: #1b218e; color: #fff; border-radius: 0;" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" style="background-color: #1b218e; color: #fff; border-radius: 0;" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>

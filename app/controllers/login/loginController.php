@@ -19,8 +19,8 @@ class login extends Controller
 		$this->session = new Session;
 		$this->session->getAll();
 
-		if (!empty($this->session->get('userClaro'))) {
-			header("Location: " . FOLDER_PATH . "/admin");
+		if ($this->session->get('userClaro')) {
+			echo("<script>location.href = '" . FOLDER_PATH . "/admin';</script>");
         }
 	}
 
@@ -42,7 +42,7 @@ class login extends Controller
 		/* $param[1] = base64_encode($password); */
 
 		if (!$this->VerificarParametros($param)) {
-			header("Location: " . FOLDER_PATH . "/login");
+			echo("<script>location.href = '" . FOLDER_PATH . "/login';</script>");
 			return $this->renderErrorMessage('*El usuario y la contraseña son obligatorios');
 		} else {
 			@$parametro = $this->model->Verificar_usuarios($param[0]);
@@ -56,8 +56,18 @@ class login extends Controller
 					return $this->renderErrorMessage('*La contraseña es incorrecta');
 				} else {
 					$this->session->add('userClaro', $identi['usuario']);
-					//echo $this->session->get('usuario');
-					header("Location: " . FOLDER_PATH . "/admin");
+					if (!empty($_POST["chkb"])) {
+						setcookie("member_login", $param[0], time() + (10 * 365 * 24 * 60 * 60));
+						setcookie("member_password", $param[1], time() + (10 * 365 * 24 * 60 * 60));
+					} else {
+						if (isset($_COOKIE["member_login"])) {
+							setcookie("member_login", "");
+						}
+						if (isset($_COOKIE["member_password"])) {
+							setcookie("member_password", "");
+						}
+					}
+					echo("<script>location.href = '" . FOLDER_PATH . "/admin';</script>");
 				}
 			}
 		}
@@ -66,7 +76,7 @@ class login extends Controller
 	public function salir()
 	{
 		$this->session->close();
-		header("Location: " . FOLDER_PATH . "/login");
+		echo("<script>location.href = '" . FOLDER_PATH . "/login';</script>");
 	}
 
 	public function VerificarParametros($param)

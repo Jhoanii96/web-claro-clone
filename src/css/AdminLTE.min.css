@@ -537,7 +537,8 @@ a:focus {
 .user-panel>.image>img {
     width: 100%;
     max-width: 45px;
-    height: auto
+    height: auto;
+    image-orientation: from-image;
 }
 
 .user-panel>.info {
@@ -1260,7 +1261,8 @@ a:focus {
     width: 90px;
     border: 3px solid;
     border-color: transparent;
-    border-color: rgba(255, 255, 255, 0.2)
+    border-color: rgba(255, 255, 255, 0.2);
+    image-orientation: from-image;
 }
 
 .navbar-nav>.user-menu>.dropdown-menu>li.user-header>p {
@@ -1334,7 +1336,8 @@ a:focus {
     height: 25px;
     border-radius: 50%;
     margin-right: 10px;
-    margin-top: -2px
+    margin-top: -2px;
+    image-orientation: from-image;
 }
 
 @media (max-width:767px) {
@@ -5792,4 +5795,47 @@ table.text-center th {
     .table-responsive>.table tr td {
         white-space: normal !important
     }
+}
+
+.circle_nav {
+    float: left;
+    width: 25px;
+    height: 25px;
+    max-width: 100%;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: -2px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 767px) {
+  .circle_nav {
+    float: none;
+    margin-right: 0;
+    line-height: 10px;
+  }
+}
+
+
+.circle_dropdown {
+    z-index: 5;
+    height: 90px;
+    width: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.circle_navleft {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
